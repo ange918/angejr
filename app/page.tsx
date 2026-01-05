@@ -42,7 +42,13 @@ const testimonials = [
 ];
 
 const skills = [
-  "JavaScript", "React", "Node.js", "Full-Stack Development", "Architecture Web"
+  { name: "JavaScript", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" },
+  { name: "React", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" },
+  { name: "Node.js", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" },
+  { name: "PHP", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" },
+  { name: "Laravel", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/laravel/laravel-original.svg" },
+  { name: "HTML5", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" },
+  { name: "CSS3", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" },
 ];
 
 const titles = ["Développeur Full-Stack", "Ingénieur Logiciel", "Créateur Digital"];
@@ -193,15 +199,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Skills Section */}
+      {/* Expertise Section */}
       <section id="competences" className="py-32 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-xs font-bold tracking-[0.3em] text-cyan-500/60 mb-16 uppercase">Expertise</h2>
-          <div className="flex flex-wrap justify-center gap-x-12 gap-y-8">
+          <div className="grid grid-cols-3 md:grid-cols-7 gap-8 items-center justify-items-center">
             {skills.map((skill) => (
-              <span key={skill} className="text-xl md:text-2xl font-light text-gray-300 hover:text-white transition-colors cursor-default">
-                {skill}
-              </span>
+              <motion.div
+                key={skill.name}
+                whileHover={{ scale: 1.1 }}
+                className="flex flex-col items-center gap-3 group"
+              >
+                <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center p-2 rounded-xl bg-white/[0.02] border border-white/5 group-hover:border-cyan-500/30 transition-colors">
+                  <img src={skill.logo} alt={skill.name} className="w-full h-full object-contain" />
+                </div>
+                <span className="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-widest group-hover:text-white transition-colors">
+                  {skill.name}
+                </span>
+              </motion.div>
             ))}
           </div>
         </div>
