@@ -119,7 +119,14 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center">
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-20 grayscale"
+          style={{ backgroundImage: "url('/assets/hero-bg.jpg')" }}
+        />
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-navy via-transparent to-navy" />
+        
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -147,25 +154,45 @@ export default function Home() {
 
       {/* About Section */}
       <section id="propos" className="py-32 px-6">
-        <div className="max-w-4xl mx-auto">
-          <motion.div 
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 20 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-xs font-bold tracking-[0.3em] text-cyan-500/60 mb-12 uppercase">À Propos</h2>
-            <div className="space-y-6 text-xl md:text-2xl text-gray-200 leading-relaxed font-light">
-              <p>
-                Je suis <span className="text-white font-medium">Ange AKONDE</span>, développeur FullStack passionné par les nouvelles technologies et l'innovation numérique. Après avoir suivi une formation intensive en développement web, je crée des applications modernes, performantes et élégantes.
-              </p>
-              <p>
-                Ma spécialité couvre l'ensemble de la stack technique : de l'interface utilisateur intuitive au backend robuste. Je maîtrise JavaScript, React, Node.js, et les architectures modernes pour délivrer des solutions complètes et durables.
-              </p>
-            </div>
-            <Link href="/a-propos" className="inline-block mt-10 text-sm font-bold text-cyan-400 hover:text-white transition-colors border-b border-cyan-500/20 pb-1">
-              Lire la suite
-            </Link>
-          </motion.div>
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <motion.div 
+              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-xs font-bold tracking-[0.3em] text-cyan-500/60 mb-8 uppercase">À Propos</h2>
+              <div className="space-y-6 text-lg md:text-xl text-gray-200 leading-relaxed font-light">
+                <p>
+                  Je suis <span className="text-white font-medium">Ange AKONDE</span>, développeur FullStack passionné par les nouvelles technologies et l'innovation numérique. Après avoir suivi une formation intensive en développement web, je crée des applications modernes, performantes et élégantes.
+                </p>
+                <p>
+                  Ma spécialité couvre l'ensemble de la stack technique : de l'interface utilisateur intuitive au backend robuste. Je maîtrise JavaScript, React, Node.js, et les architectures modernes pour délivrer des solutions complètes et durables.
+                </p>
+              </div>
+              <Link href="/a-propos" className="inline-block mt-8 text-sm font-bold text-cyan-400 hover:text-white transition-colors border-b border-cyan-500/20 pb-1">
+                Lire la suite
+              </Link>
+            </motion.div>
+            
+            <motion.div
+              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: 20 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 group shadow-2xl">
+                <img 
+                  src="/assets/about-me.jpg" 
+                  alt="Ange Akonde" 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-cyan-500/10 mix-blend-overlay opacity-50" />
+              </div>
+              {/* Decorative Element */}
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-cyan-500/30 rounded-br-2xl -z-10" />
+            </motion.div>
+          </div>
         </div>
       </section>
 
