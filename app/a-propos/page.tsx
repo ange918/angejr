@@ -19,25 +19,25 @@ export default function AboutPage() {
       />
       <div className="fixed inset-0 z-0 bg-gradient-to-b from-navy via-transparent to-navy pointer-events-none" />
 
-      <nav className="fixed top-0 w-full z-50 px-6 md:px-12 py-6 flex justify-between items-center backdrop-blur-md bg-navy/50 border-b border-white/5">
-        <Link href="/" className="text-xl font-bold tracking-tighter text-white">
+      <nav className="fixed top-0 w-full z-50 px-6 md:px-12 py-4 flex justify-between items-center backdrop-blur-md bg-navy/50 border-b border-white/5">
+        <Link href="/" className="text-lg font-bold tracking-tighter text-white">
           Big<span className="text-cyan-400">Sixteen</span>
         </Link>
-        <Link href="/" className="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-colors">
+        <Link href="/" className="text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-colors">
           Retour
         </Link>
       </nav>
 
-      <section className="pt-40 pb-24 px-6 md:px-12 max-w-3xl mx-auto z-10 relative">
+      <section className="pt-32 pb-20 px-6 md:px-12 max-w-2xl mx-auto z-10 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-sm font-bold tracking-[0.3em] text-cyan-500/60 mb-12 uppercase">À Propos</h2>
-          <h1 className="text-4xl md:text-6xl font-bold mb-16 tracking-tighter leading-tight">Je suis Ange AKONDE.</h1>
+          <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-10 uppercase">À Propos</h2>
+          <h1 className="text-3xl md:text-5xl font-bold mb-12 tracking-tighter leading-tight">Je suis Ange AKONDE.</h1>
           
-          <div className="space-y-12 text-lg md:text-xl text-gray-400 leading-relaxed font-light">
+          <div className="space-y-8 text-base md:text-lg text-gray-400 leading-relaxed font-light">
             <p>
               Je suis Ange AKONDE, développeur FullStack passionné par les nouvelles technologies et l'innovation numérique. Après avoir suivi une formation intensive en développement web, je crée des applications modernes, performantes et élégantes.
             </p>
@@ -57,17 +57,17 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      <footer className="py-20 px-6 border-t border-white/5 flex flex-col items-center gap-10 z-10 relative">
-        <div className="flex gap-8 text-gray-500">
-           <a href="#" className="hover:text-white transition-colors"><Github size={20} /></a>
-           <a href="#" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
+      <footer className="py-16 px-6 border-t border-white/5 flex flex-col items-center gap-8 z-10 relative">
+        <div className="flex gap-6 text-gray-500">
+           <a href="#" className="hover:text-white transition-colors"><Github size={18} /></a>
+           <a href="#" className="hover:text-white transition-colors"><Linkedin size={18} /></a>
         </div>
-        <p className="text-xs text-gray-600 tracking-widest uppercase">© 2026 Ange Akonde</p>
+        <p className="text-[10px] text-gray-600 tracking-widest uppercase">© 2026 Ange Akonde</p>
         <button 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
           className="text-gray-500 hover:text-white transition-colors"
         >
-          <ArrowUp size={20} />
+          <ArrowUp size={18} />
         </button>
       </footer>
     </motion.main>
