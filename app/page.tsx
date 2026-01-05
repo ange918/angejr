@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, MessageSquare, ArrowUp, Github, Linkedin, ExternalLink } from "lucide-react";
 import HeroScene from "./components/HeroScene";
+import { FlipWords } from "./components/ui/flip-words";
 import Link from "next/link";
 
 const projects = [
@@ -19,6 +20,8 @@ const projects = [
 const skills = [
   "JavaScript", "React", "Node.js", "Full-Stack Development", "Architectures web modernes"
 ];
+
+const titles = ["Développeur Web Full-Stack", "Software Engineer", "Créateur Digital", "Expert Next.js"];
 
 export default function Home() {
   return (
@@ -38,7 +41,9 @@ export default function Home() {
           </div>
           <h2 className="text-xl font-medium mb-2 opacity-80">Ange Akonde</h2>
           <h1 className="text-6xl md:text-8xl font-bold mb-4 tracking-tighter glow-text">BigSixteen</h1>
-          <h3 className="text-xl md:text-2xl text-cyan-400 mb-6">Développeur Web Full-Stack | Software Engineer</h3>
+          <div className="text-xl md:text-2xl text-gray-400 mb-6 h-12 flex items-center">
+            Je suis <FlipWords words={titles} className="text-cyan-400 font-bold" />
+          </div>
           <p className="text-lg text-gray-300 mb-8 max-w-lg leading-relaxed">
             "Je conçois des applications web modernes, performantes et orientées expérience utilisateur."
           </p>
