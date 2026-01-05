@@ -3,47 +3,32 @@
 import { motion } from "framer-motion";
 import { ArrowUp, Github, Linkedin } from "lucide-react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 
 export default function AboutPage() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => setMousePosition({ x: e.clientX, y: e.clientY });
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
   return (
     <motion.main 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen bg-navy text-white selection:bg-cyan-500/30 selection:text-cyan-200"
+      className="min-h-screen bg-navy text-white selection:bg-cyan-500/30 selection:text-cyan-200 relative"
     >
-      {/* Custom Cursor */}
-      <motion.div 
-        className="fixed top-0 left-0 w-8 h-8 border border-cyan-500 rounded-full pointer-events-none z-[9999] hidden md:block"
-        animate={{ 
-          x: mousePosition.x - 16, 
-          y: mousePosition.y - 16,
-          scale: isHovering ? 2 : 1,
-          backgroundColor: isHovering ? "rgba(6, 182, 212, 0.1)" : "transparent"
-        }}
-        transition={{ type: "spring", stiffness: 500, damping: 28, mass: 0.5 }}
+      {/* Background Image fixed */}
+      <div 
+        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-10 grayscale pointer-events-none"
+        style={{ backgroundImage: "url('/assets/hero-bg.jpg')" }}
       />
+      <div className="fixed inset-0 z-0 bg-gradient-to-b from-navy via-transparent to-navy pointer-events-none" />
 
       <nav className="fixed top-0 w-full z-50 px-6 md:px-12 py-6 flex justify-between items-center backdrop-blur-md bg-navy/50 border-b border-white/5">
-        <Link href="/" className="text-xl font-bold tracking-tighter text-white" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
+        <Link href="/" className="text-xl font-bold tracking-tighter text-white">
           Big<span className="text-cyan-400">Sixteen</span>
         </Link>
-        <Link href="/" className="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-colors" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
+        <Link href="/" className="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-colors">
           Retour
         </Link>
       </nav>
 
-      <section className="pt-40 pb-24 px-6 md:px-12 max-w-3xl mx-auto">
+      <section className="pt-40 pb-24 px-6 md:px-12 max-w-3xl mx-auto z-10 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -72,17 +57,15 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      <footer className="py-20 px-6 border-t border-white/5 flex flex-col items-center gap-10">
+      <footer className="py-20 px-6 border-t border-white/5 flex flex-col items-center gap-10 z-10 relative">
         <div className="flex gap-8 text-gray-500">
-           <a href="#" className="hover:text-white transition-colors" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}><Github size={20} /></a>
-           <a href="#" className="hover:text-white transition-colors" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}><Linkedin size={20} /></a>
+           <a href="#" className="hover:text-white transition-colors"><Github size={20} /></a>
+           <a href="#" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
         </div>
         <p className="text-xs text-gray-600 tracking-widest uppercase">© 2026 Ange Akonde</p>
         <button 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
           className="text-gray-500 hover:text-white transition-colors"
-          onMouseEnter={() => setIsHovering(true)}
-          onMouseLeave={() => setIsHovering(false)}
         >
           <ArrowUp size={20} />
         </button>
