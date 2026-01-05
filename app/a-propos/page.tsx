@@ -1,65 +1,62 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, MessageSquare, ArrowUp, Github, Linkedin, ExternalLink } from "lucide-react";
+import { ArrowUp, Github, Linkedin } from "lucide-react";
 import Link from "next/link";
 
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-navy text-white selection:bg-cyan-500/30 selection:text-cyan-200">
-      <nav className="fixed top-0 w-full z-50 px-6 md:px-20 py-6 flex justify-between items-center backdrop-blur-md bg-navy/50 border-b border-cyan-500/10">
-        <Link href="/" className="text-2xl font-bold tracking-tighter text-cyan-400">
-          BigSixteen
+      <nav className="fixed top-0 w-full z-50 px-6 md:px-12 py-6 flex justify-between items-center backdrop-blur-md bg-navy/50 border-b border-white/5">
+        <Link href="/" className="text-xl font-bold tracking-tighter text-white">
+          Big<span className="text-cyan-400">Sixteen</span>
         </Link>
-        <Link href="/" className="px-6 py-2 border border-cyan-500/30 rounded-full hover:bg-cyan-500/10 transition-colors">
-          Retour
+        <Link href="/" className="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-colors">
+          Back
         </Link>
       </nav>
 
-      <section className="pt-32 pb-24 px-6 md:px-20 max-w-4xl mx-auto">
+      <section className="pt-40 pb-24 px-6 md:px-12 max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl md:text-7xl font-bold mb-12 tracking-tighter">À PROPOS D'ANGE</h1>
+          <h2 className="text-sm font-bold tracking-[0.3em] text-cyan-500/60 mb-12 uppercase">About</h2>
+          <h1 className="text-4xl md:text-6xl font-bold mb-16 tracking-tighter leading-tight">Je suis Ange AKONDE.</h1>
           
-          <div className="space-y-12 text-lg text-gray-300 leading-relaxed">
-            <section>
-              <h2 className="text-2xl font-bold text-cyan-400 mb-6 flex items-center gap-4">
-                <span className="h-px w-8 bg-cyan-500"></span> BIOGRAPHIE
-              </h2>
-              <p>
-                Développeur Full-Stack passionné par l’innovation numérique, je conçois des applications web modernes, évolutives et performantes. Maîtrisant l’ensemble de la stack technique, je développe des solutions complètes en plaçant l’expérience utilisateur et la qualité du code au cœur de chaque projet.
-              </p>
-            </section>
+          <div className="space-y-12 text-lg md:text-xl text-gray-400 leading-relaxed font-light">
+            <p>
+              Je suis Ange AKONDE, développeur FullStack passionné par les nouvelles technologies et l'innovation numérique. Après avoir suivi une formation intensive en développement web, je crée des applications modernes, performantes et élégantes.
+            </p>
 
-            <section>
-              <h2 className="text-2xl font-bold text-cyan-400 mb-6 flex items-center gap-4">
-                <span className="h-px w-8 bg-cyan-500"></span> PARCOURS & VISION
-              </h2>
-              <p>
-                Mon parcours est marqué par une quête constante de perfectionnement technique. J'aborde chaque projet comme une opportunité de repousser les limites du possible sur le web, en utilisant les technologies les plus récentes pour créer des expériences mémorables.
-              </p>
-            </section>
+            <p>
+              Ma spécialité couvre l'ensemble de la stack technique : de l'interface utilisateur intuitive au backend robuste. Je maîtrise JavaScript, React, Node.js, et les architectures modernes pour délivrer des solutions complètes et durables.
+            </p>
 
-            <section>
-              <h2 className="text-2xl font-bold text-cyan-400 mb-6 flex items-center gap-4">
-                <span className="h-px w-8 bg-cyan-500"></span> OBJECTIFS
-              </h2>
-              <p>
-                Mon objectif principal est de transformer des idées complexes en interfaces fluides et intuitives. Je m'efforce de bâtir des systèmes robustes capables de soutenir la croissance de demain tout en offrant une esthétique futuriste et soignée aujourd'hui.
-              </p>
-            </section>
+            <p>
+              Grâce à ma formation approfondie, j'ai acquis une expertise solide qui me permet de partager mes connaissances et d'accompagner d'autres développeurs dans leur apprentissage. Mon objectif : contribuer au développement technologique en transmettant mon savoir-faire.
+            </p>
+
+            <p>
+              Chaque projet est une opportunité de créer quelque chose d'exceptionnel, en plaçant l'expérience utilisateur et la qualité du code au cœur de mes priorités.
+            </p>
           </div>
         </motion.div>
       </section>
 
-      <footer className="py-12 px-6 md:px-20 border-t border-cyan-500/10 flex flex-col items-center gap-8">
-        <p className="text-sm text-gray-500">Ange Akonde | BigSixteen</p>
-        <Link href="/" className="w-12 h-12 rounded-full border border-cyan-500/30 flex items-center justify-center hover:bg-cyan-500/10 transition-colors">
-          <ArrowUp size={20} className="text-cyan-400" />
-        </Link>
+      <footer className="py-20 px-6 border-t border-white/5 flex flex-col items-center gap-10">
+        <div className="flex gap-8 text-gray-500">
+           <a href="#" className="hover:text-white transition-colors"><Github size={20} /></a>
+           <a href="#" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
+        </div>
+        <p className="text-xs text-gray-600 tracking-widest uppercase">© 2026 Ange Akonde</p>
+        <button 
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+          className="text-gray-500 hover:text-white transition-colors"
+        >
+          <ArrowUp size={20} />
+        </button>
       </footer>
     </main>
   );
