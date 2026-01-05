@@ -204,16 +204,35 @@ export default function Home() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-xs font-bold tracking-[0.3em] text-cyan-500/60 mb-16 uppercase">Expertise</h2>
           <div className="grid grid-cols-3 md:grid-cols-7 gap-8 items-center justify-items-center">
-            {skills.map((skill) => (
+            {skills.map((skill, i) => (
               <motion.div
                 key={skill.name}
-                whileHover={{ scale: 1.1 }}
-                className="flex flex-col items-center gap-3 group"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                viewport={{ once: true }}
+                whileHover={{ 
+                  scale: 1.15,
+                  rotate: [0, -5, 5, 0],
+                  transition: { duration: 0.3 }
+                }}
+                className="flex flex-col items-center gap-3 group cursor-pointer"
               >
-                <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center p-2 rounded-xl bg-white/[0.02] border border-white/5 group-hover:border-cyan-500/30 transition-colors">
-                  <img src={skill.logo} alt={skill.name} className="w-full h-full object-contain" />
-                </div>
-                <span className="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-widest group-hover:text-white transition-colors">
+                <motion.div 
+                  animate={{ 
+                    y: [0, -5, 0],
+                  }}
+                  transition={{ 
+                    duration: 3, 
+                    repeat: Infinity, 
+                    delay: i * 0.2,
+                    ease: "easeInOut"
+                  }}
+                  className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center p-2 rounded-xl bg-white/[0.02] border border-white/5 group-hover:border-cyan-500/30 group-hover:bg-cyan-500/5 transition-all shadow-lg shadow-transparent group-hover:shadow-cyan-500/10"
+                >
+                  <img src={skill.logo} alt={skill.name} className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300" />
+                </motion.div>
+                <span className="text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-widest group-hover:text-cyan-400 transition-colors">
                   {skill.name}
                 </span>
               </motion.div>
