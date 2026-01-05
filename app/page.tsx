@@ -21,17 +21,17 @@ const projects = [
 const testimonials = [
   {
     name: "Axel Merryl",
-    role: "Artist & Content Creator",
+    role: "Artiste & Créateur de Contenu",
     content: "Une collaboration exceptionnelle. Ange a su transformer ma vision en une plateforme web élégante et performante.",
   },
   {
     name: "Gauthier O.",
-    role: "Architect",
+    role: "Architecte",
     content: "Le souci du détail et la qualité du code d'Ange sont impressionnants. Mon portfolio dépasse mes attentes.",
   },
   {
     name: "Merveille S.",
-    role: "Entrepreneur",
+    role: "Entrepreneure",
     content: "Un développeur à l'écoute, réactif et force de proposition. Je recommande vivement son expertise Full-Stack.",
   },
   {
@@ -42,10 +42,10 @@ const testimonials = [
 ];
 
 const skills = [
-  "JavaScript", "React", "Node.js", "Full-Stack Development", "Web Architecture"
+  "JavaScript", "React", "Node.js", "Full-Stack Development", "Architecture Web"
 ];
 
-const titles = ["Full-Stack Developer", "Software Engineer", "Digital Creator"];
+const titles = ["Développeur Full-Stack", "Ingénieur Logiciel", "Créateur Digital"];
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -73,10 +73,10 @@ export default function Home() {
           </Link>
 
           <nav className="hidden md:flex items-center gap-10">
-            {["About", "Projects", "Skills", "Contact"].map((item) => (
+            {["À Propos", "Projets", "Compétences", "Contact"].map((item) => (
               <a 
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={`#${item.toLowerCase().replace("à ", "").replace("é", "e")}`}
                 className="text-xs font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-widest"
               >
                 {item}
@@ -98,10 +98,10 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             className="absolute top-full left-0 w-full bg-navy border-b border-cyan-500/5 p-8 flex flex-col gap-6 md:hidden backdrop-blur-xl"
           >
-            {["About", "Projects", "Skills", "Contact"].map((item) => (
+            {["À Propos", "Projets", "Compétences", "Contact"].map((item) => (
               <a 
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={`#${item.toLowerCase().replace("à ", "").replace("é", "e")}`}
                 className="text-lg font-medium text-gray-300"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -126,42 +126,47 @@ export default function Home() {
             <FlipWords words={titles} className="text-white font-medium" />
           </div>
           <p className="text-base md:text-lg text-gray-400 mb-12 max-w-xl mx-auto leading-relaxed font-light">
-            Crafting modern, high-performance web applications with a focus on user experience.
+            Concevoir des applications web modernes, performantes et orientées expérience utilisateur.
           </p>
           <div className="flex flex-wrap justify-center gap-8">
-            <a href="#projects" className="text-xs font-bold uppercase tracking-widest text-white border-b border-cyan-500 pb-1 hover:border-white transition-all">
-              View Work
+            <a href="#projets" className="text-xs font-bold uppercase tracking-widest text-white border-b border-cyan-500 pb-1 hover:border-white transition-all">
+              Voir mes projets
             </a>
             <a href="#contact" className="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-all">
-              Get in touch
+              Me contacter
             </a>
           </div>
         </motion.div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-32 px-6">
+      <section id="propos" className="py-32 px-6">
         <div className="max-w-4xl mx-auto">
           <motion.div 
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 20 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-xs font-bold tracking-[0.3em] text-cyan-500/60 mb-12 uppercase">About</h2>
-            <p className="text-2xl md:text-3xl text-gray-200 leading-tight mb-10 font-light">
-              Full-Stack Developer focused on digital innovation. I build scalable, performance-driven applications where user experience and code quality meet.
-            </p>
-            <Link href="/a-propos" className="text-sm font-bold text-cyan-400 hover:text-white transition-colors border-b border-cyan-500/20 pb-1">
-              Read full story
+            <h2 className="text-xs font-bold tracking-[0.3em] text-cyan-500/60 mb-12 uppercase">À Propos</h2>
+            <div className="space-y-6 text-xl md:text-2xl text-gray-200 leading-relaxed font-light">
+              <p>
+                Je suis <span className="text-white font-medium">Ange AKONDE</span>, développeur FullStack passionné par les nouvelles technologies et l'innovation numérique. Après avoir suivi une formation intensive en développement web, je crée des applications modernes, performantes et élégantes.
+              </p>
+              <p>
+                Ma spécialité couvre l'ensemble de la stack technique : de l'interface utilisateur intuitive au backend robuste. Je maîtrise JavaScript, React, Node.js, et les architectures modernes pour délivrer des solutions complètes et durables.
+              </p>
+            </div>
+            <Link href="/a-propos" className="inline-block mt-10 text-sm font-bold text-cyan-400 hover:text-white transition-colors border-b border-cyan-500/20 pb-1">
+              Lire la suite
             </Link>
           </motion.div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-32 px-6 bg-white/[0.02]">
+      <section id="projets" className="py-32 px-6 bg-white/[0.02]">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-xs font-bold tracking-[0.3em] text-cyan-500/60 mb-20 uppercase text-center">Selected Works</h2>
+          <h2 className="text-xs font-bold tracking-[0.3em] text-cyan-500/60 mb-20 uppercase text-center">Projets Sélectionnés</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {projects.map((project, i) => (
               <motion.div 
@@ -189,7 +194,7 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-32 px-6">
+      <section id="competences" className="py-32 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-xs font-bold tracking-[0.3em] text-cyan-500/60 mb-16 uppercase">Expertise</h2>
           <div className="flex flex-wrap justify-center gap-x-12 gap-y-8">
@@ -205,7 +210,7 @@ export default function Home() {
       {/* Testimonials Section */}
       <section className="py-32 bg-white/[0.02] overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 mb-16 text-center">
-          <h2 className="text-xs font-bold tracking-[0.3em] text-cyan-500/60 uppercase">Feedback</h2>
+          <h2 className="text-xs font-bold tracking-[0.3em] text-cyan-500/60 uppercase">Témoignages</h2>
         </div>
         <Marquee gradient={false} speed={40} pauseOnHover={true}>
           {testimonials.map((t, i) => (
@@ -227,18 +232,18 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
             <div>
               <h2 className="text-xs font-bold tracking-[0.3em] text-cyan-500/60 mb-12 uppercase">Contact</h2>
-              <p className="text-2xl font-light text-gray-300 mb-12">Let's build something remarkable together.</p>
+              <p className="text-2xl font-light text-gray-300 mb-12">Construisons quelque chose de remarquable ensemble.</p>
               <div className="space-y-6">
                 <p className="text-sm text-gray-500 tracking-widest uppercase font-bold">Email</p>
                 <a href="mailto:akondejunior18@gmail.com" className="text-xl font-medium block hover:text-cyan-400 transition-colors">akondejunior18@gmail.com</a>
               </div>
             </div>
             <form className="space-y-8">
-              <input type="text" placeholder="Name" className="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-cyan-500 transition-all font-light" />
-              <input type="email" placeholder="Email" className="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-cyan-500 transition-all font-light" />
-              <textarea rows={4} placeholder="Message" className="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-cyan-500 transition-all font-light resize-none"></textarea>
+              <input type="text" placeholder="Nom" className="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-cyan-500 transition-all font-light text-white placeholder:text-gray-600" />
+              <input type="email" placeholder="Email" className="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-cyan-500 transition-all font-light text-white placeholder:text-gray-600" />
+              <textarea rows={4} placeholder="Message" className="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-cyan-500 transition-all font-light resize-none text-white placeholder:text-gray-600"></textarea>
               <button className="text-xs font-bold uppercase tracking-widest border border-white/20 px-10 py-4 hover:bg-white hover:text-navy transition-all">
-                Send
+                Envoyer
               </button>
             </form>
           </div>
