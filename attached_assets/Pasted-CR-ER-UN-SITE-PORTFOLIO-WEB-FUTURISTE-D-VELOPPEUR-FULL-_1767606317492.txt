@@ -1,0 +1,115 @@
+CRÉER UN SITE PORTFOLIO WEB FUTURISTE – DÉVELOPPEUR FULL-STACK
+
+Nom complet : Ange Akonde
+Pseudo professionnel : BigSixteen
+Titre : Développeur Web Full-Stack | Software Engineer
+Localisation : Abomey-Calavi, Bénin
+
+OBJECTIF
+Créer un site portfolio web futuriste, interactif, professionnel et responsive
+pour Ange Akonde (BigSixteen), mettant en valeur ses projets, compétences
+et son identité de développeur Full-Stack.
+
+STYLE & DESIGN
+- Fond principal : bleu nuit profond
+- Textes : blanc
+- Titres : couleur cyan électrique
+- Effets glow subtils (bleu/cyan)
+- Style futuriste, high-tech, minimaliste
+- Animations fluides et élégantes
+
+TYPOGRAPHIES
+- Titres (H1, H2, H3) : Ciguatera
+- Textes, paragraphes, boutons : Montserrat
+
+STACK TECHNIQUE
+- Next.js
+- React
+- Tailwind CSS
+- Framer Motion
+- Three.js / React Three Fiber
+- Design 100 % responsive
+
+STRUCTURE DU SITE
+
+1. HERO SECTION
+- Texte à gauche :
+  - Ange Akonde
+  - BigSixteen
+  - Développeur Web Full-Stack | Software Engineer
+  - Texte :
+    "Je conçois des applications web modernes, performantes et orientées
+    expérience utilisateur."
+- Boutons :
+  - Voir mes projets
+  - Me contacter
+
+- À droite :
+  - Modèle 3D d’un ordinateur (laptop ou desktop)
+  - Interaction : rotation avec le curseur (drag / mouse move)
+  - Effet glow futuriste
+  - Écran affichant du code ou un site web
+
+2. SECTION À PROPOS
+- Texte à gauche (résumé professionnel)
+- Photo à droite
+- Bouton : "En savoir plus"
+- Le bouton redirige vers une page dédiée /a-propos
+  contenant la biographie complète
+
+Texte résumé :
+"Développeur Full-Stack passionné par l’innovation numérique, je conçois
+des applications web modernes, évolutives et performantes. Maîtrisant
+l’ensemble de la stack technique, je développe des solutions complètes
+en plaçant l’expérience utilisateur et la qualité du code au cœur
+de chaque projet."
+
+3. PAGE À PROPOS (/a-propos)
+- Bio complète
+- Parcours
+- Vision
+- Objectifs
+- Style futuriste cohérent avec le site
+
+4. SECTION PROJETS
+Projets réalisés :
+- Model Academy Management
+- Portfolio – Ore Gauthier
+- Portfolio – Merveille Susuni
+- Site officiel – Axel Merryl
+- Code Capital
+
+Projets en cours (≈ 20 %) :
+- FASHLINK
+- DAHOMEY TECH
+- FOODMOOD
+
+Cartes futuristes avec :
+- Nom
+- Statut
+- Hover glow
+- Animation fluide
+
+5. SECTION COMPÉTENCES
+- JavaScript
+- React
+- Node.js
+- Full-Stack Development
+- Architectures web modernes
+Affichage futuriste (icônes / cartes animées)
+
+6. SECTION CONTACT
+- Téléphone : +229 01 41 48 37 15
+- WhatsApp : +229 01 44 71 14 50
+- Email : akondejunior18@gmail.com
+- Localisation : Abomey-Calavi, Bénin
+Formulaire futuriste avec glow au focus
+
+7. FOOTER
+- Ange Akonde | BigSixteen
+- Bouton retour en haut
+- Style futuriste minimaliste
+
+RÉSULTAT ATTENDU
+Un portfolio web futuriste haut de gamme, interactif et professionnel,
+destiné à impressionner clients et recruteurs.
