@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, MessageSquare, ArrowUp, Github, Linkedin, ExternalLink, Menu, X } from "lucide-react";
+import { Phone, Mail, MapPin, MessageSquare, ArrowUp, Github, Linkedin, ExternalLink, Menu, X, Quote } from "lucide-react";
 import { FlipWords } from "./components/ui/flip-words";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import Marquee from "react-fast-marquee";
 
 const projects = [
   { name: "Model Academy Management", status: "Terminé" },
@@ -15,6 +16,29 @@ const projects = [
   { name: "FASHLINK", status: "En cours" },
   { name: "DAHOMEY TECH", status: "En cours" },
   { name: "FOODMOOD", status: "En cours" },
+];
+
+const testimonials = [
+  {
+    name: "Axel Merryl",
+    role: "Artist & Content Creator",
+    content: "Une collaboration exceptionnelle. Ange a su transformer ma vision en une plateforme web élégante et performante.",
+  },
+  {
+    name: "Gauthier O.",
+    role: "Architect",
+    content: "Le souci du détail et la qualité du code d'Ange sont impressionnants. Mon portfolio dépasse mes attentes.",
+  },
+  {
+    name: "Merveille S.",
+    role: "Entrepreneur",
+    content: "Un développeur à l'écoute, réactif et force de proposition. Je recommande vivement son expertise Full-Stack.",
+  },
+  {
+    name: "Code Capital Team",
+    role: "Fintech Startup",
+    content: "Ange a été un atout majeur pour notre architecture web. Efficace, moderne et rigoureux.",
+  }
 ];
 
 const skills = [
@@ -176,6 +200,25 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-32 bg-white/[0.02] overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6 mb-16 text-center">
+          <h2 className="text-xs font-bold tracking-[0.3em] text-cyan-500/60 uppercase">Feedback</h2>
+        </div>
+        <Marquee gradient={false} speed={40} pauseOnHover={true}>
+          {testimonials.map((t, i) => (
+            <div key={i} className="mx-8 bg-white/[0.03] border border-white/5 p-8 rounded-2xl w-[350px] md:w-[450px]">
+              <Quote className="text-cyan-500/40 mb-6" size={24} />
+              <p className="text-gray-300 mb-8 font-light italic leading-relaxed">"{t.content}"</p>
+              <div>
+                <p className="text-white font-bold text-sm">{t.name}</p>
+                <p className="text-xs text-gray-500 uppercase tracking-widest mt-1">{t.role}</p>
+              </div>
+            </div>
+          ))}
+        </Marquee>
       </section>
 
       {/* Contact Section */}
