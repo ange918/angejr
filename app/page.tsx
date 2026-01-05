@@ -1,21 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, MessageSquare, ArrowUp, Github, Linkedin, ExternalLink, Menu, X, Quote } from "lucide-react";
+import { Phone, Mail, MapPin, MessageSquare, ArrowUp, Github, Linkedin, ExternalLink, Menu, X, Quote, Copy, Check } from "lucide-react";
 import { FlipWords } from "./components/ui/flip-words";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
 
 const projects = [
-  { name: "Model Academy Management", status: "Terminé" },
-  { name: "Portfolio – Ore Gauthier", status: "Terminé" },
-  { name: "Portfolio – Merveille Susuni", status: "Terminé" },
-  { name: "Site officiel – Axel Merryl", status: "Terminé" },
-  { name: "Code Capital", status: "Terminé" },
-  { name: "FASHLINK", status: "En cours" },
-  { name: "DAHOMEY TECH", status: "En cours" },
-  { name: "FOODMOOD", status: "En cours" },
+  { name: "Model Academy Management", status: "Terminé", stack: ["Next.js", "PostgreSQL", "Tailwind"] },
+  { name: "Portfolio – Ore Gauthier", status: "Terminé", stack: ["React", "Framer Motion", "Three.js"] },
+  { name: "Portfolio – Merveille Susuni", status: "Terminé", stack: ["Next.js", "GSAP", "Tailwind"] },
+  { name: "Site officiel – Axel Merryl", status: "Terminé", stack: ["PHP", "Laravel", "MySQL"] },
+  { name: "Code Capital", status: "Terminé", stack: ["React", "Node.js", "MongoDB"] },
+  { name: "FASHLINK", status: "En cours", stack: ["Next.js", "Prisma", "Tailwind"] },
+  { name: "DAHOMEY TECH", status: "En cours", stack: ["React", "Firebase", "Styled Components"] },
+  { name: "FOODMOOD", status: "En cours", stack: ["Next.js", "Supabase", "Tailwind"] },
 ];
 
 const testimonials = [
@@ -56,17 +56,47 @@ const titles = ["Développeur Full-Stack", "Ingénieur Logiciel", "Créateur Dig
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+  const [emailCopied, setEmailCopied] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    const handleMouseMove = (e: MouseEvent) => setMousePosition({ x: e.clientX, y: e.clientY });
+    
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
 
+  const copyEmail = () => {
+    navigator.clipboard.writeText("akondejunior18@gmail.com");
+    setEmailCopied(true);
+    setTimeout(() => setEmailCopied(false), 2000);
+  };
+
   return (
-    <main className="min-h-screen bg-navy text-white selection:bg-cyan-500/30 selection:text-cyan-200">
+    <motion.main 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="min-h-screen bg-navy text-white selection:bg-cyan-500/30 selection:text-cyan-200"
+    >
+      {/* Custom Cursor */}
+      <motion.div 
+        className="fixed top-0 left-0 w-8 h-8 border border-cyan-500 rounded-full pointer-events-none z-[9999] hidden md:block"
+        animate={{ 
+          x: mousePosition.x - 16, 
+          y: mousePosition.y - 16,
+          scale: isHovering ? 2 : 1,
+          backgroundColor: isHovering ? "rgba(6, 182, 212, 0.1)" : "transparent"
+        }}
+        transition={{ type: "spring", stiffness: 500, damping: 28, mass: 0.5 }}
+      />
+
       {/* Header */}
       <header 
         className={`fixed top-0 w-full z-50 transition-all duration-300 px-6 md:px-12 py-6 ${
@@ -74,7 +104,7 @@ export default function Home() {
         }`}
       >
         <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <Link href="/" className="text-xl font-bold tracking-tighter text-white">
+          <Link href="/" className="text-xl font-bold tracking-tighter text-white" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
             Big<span className="text-cyan-400">Sixteen</span>
           </Link>
 
@@ -84,6 +114,8 @@ export default function Home() {
                 key={item}
                 href={`#${item.toLowerCase().replace("à ", "").replace("é", "e")}`}
                 className="text-xs font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-widest"
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
               >
                 {item}
               </a>
@@ -120,7 +152,6 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center overflow-hidden">
-        {/* Background Image with Overlay */}
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-20 grayscale"
           style={{ backgroundImage: "url('/assets/hero-bg.jpg')" }}
@@ -142,10 +173,10 @@ export default function Home() {
             Concevoir des applications web modernes, performantes et orientées expérience utilisateur.
           </p>
           <div className="flex flex-wrap justify-center gap-8">
-            <a href="#projets" className="text-xs font-bold uppercase tracking-widest text-white border-b border-cyan-500 pb-1 hover:border-white transition-all">
+            <a href="#projets" className="text-xs font-bold uppercase tracking-widest text-white border-b border-cyan-500 pb-1 hover:border-white transition-all" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
               Voir mes projets
             </a>
-            <a href="#contact" className="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-all">
+            <a href="#contact" className="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-all" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
               Me contacter
             </a>
           </div>
@@ -170,7 +201,7 @@ export default function Home() {
                   Ma spécialité couvre l'ensemble de la stack technique : de l'interface utilisateur intuitive au backend robuste. Je maîtrise JavaScript, React, Node.js, et les architectures modernes pour délivrer des solutions complètes et durables.
                 </p>
               </div>
-              <Link href="/a-propos" className="inline-block mt-8 text-sm font-bold text-cyan-400 hover:text-white transition-colors border-b border-cyan-500/20 pb-1">
+              <Link href="/a-propos" className="inline-block mt-8 text-sm font-bold text-cyan-400 hover:text-white transition-colors border-b border-cyan-500/20 pb-1" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
                 Lire la suite
               </Link>
             </motion.div>
@@ -189,7 +220,6 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-cyan-500/10 mix-blend-overlay opacity-50" />
               </div>
-              {/* Decorative Element */}
               <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-cyan-500/30 rounded-br-2xl -z-10" />
             </motion.div>
           </div>
@@ -209,9 +239,20 @@ export default function Home() {
                 transition={{ delay: i * 0.05 }}
                 viewport={{ once: true }}
                 className="group cursor-pointer"
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
               >
                 <div className="aspect-video bg-white/[0.03] border border-white/5 rounded-lg mb-6 overflow-hidden relative">
                    <div className="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                      <div className="flex gap-2">
+                        {project.stack?.map((tech) => (
+                          <span key={tech} className="px-3 py-1 bg-navy/80 backdrop-blur-sm border border-cyan-500/30 rounded-full text-[10px] font-bold text-cyan-400">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                   </div>
                 </div>
                 <div className="flex justify-between items-end">
                   <div>
@@ -244,18 +285,13 @@ export default function Home() {
                   transition: { duration: 0.3 }
                 }}
                 className="flex flex-col items-center gap-3 group cursor-pointer"
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
               >
                 <motion.div 
-                  animate={{ 
-                    y: [0, -5, 0],
-                  }}
-                  transition={{ 
-                    duration: 3, 
-                    repeat: Infinity, 
-                    delay: i * 0.2,
-                    ease: "easeInOut"
-                  }}
-                  className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center p-2 rounded-xl bg-white/[0.02] border border-white/5 group-hover:border-cyan-500/30 group-hover:bg-cyan-500/5 transition-all shadow-lg shadow-transparent group-hover:shadow-cyan-500/10"
+                  animate={{ y: [0, -5, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, delay: i * 0.2, ease: "easeInOut" }}
+                  className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center p-2 rounded-xl bg-white/[0.02] border border-white/5 group-hover:border-cyan-500/30 group-hover:bg-cyan-500/5 transition-all"
                 >
                   <img src={skill.logo} alt={skill.name} className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300" />
                 </motion.div>
@@ -296,14 +332,25 @@ export default function Home() {
               <p className="text-2xl font-light text-gray-300 mb-12">Construisons quelque chose de remarquable ensemble.</p>
               <div className="space-y-6">
                 <p className="text-sm text-gray-500 tracking-widest uppercase font-bold">Email</p>
-                <a href="mailto:akondejunior18@gmail.com" className="text-xl font-medium block hover:text-cyan-400 transition-colors">akondejunior18@gmail.com</a>
+                <div className="flex items-center gap-4 group">
+                  <a href="mailto:akondejunior18@gmail.com" className="text-xl font-medium block hover:text-cyan-400 transition-colors" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
+                    akondejunior18@gmail.com
+                  </a>
+                  <button 
+                    onClick={copyEmail}
+                    className="p-2 hover:bg-white/5 rounded-lg transition-colors text-gray-500 hover:text-cyan-400"
+                    title="Copier l'email"
+                  >
+                    {emailCopied ? <Check size={18} className="text-green-500" /> : <Copy size={18} />}
+                  </button>
+                </div>
               </div>
             </div>
             <form className="space-y-8">
               <input type="text" placeholder="Nom" className="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-cyan-500 transition-all font-light text-white placeholder:text-gray-600" />
               <input type="email" placeholder="Email" className="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-cyan-500 transition-all font-light text-white placeholder:text-gray-600" />
               <textarea rows={4} placeholder="Message" className="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-cyan-500 transition-all font-light resize-none text-white placeholder:text-gray-600"></textarea>
-              <button className="text-xs font-bold uppercase tracking-widest border border-white/20 px-10 py-4 hover:bg-white hover:text-navy transition-all">
+              <button className="text-xs font-bold uppercase tracking-widest border border-white/20 px-10 py-4 hover:bg-white hover:text-navy transition-all" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
                 Envoyer
               </button>
             </form>
@@ -319,17 +366,19 @@ export default function Home() {
             <p className="text-xs text-gray-600 tracking-widest uppercase">© 2026</p>
           </div>
           <div className="flex gap-8 text-gray-500">
-             <a href="#" className="hover:text-white transition-colors"><Github size={20} /></a>
-             <a href="#" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
+             <a href="#" className="hover:text-white transition-colors" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}><Github size={20} /></a>
+             <a href="#" className="hover:text-white transition-colors" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}><Linkedin size={20} /></a>
           </div>
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
             className="text-gray-500 hover:text-white transition-colors"
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
           >
             <ArrowUp size={20} />
           </button>
         </div>
       </footer>
-    </main>
+    </motion.main>
   );
 }
