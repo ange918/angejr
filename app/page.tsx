@@ -209,8 +209,8 @@ export default function Home() {
                 viewport={{ once: true }}
                 whileHover={{ 
                   scale: 1.1,
-                  rotate: [0, -5, 5, 0],
-                  transition: { duration: 0.3 }
+                  rotate: 360,
+                  transition: { duration: 0.8, ease: "easeInOut" }
                 }}
                 className="flex flex-col items-center gap-2 group cursor-pointer"
               >
