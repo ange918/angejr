@@ -205,7 +205,7 @@ export default function Home() {
                      <img 
                        src={project.image} 
                        alt={project.name} 
-                       className="w-full h-full object-contain transition-all duration-500"
+                       className="w-full h-full object-cover transition-all duration-500"
                      />
                    ) : (
                      <div className="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
