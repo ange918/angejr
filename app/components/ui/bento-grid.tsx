@@ -28,8 +28,8 @@ export const BentoGridItem = ({
   onClick,
 }: {
   className?: string;
-  title?: string | React.RefObject<HTMLDivElement>;
-  description?: string | React.RefObject<HTMLDivElement>;
+  title?: string | React.ReactNode;
+  description?: string | React.ReactNode;
   header?: React.ReactNode;
   icon?: React.ReactNode;
   onClick?: () => void;
