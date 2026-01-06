@@ -3,6 +3,8 @@ import Image from "next/image";
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+import { BentoGrid, BentoGridItem } from "./ui/bento-grid";
+import { ExternalLink, CheckCircle2 } from "lucide-react";
 
 export function ExpandableCardDemo() {
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
@@ -132,48 +134,28 @@ export function ExpandableCardDemo() {
       <div className="space-y-16">
         <div>
           <h3 className="text-sm font-bold tracking-[0.2em] text-white mb-8 uppercase border-l-2 border-cyan-500 pl-4">Projets Terminés</h3>
-          <ul className="max-w-4xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
-            {completedProjects.map((card, index) => (
-              <motion.div
-                layoutId={`card-${card.title}-${id}`}
-                key={`card-${card.title}-${id}`}
-                onClick={() => setActive(card)}
-                className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-white/[0.03] rounded-xl cursor-pointer border border-white/5 transition-colors"
-              >
-                <div className="flex gap-4 flex-col md:flex-row items-center">
-                  <motion.div layoutId={`image-${card.title}-${id}`}>
+          <BentoGrid className="max-w-4xl mx-auto">
+            {completedProjects.map((card, i) => (
+              <BentoGridItem
+                key={i}
+                title={card.title}
+                description={card.description}
+                header={
+                  <div className="relative w-full h-full min-h-[6rem] rounded-xl overflow-hidden">
                     <Image
-                      width={100}
-                      height={100}
                       src={card.src}
                       alt={card.title}
-                      className="h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover object-top"
+                      fill
+                      className="object-cover group-hover/bento:scale-110 transition duration-500"
                     />
-                  </motion.div>
-                  <div className="">
-                    <motion.h3
-                      layoutId={`title-${card.title}-${id}`}
-                      className="font-medium text-white text-center md:text-left"
-                    >
-                      {card.title}
-                    </motion.h3>
-                    <motion.p
-                      layoutId={`description-${card.description}-${id}`}
-                      className="text-gray-500 text-center md:text-left text-xs"
-                    >
-                      {card.description}
-                    </motion.p>
                   </div>
-                </div>
-                <motion.button
-                  layoutId={`button-${card.title}-${id}`}
-                  className="px-4 py-2 text-xs rounded-full font-bold bg-white/5 text-white mt-4 md:mt-0"
-                >
-                  {card.ctaText}
-                </motion.button>
-              </motion.div>
+                }
+                className={i === 0 || i === 3 ? "md:col-span-2" : "md:col-span-1"}
+                icon={<CheckCircle2 className="h-4 w-4 text-cyan-400" />}
+                onClick={() => setActive(card)}
+              />
             ))}
-          </ul>
+          </BentoGrid>
         </div>
 
         <div>
