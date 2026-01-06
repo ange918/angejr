@@ -53,7 +53,7 @@ export const BentoGridItem = ({
             {description}
           </div>
         </div>
-        <div className="opacity-0 group-hover/bento:opacity-100 transition duration-200">
+        <div className="opacity-100 lg:opacity-0 group-hover/bento:opacity-100 transition duration-200">
           <div className="px-3 py-1.5 rounded-full bg-cyan-500 text-white text-[10px] font-bold uppercase tracking-wider">
             Visiter
           </div>

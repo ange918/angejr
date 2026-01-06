@@ -243,7 +243,7 @@ export const CloseIcon = () => {
 
 const cards = [
   {
-    description: "Expertise en développement Next.js & PostgreSQL",
+    description: "Développement Next.js & PostgreSQL",
     title: "Model Academy Management",
     src: "/images/modelacademy_1767704999756.jpeg",
     ctaText: "Visiter",
