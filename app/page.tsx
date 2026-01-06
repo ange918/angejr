@@ -219,7 +219,7 @@ export default function Home() {
                   transition={{ duration: 3, repeat: Infinity, delay: i * 0.2, ease: "easeInOut" }}
                   className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center p-1.5 rounded-lg bg-white/[0.02] border border-white/5 group-hover:border-cyan-500/30 group-hover:bg-cyan-500/5 transition-all shadow-lg shadow-transparent group-hover:shadow-cyan-500/10"
                 >
-                  <img src={skill.logo} alt={skill.name} className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300" />
+                  <img src={skill.logo} alt={skill.name} className="w-full h-full object-contain transition-all duration-300" />
                 </motion.div>
                 <span className="text-[8px] md:text-[9px] font-medium text-gray-500 uppercase tracking-widest group-hover:text-cyan-400 transition-colors">
                   {skill.name}
