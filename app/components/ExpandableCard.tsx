@@ -264,8 +264,8 @@ const cards = [
     description: "Expertise en développement Next.js & PostgreSQL",
     title: "Model Academy Management",
     src: "/images/modelacademy_1767704999756.jpeg",
-    ctaText: "Voir plus",
-    ctaLink: "#",
+    ctaText: "Visiter",
+    ctaLink: "https://model-tau-one.vercel.app",
     status: "Terminé",
     content: () => {
       return (
@@ -281,8 +281,8 @@ const cards = [
     description: "Design immersif avec Three.js",
     title: "Portfolio – Ore Gauthier",
     src: "/images/ore_1767704999754.jpeg",
-    ctaText: "Voir plus",
-    ctaLink: "#",
+    ctaText: "Visiter",
+    ctaLink: "https://oregauthier-kuvg.vercel.app/",
     status: "Terminé",
     content: () => {
       return (
@@ -297,8 +297,8 @@ const cards = [
     description: "Modernité et animations GSAP",
     title: "Portfolio – Merveille Susuni",
     src: "/images/merveille_1767704999752.jpeg",
-    ctaText: "Voir plus",
-    ctaLink: "#",
+    ctaText: "Visiter",
+    ctaLink: "https://merveilsusuni-1zqz.vercel.app/",
     status: "Terminé",
     content: () => {
       return (
@@ -313,8 +313,8 @@ const cards = [
     description: "Écosystème Laravel puissant",
     title: "Site officiel – Axel Merryl",
     src: "/images/axel_1767704999746.jpeg",
-    ctaText: "Voir plus",
-    ctaLink: "#",
+    ctaText: "Visiter",
+    ctaLink: "https://axelmerryl-jwy6.vercel.app",
     status: "Terminé",
     content: () => {
       return (
@@ -329,8 +329,8 @@ const cards = [
     description: "Architecture Fintech Moderne",
     title: "Code Capital",
     src: "/images/codecapital_1767704999750.jpeg",
-    ctaText: "Voir plus",
-    ctaLink: "#",
+    ctaText: "Visiter",
+    ctaLink: "https://code-capital-4sjr.vercel.app",
     status: "Terminé",
     content: () => {
       return (
@@ -345,8 +345,8 @@ const cards = [
     description: "Annuaire et réseau de talents",
     title: "FASHLINK",
     src: "/images/faslink_1767704999743.jpeg",
-    ctaText: "Voir plus",
-    ctaLink: "#",
+    ctaText: "Visiter",
+    ctaLink: "https://flashlink-topaz.vercel.app",
     status: "En cours",
     content: () => {
       return (
