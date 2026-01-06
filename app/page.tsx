@@ -8,12 +8,12 @@ import { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
 
 const projects = [
-  { name: "Model Academy Management", status: "Terminé", stack: ["Next.js", "PostgreSQL", "Tailwind"] },
-  { name: "Portfolio – Ore Gauthier", status: "Terminé", stack: ["React", "Framer Motion", "Three.js"] },
-  { name: "Portfolio – Merveille Susuni", status: "Terminé", stack: ["Next.js", "GSAP", "Tailwind"] },
-  { name: "Site officiel – Axel Merryl", status: "Terminé", stack: ["PHP", "Laravel", "MySQL"] },
-  { name: "Code Capital", status: "Terminé", stack: ["React", "Node.js", "MongoDB"] },
-  { name: "FASHLINK", status: "En cours", stack: ["Next.js", "Prisma", "Tailwind"] },
+  { name: "Model Academy Management", status: "Terminé", stack: ["Next.js", "PostgreSQL", "Tailwind"], image: "/images/modelacademy_1767704999756.jpeg" },
+  { name: "Portfolio – Ore Gauthier", status: "Terminé", stack: ["React", "Framer Motion", "Three.js"], image: "/images/ore_1767704999754.jpeg" },
+  { name: "Portfolio – Merveille Susuni", status: "Terminé", stack: ["Next.js", "GSAP", "Tailwind"], image: "/images/merveille_1767704999752.jpeg" },
+  { name: "Site officiel – Axel Merryl", status: "Terminé", stack: ["PHP", "Laravel", "MySQL"], image: "/images/axel_1767704999746.jpeg" },
+  { name: "Code Capital", status: "Terminé", stack: ["React", "Node.js", "MongoDB"], image: "/images/codecapital_1767704999750.jpeg" },
+  { name: "FASHLINK", status: "En cours", stack: ["Next.js", "Prisma", "Tailwind"], image: "/images/faslink_1767704999743.jpeg" },
   { name: "DAHOMEY TECH", status: "En cours", stack: ["React", "Firebase", "Styled Components"] },
   { name: "FOODMOOD", status: "En cours", stack: ["Next.js", "Supabase", "Tailwind"] },
 ];
@@ -80,7 +80,7 @@ export default function Home() {
       {/* Background Image fixed for all sections */}
       <div 
         className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-10 grayscale pointer-events-none"
-        style={{ backgroundImage: "url('/assets/hero-bg.jpg')" }}
+        style={{ backgroundImage: "url('/images/WhatsApp_Image_2026-01-05_at_22.04.42_1767647805935.jpeg')" }}
       />
       <div className="fixed inset-0 z-0 bg-gradient-to-b from-navy via-transparent to-navy pointer-events-none" />
 
@@ -201,8 +201,16 @@ export default function Home() {
                 className="group cursor-pointer"
               >
                 <div className="aspect-video bg-white/[0.03] border border-white/5 rounded-lg mb-4 overflow-hidden relative">
-                   <div className="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                   {project.image ? (
+                     <img 
+                       src={project.image} 
+                       alt={project.name} 
+                       className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                     />
+                   ) : (
+                     <div className="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                   )}
+                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 bg-navy/40 backdrop-blur-[2px]">
                       <div className="flex gap-1.5 flex-wrap justify-center px-4">
                         {project.stack?.map((tech) => (
                           <span key={tech} className="px-2 py-0.5 bg-navy/80 backdrop-blur-sm border border-cyan-500/30 rounded-full text-[8px] font-bold text-cyan-400">
