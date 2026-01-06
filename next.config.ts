@@ -7,6 +7,14 @@ const nextConfig: NextConfig = {
     "*.repl.co",
     "*.replit.app"
   ],
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'assets.aceternity.com',
+      },
+    ],
+  },
 };
 
 export default nextConfig;

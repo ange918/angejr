@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, MessageSquare, ArrowUp, Github, Linkedin, ExternalLink, Menu, X, Quote, Copy, Check } from "lucide-react";
 import { FlipWords } from "./components/ui/flip-words";
+import { ExpandableCardDemo } from "./components/ExpandableCard";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
@@ -190,37 +191,7 @@ export default function Home() {
       <section id="projets" className="py-24 px-6 bg-white/[0.01] z-10 relative">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-16 uppercase text-center">Projets Sélectionnés</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {projects.map((project, i) => (
-              <motion.div 
-                key={project.name}
-                whileInView={{ opacity: 1, y: 0 }}
-                initial={{ opacity: 0, y: 20 }}
-                transition={{ delay: i * 0.05 }}
-                viewport={{ once: true }}
-                className="group cursor-pointer"
-              >
-                <div className="aspect-video bg-white/[0.03] border border-white/5 rounded-lg mb-4 overflow-hidden relative">
-                   {project.image ? (
-                     <img 
-                       src={project.image} 
-                       alt={project.name} 
-                       className="w-full h-full object-cover transition-all duration-500"
-                     />
-                   ) : (
-                     <div className="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                   )}
-                </div>
-                <div className="flex justify-between items-end">
-                  <div>
-                    <h3 className="text-base font-bold text-white mb-0.5">{project.name}</h3>
-                    <p className="text-[9px] text-gray-500 uppercase tracking-widest">{project.status}</p>
-                  </div>
-                  <ExternalLink size={14} className="text-gray-600 group-hover:text-cyan-400 transition-colors" />
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <ExpandableCardDemo />
         </div>
       </section>
 
