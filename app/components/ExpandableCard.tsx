@@ -30,6 +30,9 @@ export function ExpandableCardDemo() {
 
   useOutsideClick(ref as React.RefObject<HTMLDivElement>, () => setActive(null));
 
+  const completedProjects = cards.filter(card => card.status === "Terminé");
+  const ongoingProjects = cards.filter(card => card.status === "En cours");
+
   return (
     <>
       <AnimatePresence>
@@ -125,48 +128,100 @@ export function ExpandableCardDemo() {
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="max-w-4xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
-        {cards.map((card, index) => (
-          <motion.div
-            layoutId={`card-${card.title}-${id}`}
-            key={`card-${card.title}-${id}`}
-            onClick={() => setActive(card)}
-            className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-white/[0.03] rounded-xl cursor-pointer border border-white/5 transition-colors"
-          >
-            <div className="flex gap-4 flex-col md:flex-row items-center">
-              <motion.div layoutId={`image-${card.title}-${id}`}>
-                <Image
-                  width={100}
-                  height={100}
-                  src={card.src}
-                  alt={card.title}
-                  className="h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover object-top"
-                />
+      
+      <div className="space-y-16">
+        <div>
+          <h3 className="text-sm font-bold tracking-[0.2em] text-white mb-8 uppercase border-l-2 border-cyan-500 pl-4">Projets Terminés</h3>
+          <ul className="max-w-4xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+            {completedProjects.map((card, index) => (
+              <motion.div
+                layoutId={`card-${card.title}-${id}`}
+                key={`card-${card.title}-${id}`}
+                onClick={() => setActive(card)}
+                className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-white/[0.03] rounded-xl cursor-pointer border border-white/5 transition-colors"
+              >
+                <div className="flex gap-4 flex-col md:flex-row items-center">
+                  <motion.div layoutId={`image-${card.title}-${id}`}>
+                    <Image
+                      width={100}
+                      height={100}
+                      src={card.src}
+                      alt={card.title}
+                      className="h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover object-top"
+                    />
+                  </motion.div>
+                  <div className="">
+                    <motion.h3
+                      layoutId={`title-${card.title}-${id}`}
+                      className="font-medium text-white text-center md:text-left"
+                    >
+                      {card.title}
+                    </motion.h3>
+                    <motion.p
+                      layoutId={`description-${card.description}-${id}`}
+                      className="text-gray-500 text-center md:text-left text-xs"
+                    >
+                      {card.description}
+                    </motion.p>
+                  </div>
+                </div>
+                <motion.button
+                  layoutId={`button-${card.title}-${id}`}
+                  className="px-4 py-2 text-xs rounded-full font-bold bg-white/5 text-white mt-4 md:mt-0"
+                >
+                  {card.ctaText}
+                </motion.button>
               </motion.div>
-              <div className="">
-                <motion.h3
-                  layoutId={`title-${card.title}-${id}`}
-                  className="font-medium text-white text-center md:text-left"
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-bold tracking-[0.2em] text-cyan-500/60 mb-8 uppercase border-l-2 border-cyan-500/20 pl-4">Projets en Cours</h3>
+          <ul className="max-w-4xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+            {ongoingProjects.map((card, index) => (
+              <motion.div
+                layoutId={`card-${card.title}-${id}`}
+                key={`card-${card.title}-${id}`}
+                onClick={() => setActive(card)}
+                className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-white/[0.03] rounded-xl cursor-pointer border border-white/5 transition-colors"
+              >
+                <div className="flex gap-4 flex-col md:flex-row items-center">
+                  <motion.div layoutId={`image-${card.title}-${id}`}>
+                    <Image
+                      width={100}
+                      height={100}
+                      src={card.src}
+                      alt={card.title}
+                      className="h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover object-top"
+                    />
+                  </motion.div>
+                  <div className="">
+                    <motion.h3
+                      layoutId={`title-${card.title}-${id}`}
+                      className="font-medium text-white text-center md:text-left"
+                    >
+                      {card.title}
+                    </motion.h3>
+                    <motion.p
+                      layoutId={`description-${card.description}-${id}`}
+                      className="text-gray-500 text-center md:text-left text-xs"
+                    >
+                      {card.description}
+                    </motion.p>
+                  </div>
+                </div>
+                <motion.button
+                  layoutId={`button-${card.title}-${id}`}
+                  className="px-4 py-2 text-xs rounded-full font-bold bg-white/5 text-white mt-4 md:mt-0"
                 >
-                  {card.title}
-                </motion.h3>
-                <motion.p
-                  layoutId={`description-${card.description}-${id}`}
-                  className="text-gray-500 text-center md:text-left text-xs"
-                >
-                  {card.description}
-                </motion.p>
-              </div>
-            </div>
-            <motion.button
-              layoutId={`button-${card.title}-${id}`}
-              className="px-4 py-2 text-xs rounded-full font-bold bg-white/5 text-white mt-4 md:mt-0"
-            >
-              {card.ctaText}
-            </motion.button>
-          </motion.div>
-        ))}
-      </ul>
+                  {card.ctaText}
+                </motion.button>
+              </motion.div>
+            ))}
+          </ul>
+        </div>
+      </div>
     </>
   );
 }
@@ -211,6 +266,7 @@ const cards = [
     src: "/images/modelacademy_1767704999756.jpeg",
     ctaText: "Voir plus",
     ctaLink: "#",
+    status: "Terminé",
     content: () => {
       return (
         <p>
@@ -227,6 +283,7 @@ const cards = [
     src: "/images/ore_1767704999754.jpeg",
     ctaText: "Voir plus",
     ctaLink: "#",
+    status: "Terminé",
     content: () => {
       return (
         <p>
@@ -242,6 +299,7 @@ const cards = [
     src: "/images/merveille_1767704999752.jpeg",
     ctaText: "Voir plus",
     ctaLink: "#",
+    status: "Terminé",
     content: () => {
       return (
         <p>
@@ -257,6 +315,7 @@ const cards = [
     src: "/images/axel_1767704999746.jpeg",
     ctaText: "Voir plus",
     ctaLink: "#",
+    status: "Terminé",
     content: () => {
       return (
         <p>
@@ -272,6 +331,7 @@ const cards = [
     src: "/images/codecapital_1767704999750.jpeg",
     ctaText: "Voir plus",
     ctaLink: "#",
+    status: "Terminé",
     content: () => {
       return (
         <p>
@@ -287,11 +347,28 @@ const cards = [
     src: "/images/faslink_1767704999743.jpeg",
     ctaText: "Voir plus",
     ctaLink: "#",
+    status: "En cours",
     content: () => {
       return (
         <p>
           Réseau social professionnel dédié à l'industrie de la mode en Afrique, 
           permettant la mise en relation entre talents et recruteurs.
+        </p>
+      );
+    },
+  },
+  {
+    description: "Expérience shopping fluide et moderne",
+    title: "E-commerce – Président Djangoun",
+    src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767648255135.jpeg",
+    ctaText: "Voir plus",
+    ctaLink: "#",
+    status: "En cours",
+    content: () => {
+      return (
+        <p>
+          Une boutique en ligne haut de gamme conçue pour une expérience client optimale, 
+          avec une gestion simplifiée du catalogue et un processus de paiement sécurisé.
         </p>
       );
     },
