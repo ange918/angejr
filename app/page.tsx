@@ -137,7 +137,13 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center overflow-hidden z-10">
+      <motion.section 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center overflow-hidden z-10"
+      >
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -161,10 +167,17 @@ export default function Home() {
             </a>
           </div>
         </motion.div>
-      </section>
+      </motion.section>
 
       {/* About Section */}
-      <section id="propos" className="py-24 px-6 z-10 relative">
+      <motion.section 
+        id="propos" 
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="py-24 px-6 z-10 relative"
+      >
         <div className="max-w-3xl mx-auto">
           <motion.div 
             whileInView={{ opacity: 1, y: 0 }}
@@ -185,18 +198,32 @@ export default function Home() {
             </Link>
           </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Projects Section */}
-      <section id="projets" className="py-24 px-6 bg-white/[0.01] z-10 relative">
+      <motion.section 
+        id="projets" 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="py-24 px-6 bg-white/[0.01] z-10 relative"
+      >
         <div className="max-w-4xl mx-auto">
           <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-16 uppercase text-center">Projets Sélectionnés</h2>
           <ExpandableCardDemo />
         </div>
-      </section>
+      </motion.section>
 
       {/* Expertise Section */}
-      <section id="competences" className="py-24 px-6 z-10 relative">
+      <motion.section 
+        id="competences" 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="py-24 px-6 z-10 relative"
+      >
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-12 uppercase">Expertise</h2>
           <div className="grid grid-cols-3 md:grid-cols-7 gap-6 items-center justify-items-center">
@@ -228,10 +255,16 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Testimonials Section */}
-      <section className="py-24 bg-white/[0.01] overflow-hidden z-10 relative">
+      <motion.section 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+        className="py-24 bg-white/[0.01] overflow-hidden z-10 relative"
+      >
         <div className="max-w-4xl mx-auto px-6 mb-12 text-center">
           <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 uppercase">Témoignages</h2>
         </div>
@@ -247,10 +280,17 @@ export default function Home() {
             </div>
           ))}
         </Marquee>
-      </section>
+      </motion.section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 px-6 z-10 relative">
+      <motion.section 
+        id="contact" 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="py-24 px-6 z-10 relative"
+      >
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <div>
@@ -282,7 +322,7 @@ export default function Home() {
             </form>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Footer */}
       <footer className="py-16 px-6 border-t border-white/5 z-10 relative">
