@@ -205,20 +205,11 @@ export default function Home() {
                      <img 
                        src={project.image} 
                        alt={project.name} 
-                       className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                       className="w-full h-full object-contain transition-all duration-500"
                      />
                    ) : (
                      <div className="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                    )}
-                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 bg-navy/40 backdrop-blur-[2px]">
-                      <div className="flex gap-1.5 flex-wrap justify-center px-4">
-                        {project.stack?.map((tech) => (
-                          <span key={tech} className="px-2 py-0.5 bg-navy/80 backdrop-blur-sm border border-cyan-500/30 rounded-full text-[8px] font-bold text-cyan-400">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                   </div>
                 </div>
                 <div className="flex justify-between items-end">
                   <div>
