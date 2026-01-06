@@ -373,4 +373,36 @@ const cards = [
       );
     },
   },
+  {
+    description: "L'innovation technologique au service de l'Afrique",
+    title: "DAHOMEY TECH",
+    src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767649778080.jpeg",
+    ctaText: "Voir plus",
+    ctaLink: "#",
+    status: "En cours",
+    content: () => {
+      return (
+        <p>
+          Une plateforme dédiée à la promotion des startups et des innovations technologiques, 
+          mettant en lumière les talents et les solutions numériques locales.
+        </p>
+      );
+    },
+  },
+  {
+    description: "La gastronomie à portée de clic",
+    title: "FOODMOOD",
+    src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647806079.jpeg",
+    ctaText: "Voir plus",
+    ctaLink: "#",
+    status: "En cours",
+    content: () => {
+      return (
+        <p>
+          Une application moderne de commande et de livraison de repas, 
+          offrant une sélection variée de restaurants pour satisfaire toutes les envies.
+        </p>
+      );
+    },
+  },
 ];
