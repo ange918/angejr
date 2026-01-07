@@ -73,7 +73,7 @@ export function ExpandableCardDemo() {
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-navy border border-white/10 sm:rounded-3xl overflow-hidden relative"
+              className="w-full max-w-[650px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-navy border border-white/10 sm:rounded-3xl overflow-hidden relative"
             >
               <motion.button
                 key={`close-button-${active.title}-${id}`}
@@ -89,11 +89,11 @@ export function ExpandableCardDemo() {
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <Image
                   priority
-                  width={500}
-                  height={500}
+                  width={800}
+                  height={600}
                   src={active.src}
                   alt={active.title}
-                  className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
+                  className="w-full h-[450px] lg:h-[450px] sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
                 />
               </motion.div>
 
