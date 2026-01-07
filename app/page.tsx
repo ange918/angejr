@@ -59,55 +59,55 @@ const carouselData = [
   {
     category: "Solutions Web",
     title: "Sites E-commerce",
-    src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767648255135.jpeg",
+    src: "/attached_assets/generated_images/modern_e-commerce_website_interface_mockup.png",
     content: (
       <div className="space-y-4">
         <p>Boutiques en ligne modernes et performantes, optimisées pour la vente et l'expérience client. Intégration de paiements sécurisés et gestion simplifiée des stocks.</p>
-        <img src="/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767648255135.jpeg" alt="E-commerce" className="rounded-xl w-full object-cover h-64" />
+        <img src="/attached_assets/generated_images/modern_e-commerce_website_interface_mockup.png" alt="E-commerce" className="rounded-xl w-full object-cover h-64" />
       </div>
     ),
   },
   {
     category: "Présence Digitale",
     title: "Portfolios & Vitrines",
-    src: "/images/ore_1767704999754.jpeg",
+    src: "/attached_assets/generated_images/minimalist_portfolio_website_design_mockup.png",
     content: (
       <div className="space-y-4">
         <p>Sites vitrines élégants pour professionnels et entreprises. Des designs uniques qui capturent l'identité de votre marque et mettent en valeur votre savoir-faire.</p>
-        <img src="/images/ore_1767704999754.jpeg" alt="Portfolio" className="rounded-xl w-full object-cover h-64" />
+        <img src="/attached_assets/generated_images/minimalist_portfolio_website_design_mockup.png" alt="Portfolio" className="rounded-xl w-full object-cover h-64" />
       </div>
     ),
   },
   {
     category: "Outils Métiers",
     title: "SaaS & Dashboards",
-    src: "/images/modelacademy_1767704999756.jpeg",
+    src: "/attached_assets/generated_images/modern_saas_dashboard_interface_mockup.png",
     content: (
       <div className="space-y-4">
         <p>Logiciels en tant que service (SaaS) et tableaux de bord complexes pour la gestion de données, le suivi d'activité et l'automatisation de vos processus métiers.</p>
-        <img src="/images/modelacademy_1767704999756.jpeg" alt="SaaS" className="rounded-xl w-full object-cover h-64" />
+        <img src="/attached_assets/generated_images/modern_saas_dashboard_interface_mockup.png" alt="SaaS" className="rounded-xl w-full object-cover h-64" />
       </div>
     ),
   },
   {
-    category: "Services en Ligne",
-    title: "Applications de Livraison",
-    src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647806079.jpeg",
+    category: "Services Mobiles",
+    title: "Applications Mobiles",
+    src: "/attached_assets/generated_images/sleek_mobile_app_interface_mockup.png",
     content: (
       <div className="space-y-4">
-        <p>Solutions complètes de commande et de livraison avec suivi en temps réel, interfaces intuitives pour les clients et gestion efficace pour les restaurateurs.</p>
-        <img src="/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647806079.jpeg" alt="Livraison" className="rounded-xl w-full object-cover h-64" />
+        <p>Applications mobiles natives et hybrides offrant une expérience fluide sur iOS et Android, avec des fonctionnalités avancées et une interface soignée.</p>
+        <img src="/attached_assets/generated_images/sleek_mobile_app_interface_mockup.png" alt="Applications Mobiles" className="rounded-xl w-full object-cover h-64" />
       </div>
     ),
   },
   {
     category: "Networking",
     title: "Réseaux Sociaux & Annuaires",
-    src: "/images/faslink_1767704999743.jpeg",
+    src: "/attached_assets/generated_images/social_networking_platform_interface_mockup.png",
     content: (
       <div className="space-y-4">
         <p>Plateformes de mise en relation, annuaires professionnels et réseaux sociaux thématiques pour connecter les talents et favoriser les opportunités.</p>
-        <img src="/images/faslink_1767704999743.jpeg" alt="Networking" className="rounded-xl w-full object-cover h-64" />
+        <img src="/attached_assets/generated_images/social_networking_platform_interface_mockup.png" alt="Networking" className="rounded-xl w-full object-cover h-64" />
       </div>
     ),
   },

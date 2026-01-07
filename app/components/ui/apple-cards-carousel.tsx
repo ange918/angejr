@@ -82,6 +82,23 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     return typeof window !== "undefined" && window.innerWidth < 768;
   };
 
+  useEffect(() => {
+    if (!carouselRef.current) return;
+    
+    const interval = setInterval(() => {
+      if (carouselRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+          carouselRef.current.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          carouselRef.current.scrollBy({ left: 300, behavior: "smooth" });
+        }
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <CarouselContext.Provider
       value={{ onCardClose: handleCardClose, currentIndex }}
