@@ -59,55 +59,55 @@ const carouselData = [
   {
     category: "Solutions Web",
     title: "Sites E-commerce",
-    src: "/attached_assets/generated_images/modern_e-commerce_website_interface_mockup.png",
+    src: "/assets/generated/modern_e-commerce_website_interface_mockup.png",
     content: (
       <div className="space-y-4">
         <p>Boutiques en ligne modernes et performantes, optimisées pour la vente et l'expérience client. Intégration de paiements sécurisés et gestion simplifiée des stocks.</p>
-        <img src="/attached_assets/generated_images/modern_e-commerce_website_interface_mockup.png" alt="E-commerce" className="rounded-xl w-full object-cover h-64" />
+        <img src="/assets/generated/modern_e-commerce_website_interface_mockup.png" alt="E-commerce" className="rounded-xl w-full object-cover h-64" />
       </div>
     ),
   },
   {
     category: "Présence Digitale",
     title: "Portfolios & Vitrines",
-    src: "/attached_assets/generated_images/minimalist_portfolio_website_design_mockup.png",
+    src: "/assets/generated/minimalist_portfolio_website_design_mockup.png",
     content: (
       <div className="space-y-4">
         <p>Sites vitrines élégants pour professionnels et entreprises. Des designs uniques qui capturent l'identité de votre marque et mettent en valeur votre savoir-faire.</p>
-        <img src="/attached_assets/generated_images/minimalist_portfolio_website_design_mockup.png" alt="Portfolio" className="rounded-xl w-full object-cover h-64" />
+        <img src="/assets/generated/minimalist_portfolio_website_design_mockup.png" alt="Portfolio" className="rounded-xl w-full object-cover h-64" />
       </div>
     ),
   },
   {
     category: "Outils Métiers",
     title: "SaaS & Dashboards",
-    src: "/attached_assets/generated_images/modern_saas_dashboard_interface_mockup.png",
+    src: "/assets/generated/modern_saas_dashboard_interface_mockup.png",
     content: (
       <div className="space-y-4">
         <p>Logiciels en tant que service (SaaS) et tableaux de bord complexes pour la gestion de données, le suivi d'activité et l'automatisation de vos processus métiers.</p>
-        <img src="/attached_assets/generated_images/modern_saas_dashboard_interface_mockup.png" alt="SaaS" className="rounded-xl w-full object-cover h-64" />
+        <img src="/assets/generated/modern_saas_dashboard_interface_mockup.png" alt="SaaS" className="rounded-xl w-full object-cover h-64" />
       </div>
     ),
   },
   {
     category: "Services Mobiles",
     title: "Applications Mobiles",
-    src: "/attached_assets/generated_images/sleek_mobile_app_interface_mockup.png",
+    src: "/assets/generated/sleek_mobile_app_interface_mockup.png",
     content: (
       <div className="space-y-4">
         <p>Applications mobiles natives et hybrides offrant une expérience fluide sur iOS et Android, avec des fonctionnalités avancées et une interface soignée.</p>
-        <img src="/attached_assets/generated_images/sleek_mobile_app_interface_mockup.png" alt="Applications Mobiles" className="rounded-xl w-full object-cover h-64" />
+        <img src="/assets/generated/sleek_mobile_app_interface_mockup.png" alt="Applications Mobiles" className="rounded-xl w-full object-cover h-64" />
       </div>
     ),
   },
   {
     category: "Networking",
     title: "Réseaux Sociaux & Annuaires",
-    src: "/attached_assets/generated_images/social_networking_platform_interface_mockup.png",
+    src: "/assets/generated/social_networking_platform_interface_mockup.png",
     content: (
       <div className="space-y-4">
         <p>Plateformes de mise en relation, annuaires professionnels et réseaux sociaux thématiques pour connecter les talents et favoriser les opportunités.</p>
-        <img src="/attached_assets/generated_images/social_networking_platform_interface_mockup.png" alt="Networking" className="rounded-xl w-full object-cover h-64" />
+        <img src="/assets/generated/social_networking_platform_interface_mockup.png" alt="Networking" className="rounded-xl w-full object-cover h-64" />
       </div>
     ),
   },
@@ -205,7 +205,7 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center overflow-hidden z-10"
+        className="relative min-h-[80vh] flex flex-col items-center justify-center px-6 text-center overflow-hidden z-10"
       >
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -238,7 +238,7 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="relative py-20 z-10"
+        className="relative py-10 z-10"
       >
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-12 uppercase">Les choses que je réalise</h2>
