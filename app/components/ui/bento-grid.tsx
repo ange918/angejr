@@ -49,9 +49,6 @@ export const BentoGridItem = ({
           <div className="font-sans font-bold text-white mb-2 mt-2">
             {title}
           </div>
-          <div className="font-sans font-normal text-gray-400 text-xs">
-            {description}
-          </div>
         </div>
         <div className="opacity-100 lg:opacity-0 group-hover/bento:opacity-100 transition duration-200">
           <div className="px-3 py-1.5 rounded-full bg-cyan-500 text-white text-[10px] font-bold uppercase tracking-wider">

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, MessageSquare, ArrowUp, Github, Linkedin, ExternalLink, Menu, X, Quote, Copy, Check } from "lucide-react";
 import { FlipWords } from "./components/ui/flip-words";
 import { ExpandableCardDemo } from "./components/ExpandableCard";
+import { Globe } from "./components/ui/globe";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
@@ -167,6 +168,20 @@ export default function Home() {
             </a>
           </div>
         </motion.div>
+      </motion.section>
+
+      {/* Globe Section */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+        className="relative py-12 flex flex-col items-center justify-center overflow-hidden z-10"
+      >
+        <div className="max-w-4xl mx-auto w-full text-center px-6">
+          <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-4 uppercase">Présence Mondiale</h2>
+          <Globe className="opacity-50" />
+        </div>
       </motion.section>
 
       {/* About Section */}

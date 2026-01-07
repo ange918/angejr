@@ -4,7 +4,7 @@ import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { BentoGrid, BentoGridItem } from "./ui/bento-grid";
-import { ExternalLink, CheckCircle2 } from "lucide-react";
+import { ExternalLink, CheckCircle2, X } from "lucide-react";
 
 export function ExpandableCardDemo() {
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
@@ -73,8 +73,19 @@ export function ExpandableCardDemo() {
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-navy border border-white/10 sm:rounded-3xl overflow-hidden"
+              className="w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-navy border border-white/10 sm:rounded-3xl overflow-hidden relative"
             >
+              <motion.button
+                key={`close-button-${active.title}-${id}`}
+                layout
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="absolute top-4 right-4 z-[110] flex items-center justify-center bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full h-8 w-8 text-white transition-colors"
+                onClick={() => setActive(null)}
+              >
+                <X size={18} />
+              </motion.button>
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <Image
                   priority
