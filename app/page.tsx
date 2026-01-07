@@ -57,46 +57,57 @@ const titles = ["Développeur Full-Stack", "Ingénieur Logiciel", "Créateur Dig
 
 const carouselData = [
   {
-    category: "Site E-commerce",
-    title: "Expérience shopping immersive",
+    category: "Solutions Web",
+    title: "Sites E-commerce",
     src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767648255135.jpeg",
     content: (
       <div className="space-y-4">
-        <p>Une boutique en ligne moderne avec une interface utilisateur fluide, optimisée pour la conversion et la rapidité.</p>
+        <p>Boutiques en ligne modernes et performantes, optimisées pour la vente et l'expérience client. Intégration de paiements sécurisés et gestion simplifiée des stocks.</p>
         <img src="/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767648255135.jpeg" alt="E-commerce" className="rounded-xl w-full object-cover h-64" />
       </div>
     ),
   },
   {
-    category: "Portfolio d'Architecte",
-    title: "Visualisation 3D futuriste",
+    category: "Présence Digitale",
+    title: "Portfolios & Vitrines",
     src: "/images/ore_1767704999754.jpeg",
     content: (
       <div className="space-y-4">
-        <p>Un portfolio conçu avec Three.js pour une immersion totale dans les réalisations architecturales d'Ore Gauthier.</p>
+        <p>Sites vitrines élégants pour professionnels et entreprises. Des designs uniques qui capturent l'identité de votre marque et mettent en valeur votre savoir-faire.</p>
         <img src="/images/ore_1767704999754.jpeg" alt="Portfolio" className="rounded-xl w-full object-cover h-64" />
       </div>
     ),
   },
   {
-    category: "Gestion de Talents",
-    title: "Système Model Academy",
+    category: "Outils Métiers",
+    title: "SaaS & Dashboards",
     src: "/images/modelacademy_1767704999756.jpeg",
     content: (
       <div className="space-y-4">
-        <p>Une application de gestion robuste pour le suivi des mannequins et l'organisation d'événements de mode.</p>
-        <img src="/images/modelacademy_1767704999756.jpeg" alt="Model Academy" className="rounded-xl w-full object-cover h-64" />
+        <p>Logiciels en tant que service (SaaS) et tableaux de bord complexes pour la gestion de données, le suivi d'activité et l'automatisation de vos processus métiers.</p>
+        <img src="/images/modelacademy_1767704999756.jpeg" alt="SaaS" className="rounded-xl w-full object-cover h-64" />
       </div>
     ),
   },
   {
-    category: "Food Delivery",
-    title: "Application FOODMOOD",
+    category: "Services en Ligne",
+    title: "Applications de Livraison",
     src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647806079.jpeg",
     content: (
       <div className="space-y-4">
-        <p>Commandez vos plats préférés en toute simplicité avec une interface intuitive et rapide.</p>
-        <img src="/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647806079.jpeg" alt="FoodMood" className="rounded-xl w-full object-cover h-64" />
+        <p>Solutions complètes de commande et de livraison avec suivi en temps réel, interfaces intuitives pour les clients et gestion efficace pour les restaurateurs.</p>
+        <img src="/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647806079.jpeg" alt="Livraison" className="rounded-xl w-full object-cover h-64" />
+      </div>
+    ),
+  },
+  {
+    category: "Networking",
+    title: "Réseaux Sociaux & Annuaires",
+    src: "/images/faslink_1767704999743.jpeg",
+    content: (
+      <div className="space-y-4">
+        <p>Plateformes de mise en relation, annuaires professionnels et réseaux sociaux thématiques pour connecter les talents et favoriser les opportunités.</p>
+        <img src="/images/faslink_1767704999743.jpeg" alt="Networking" className="rounded-xl w-full object-cover h-64" />
       </div>
     ),
   },
