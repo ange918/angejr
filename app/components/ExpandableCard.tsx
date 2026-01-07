@@ -73,7 +73,7 @@ export function ExpandableCardDemo() {
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-[650px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-navy border border-white/10 sm:rounded-3xl overflow-hidden relative"
+              className="w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-navy border border-white/10 sm:rounded-3xl overflow-hidden relative"
             >
               <motion.button
                 key={`close-button-${active.title}-${id}`}
@@ -89,11 +89,11 @@ export function ExpandableCardDemo() {
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <Image
                   priority
-                  width={800}
-                  height={600}
+                  width={500}
+                  height={500}
                   src={active.src}
                   alt={active.title}
-                  className="w-full h-[450px] lg:h-[450px] sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
+                  className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
                 />
               </motion.div>
 
@@ -169,51 +169,44 @@ export function ExpandableCardDemo() {
           </BentoGrid>
         </div>
 
-        <div>
-          <h3 className="text-sm font-bold tracking-[0.2em] text-cyan-500/60 mb-8 uppercase border-l-2 border-cyan-500/20 pl-4">Projets en Cours</h3>
-          <ul className="max-w-4xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
-            {ongoingProjects.map((card, index) => (
-              <motion.div
-                layoutId={`card-${card.title}-${id}`}
-                key={`card-${card.title}-${id}`}
-                onClick={() => setActive(card)}
-                className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-white/[0.03] rounded-xl cursor-pointer border border-white/5 transition-colors"
-              >
-                <div className="flex gap-4 flex-col md:flex-row items-center">
-                  <motion.div layoutId={`image-${card.title}-${id}`}>
-                    <Image
-                      width={100}
-                      height={100}
-                      src={card.src}
-                      alt={card.title}
-                      className="h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover object-top"
-                    />
-                  </motion.div>
-                  <div className="">
-                    <motion.h3
-                      layoutId={`title-${card.title}-${id}`}
-                      className="font-medium text-white text-center md:text-left"
-                    >
-                      {card.title}
-                    </motion.h3>
-                    <motion.p
-                      layoutId={`description-${card.description}-${id}`}
-                      className="text-gray-500 text-center md:text-left text-xs"
-                    >
-                      {card.description}
-                    </motion.p>
-                  </div>
+                <div>
+                  <h3 className="text-sm font-bold tracking-[0.2em] text-cyan-500/60 mb-8 uppercase border-l-2 border-cyan-500/20 pl-4">Projets en Cours</h3>
+                  <ul className="max-w-4xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {ongoingProjects.map((card, index) => (
+                      <motion.div
+                        layoutId={`card-${card.title}-${id}`}
+                        key={`card-${card.title}-${id}`}
+                        onClick={() => setActive(card)}
+                        className="group flex flex-col bg-navy border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:bg-white/[0.03] transition-colors"
+                      >
+                        <div className="aspect-video relative overflow-hidden">
+                          <Image
+                            src={card.src}
+                            alt={card.title}
+                            fill
+                            className="object-cover group-hover:scale-110 transition duration-500"
+                          />
+                        </div>
+                        <div className="p-4 flex justify-between items-center">
+                          <div className="flex items-center gap-3">
+                            <motion.h3
+                              layoutId={`title-${card.title}-${id}`}
+                              className="font-bold text-white text-sm"
+                            >
+                              {card.title}
+                            </motion.h3>
+                          </div>
+                          <motion.button
+                            layoutId={`button-${card.title}-${id}`}
+                            className="px-4 py-2 text-[10px] rounded-full font-bold bg-cyan-500 text-white opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition duration-200 uppercase tracking-widest"
+                          >
+                            Visiter
+                          </motion.button>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </ul>
                 </div>
-                <motion.button
-                  layoutId={`button-${card.title}-${id}`}
-                  className="px-4 py-2 text-xs rounded-full font-bold bg-white/5 text-white mt-4 md:mt-0"
-                >
-                  {card.ctaText}
-                </motion.button>
-              </motion.div>
-            ))}
-          </ul>
-        </div>
       </div>
     </>
   );
