@@ -73,7 +73,7 @@ export function ExpandableCardDemo() {
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-navy border border-white/10 sm:rounded-3xl overflow-hidden relative"
+              className="w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-navy border border-white/10 sm:rounded-3xl overflow-hidden relative z-[200]"
             >
               <motion.button
                 key={`close-button-${active.title}-${id}`}
@@ -81,10 +81,10 @@ export function ExpandableCardDemo() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="absolute top-4 right-4 z-[150] flex items-center justify-center bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full h-10 w-10 text-white transition-colors"
+                className="absolute top-4 right-4 z-[210] flex items-center justify-center bg-white/20 hover:bg-white/30 backdrop-blur-xl rounded-full h-12 w-12 text-white transition-all shadow-2xl border border-white/20"
                 onClick={() => setActive(null)}
               >
-                <X size={24} />
+                <X size={28} />
               </motion.button>
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <Image
@@ -152,7 +152,7 @@ export function ExpandableCardDemo() {
                 title={card.title}
                 description={card.description}
                 header={
-                  <div className="relative w-full h-full min-h-[6rem] rounded-xl overflow-hidden">
+                  <div className="absolute inset-0 w-full h-full">
                     <Image
                       src={card.src}
                       alt={card.title}
@@ -162,7 +162,7 @@ export function ExpandableCardDemo() {
                   </div>
                 }
                 className={i === 0 || i === 3 ? "md:col-span-2" : "md:col-span-1"}
-                icon={<CheckCircle2 className="h-4 w-4 text-cyan-400" />}
+                icon={<CheckCircle2 className="h-6 w-6 text-cyan-400" />}
                 onClick={() => setActive(card)}
               />
             ))}

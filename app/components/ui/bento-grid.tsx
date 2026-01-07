@@ -38,21 +38,28 @@ export const BentoGridItem = ({
     <div
       onClick={onClick}
       className={cn(
-        "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-navy/80 dark:border-white/[0.1] bg-white border border-transparent justify-between flex flex-col space-y-4 cursor-pointer",
+        "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-0 dark:bg-navy/80 dark:border-white/[0.1] bg-white border border-transparent justify-between flex flex-col space-y-0 cursor-pointer overflow-hidden",
         className
       )}
     >
-      {header}
-      <div className="group-hover/bento:translate-x-2 transition duration-200 flex justify-between items-end">
-        <div>
-          {icon}
-          <div className="font-sans font-bold text-white mb-2 mt-2">
-            {title}
-          </div>
-        </div>
-        <div className="opacity-100 lg:opacity-0 group-hover/bento:opacity-100 transition duration-200">
-          <div className="px-3 py-1.5 rounded-full bg-cyan-500 text-white text-[10px] font-bold uppercase tracking-wider">
-            Visiter
+      <div className="relative w-full h-full flex flex-col">
+        {header}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 group-hover/bento:translate-x-0 transition duration-200">
+          <div className="flex justify-between items-end w-full">
+            <div className="flex flex-col">
+              {icon && <div className="mb-2">{icon}</div>}
+              <div className="font-sans font-bold text-white text-xl md:text-2xl mb-1 drop-shadow-lg">
+                {title}
+              </div>
+              <div className="font-sans font-normal text-gray-200 text-xs md:text-sm drop-shadow-md">
+                {description}
+              </div>
+            </div>
+            <div className="opacity-100 lg:opacity-0 group-hover/bento:opacity-100 transition duration-200 transform translate-y-0 group-hover/bento:-translate-y-1">
+              <div className="px-4 py-2 rounded-full bg-cyan-500 text-white text-xs font-bold uppercase tracking-widest shadow-lg">
+                Visiter
+              </div>
+            </div>
           </div>
         </div>
       </div>
