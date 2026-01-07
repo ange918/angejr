@@ -49,31 +49,11 @@ export function ExpandableCardDemo() {
       </AnimatePresence>
       <AnimatePresence>
         {active && typeof active === "object" ? (
-          <div className="fixed inset-0  grid place-items-center z-[100]">
-            <motion.button
-              key={`button-${active.title}-${id}`}
-              layout
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                opacity: 1,
-              }}
-              exit={{
-                opacity: 0,
-                transition: {
-                  duration: 0.05,
-                },
-              }}
-              className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
-              onClick={() => setActive(null)}
-            >
-              <CloseIcon />
-            </motion.button>
+          <div className="fixed inset-0  grid place-items-center z-[200]">
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-navy border border-white/10 sm:rounded-3xl overflow-hidden relative z-[200]"
+              className="w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-navy border border-white/10 sm:rounded-3xl overflow-hidden relative z-[210]"
             >
               <motion.button
                 key={`close-button-${active.title}-${id}`}
@@ -81,7 +61,7 @@ export function ExpandableCardDemo() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="absolute top-4 right-4 z-[210] flex items-center justify-center bg-white/20 hover:bg-white/30 backdrop-blur-xl rounded-full h-12 w-12 text-white transition-all shadow-2xl border border-white/20"
+                className="absolute top-20 right-4 md:top-4 md:right-4 z-[220] flex items-center justify-center bg-white/20 hover:bg-white/30 backdrop-blur-xl rounded-full h-12 w-12 text-white transition-all shadow-2xl border border-white/20"
                 onClick={() => setActive(null)}
               >
                 <X size={28} />
