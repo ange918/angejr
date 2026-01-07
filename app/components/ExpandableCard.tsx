@@ -125,14 +125,18 @@ export function ExpandableCardDemo() {
       <div className="space-y-16">
         <div>
           <h3 className="text-sm font-bold tracking-[0.2em] text-white mb-8 uppercase border-l-2 border-cyan-500 pl-4">Projets Terminés</h3>
-          <BentoGrid className="max-w-4xl mx-auto">
+          <BentoGrid className="max-w-6xl mx-auto px-4">
             {completedProjects.map((card, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                viewport={{ once: true }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: i * 0.15,
+                  ease: [0.21, 0.47, 0.32, 0.98]
+                }}
+                viewport={{ once: true, margin: "-100px" }}
                 className={i === 0 || i === 3 ? "md:col-span-2" : "md:col-span-1"}
               >
                 <BentoGridItem
@@ -144,11 +148,11 @@ export function ExpandableCardDemo() {
                         src={card.src}
                         alt={card.title}
                         fill
-                        className="object-cover group-hover/bento:scale-110 transition duration-500"
+                        className="object-cover scale-105 group-hover/bento:scale-100 transition duration-700 ease-out"
                       />
                     </div>
                   }
-                  icon={<CheckCircle2 className="h-6 w-6 text-cyan-400" />}
+                  icon={<CheckCircle2 className="h-8 w-8 text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]" />}
                   onClick={() => setActive(card)}
                 />
               </motion.div>
