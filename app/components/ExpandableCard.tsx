@@ -81,10 +81,10 @@ export function ExpandableCardDemo() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="absolute top-4 right-4 z-[110] flex items-center justify-center bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full h-8 w-8 text-white transition-colors"
+                className="absolute top-4 right-4 z-[150] flex items-center justify-center bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full h-10 w-10 text-white transition-colors"
                 onClick={() => setActive(null)}
               >
-                <X size={18} />
+                <X size={24} />
               </motion.button>
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <Image
