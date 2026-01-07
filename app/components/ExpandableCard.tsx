@@ -154,6 +154,7 @@ export function ExpandableCardDemo() {
                   }
                   icon={<CheckCircle2 className="h-8 w-8 text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]" />}
                   onClick={() => setActive(card)}
+                  ctaLink={card.ctaLink}
                 />
               </motion.div>
             ))}
@@ -191,12 +192,25 @@ export function ExpandableCardDemo() {
                               {card.title}
                             </motion.h3>
                           </div>
-                          <motion.button
-                            layoutId={`button-${card.title}-${id}`}
-                            className="px-4 py-2 text-[10px] rounded-full font-bold bg-cyan-500 text-white opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition duration-200 uppercase tracking-widest"
-                          >
-                            Visiter
-                          </motion.button>
+                          <div className="flex gap-2">
+                            {card.ctaLink && card.ctaLink !== "#" && (
+                              <a 
+                                href={card.ctaLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="px-4 py-2 text-[10px] rounded-full font-bold bg-cyan-500 text-white opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition duration-200 uppercase tracking-widest"
+                              >
+                                Visiter
+                              </a>
+                            )}
+                            <motion.button
+                              layoutId={`button-${card.title}-${id}`}
+                              className="px-4 py-2 text-[10px] rounded-full font-bold bg-white/10 text-white opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition duration-200 uppercase tracking-widest"
+                            >
+                              Détails
+                            </motion.button>
+                          </div>
                         </div>
                       </motion.div>
                     ))}

@@ -26,6 +26,7 @@ export const BentoGridItem = ({
   header,
   icon,
   onClick,
+  ctaLink,
 }: {
   className?: string;
   title?: string | React.ReactNode;
@@ -33,6 +34,7 @@ export const BentoGridItem = ({
   header?: React.ReactNode;
   icon?: React.ReactNode;
   onClick?: () => void;
+  ctaLink?: string;
 }) => {
   return (
     <div
@@ -55,9 +57,20 @@ export const BentoGridItem = ({
                 {description}
               </div>
             </div>
-            <div className="opacity-100 lg:opacity-0 group-hover/bento:opacity-100 transition-all duration-500 transform translate-y-4 group-hover/bento:translate-y-0">
-              <div className="px-6 py-3 rounded-full bg-cyan-500 hover:bg-cyan-400 text-white text-xs font-bold uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all duration-300">
-                Découvrir
+            <div className="flex flex-col gap-2 opacity-100 lg:opacity-0 group-hover/bento:opacity-100 transition-all duration-500 transform translate-y-4 group-hover/bento:translate-y-0">
+              {ctaLink && ctaLink !== "#" && (
+                <a 
+                  href={ctaLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="px-6 py-3 rounded-full bg-cyan-500 hover:bg-cyan-400 text-white text-xs font-bold uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all duration-300 text-center"
+                >
+                  Visiter
+                </a>
+              )}
+              <div className="px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-white/20 transition-all duration-300 text-center">
+                Détails
               </div>
             </div>
           </div>

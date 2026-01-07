@@ -5,6 +5,7 @@ import React, {
   useState,
   createContext,
   useContext,
+  useCallback,
 } from "react";
 import {
   IconArrowNarrowLeft,
@@ -19,6 +20,8 @@ import { useOutsideClick } from "@/hooks/use-outside-click";
 interface CarouselProps {
   items: React.ReactNode[];
   initialScroll?: number;
+  autoplay?: boolean;
+  autoplayInterval?: number;
 }
 
 export type AppleCardData = {
@@ -36,26 +39,25 @@ export const CarouselContext = createContext<{
   currentIndex: 0,
 });
 
-export const AppleCarousel = ({ items, initialScroll = 0 }: CarouselProps) => {
+export const AppleCarousel = ({ 
+  items, 
+  initialScroll = 0,
+  autoplay = true,
+  autoplayInterval = 3000 
+}: CarouselProps) => {
   const carouselRef = React.useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = React.useState(false);
   const [canScrollRight, setCanScrollRight] = React.useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
-  useEffect(() => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollLeft = initialScroll;
-      checkScrollability();
-    }
-  }, [initialScroll]);
-
-  const checkScrollability = () => {
+  const checkScrollability = useCallback(() => {
     if (carouselRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
       setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
     }
-  };
+  }, []);
 
   const scrollLeft = () => {
     if (carouselRef.current) {
@@ -63,11 +65,33 @@ export const AppleCarousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     }
   };
 
-  const scrollRight = () => {
+  const scrollRight = useCallback(() => {
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: 300, behavior: "smooth" });
+      const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+      if (scrollLeft >= scrollWidth - clientWidth - 10) {
+        carouselRef.current.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        carouselRef.current.scrollBy({ left: 300, behavior: "smooth" });
+      }
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollLeft = initialScroll;
+      checkScrollability();
+    }
+  }, [initialScroll, checkScrollability]);
+
+  useEffect(() => {
+    if (!autoplay || isHovered) return;
+
+    const interval = setInterval(() => {
+      scrollRight();
+    }, autoplayInterval);
+
+    return () => clearInterval(interval);
+  }, [autoplay, autoplayInterval, isHovered, scrollRight]);
 
   const handleCardClose = (index: number) => {
     if (carouselRef.current) {
@@ -86,7 +110,11 @@ export const AppleCarousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     <CarouselContext.Provider
       value={{ onCardClose: handleCardClose, currentIndex }}
     >
-      <div className="relative w-full">
+      <div 
+        className="relative w-full"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <div
           className="flex w-full overflow-x-scroll overscroll-x-none py-10 md:py-20 scroll-smooth [scrollbar-width:none]"
           ref={carouselRef}
@@ -132,7 +160,7 @@ export const AppleCarousel = ({ items, initialScroll = 0 }: CarouselProps) => {
           <button
             className="relative z-40 h-10 w-10 rounded-full bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center disabled:opacity-50"
             onClick={scrollRight}
-            disabled={!canScrollRight}
+            disabled={!canScrollRight && !autoplay}
           >
             <IconArrowNarrowRight className="h-6 w-6 text-white" />
           </button>
