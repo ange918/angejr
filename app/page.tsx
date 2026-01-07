@@ -4,10 +4,11 @@ import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, MessageSquare, ArrowUp, Github, Linkedin, ExternalLink, Menu, X, Quote, Copy, Check } from "lucide-react";
 import { FlipWords } from "./components/ui/flip-words";
 import { ExpandableCardDemo } from "./components/ExpandableCard";
-import { Carousel, Card } from "./components/ui/apple-cards-carousel";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
+import { AppleCarousel, AppleCard, type AppleCardData } from "@/components/ui/apple-cards-carousel";
+import Image from "next/image";
 
 const projects = [
   { name: "Model Academy Management", status: "Terminé", stack: ["Next.js", "PostgreSQL", "Tailwind"], image: "/images/modelacademy_1767704999756.jpeg" },
@@ -55,15 +56,27 @@ const skills = [
 
 const titles = ["Développeur Full-Stack", "Ingénieur Logiciel", "Créateur Digital"];
 
-const carouselData = [
+
+const carouselData: AppleCardData[] = [
   {
     category: "Solutions Web",
     title: "Sites E-commerce",
     src: "/assets/generated/modern_e-commerce_website_interface_mockup.png",
     content: (
-      <div className="space-y-4">
-        <p>Boutiques en ligne modernes et performantes, optimisées pour la vente et l'expérience client. Intégration de paiements sécurisés et gestion simplifiée des stocks.</p>
-        <img src="/assets/generated/modern_e-commerce_website_interface_mockup.png" alt="E-commerce" className="rounded-xl w-full object-cover h-64" />
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Boutiques en ligne modernes et performantes.
+          </span>{" "}
+          Optimisées pour la vente et l'expérience client. Intégration de paiements sécurisés et gestion simplifiée des stocks.
+        </p>
+        <Image
+          src="/assets/generated/modern_e-commerce_website_interface_mockup.png"
+          alt="E-commerce mockup"
+          height="500"
+          width="500"
+          className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain mt-10"
+        />
       </div>
     ),
   },
@@ -72,9 +85,20 @@ const carouselData = [
     title: "Portfolios & Vitrines",
     src: "/assets/generated/minimalist_portfolio_website_design_mockup.png",
     content: (
-      <div className="space-y-4">
-        <p>Sites vitrines élégants pour professionnels et entreprises. Des designs uniques qui capturent l'identité de votre marque et mettent en valeur votre savoir-faire.</p>
-        <img src="/assets/generated/minimalist_portfolio_website_design_mockup.png" alt="Portfolio" className="rounded-xl w-full object-cover h-64" />
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Capturer l'identité de votre marque.
+          </span>{" "}
+          Sites vitrines élégants pour professionnels et entreprises. Des designs uniques qui mettent en valeur votre savoir-faire.
+        </p>
+        <Image
+          src="/assets/generated/minimalist_portfolio_website_design_mockup.png"
+          alt="Portfolio mockup"
+          height="500"
+          width="500"
+          className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain mt-10"
+        />
       </div>
     ),
   },
@@ -83,9 +107,20 @@ const carouselData = [
     title: "SaaS & Dashboards",
     src: "/assets/generated/modern_saas_dashboard_interface_mockup.png",
     content: (
-      <div className="space-y-4">
-        <p>Logiciels en tant que service (SaaS) et tableaux de bord complexes pour la gestion de données, le suivi d'activité et l'automatisation de vos processus métiers.</p>
-        <img src="/assets/generated/modern_saas_dashboard_interface_mockup.png" alt="SaaS" className="rounded-xl w-full object-cover h-64" />
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Automatisation et gestion de données.
+          </span>{" "}
+          Logiciels en tant que service (SaaS) et tableaux de bord complexes pour le suivi d'activité et l'optimisation de vos processus.
+        </p>
+        <Image
+          src="/assets/generated/modern_saas_dashboard_interface_mockup.png"
+          alt="SaaS mockup"
+          height="500"
+          width="500"
+          className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain mt-10"
+        />
       </div>
     ),
   },
@@ -94,9 +129,20 @@ const carouselData = [
     title: "Applications Mobiles",
     src: "/assets/generated/sleek_mobile_app_interface_mockup.png",
     content: (
-      <div className="space-y-4">
-        <p>Applications mobiles natives et hybrides offrant une expérience fluide sur iOS et Android, avec des fonctionnalités avancées et une interface soignée.</p>
-        <img src="/assets/generated/sleek_mobile_app_interface_mockup.png" alt="Applications Mobiles" className="rounded-xl w-full object-cover h-64" />
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Expérience fluide sur iOS et Android.
+          </span>{" "}
+          Applications natives et hybrides offrant des fonctionnalités avancées et une interface utilisateur soignée.
+        </p>
+        <Image
+          src="/assets/generated/sleek_mobile_app_interface_mockup.png"
+          alt="Mobile app mockup"
+          height="500"
+          width="500"
+          className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain mt-10"
+        />
       </div>
     ),
   },
@@ -105,9 +151,20 @@ const carouselData = [
     title: "Réseaux Sociaux & Annuaires",
     src: "/assets/generated/social_networking_platform_interface_mockup.png",
     content: (
-      <div className="space-y-4">
-        <p>Plateformes de mise en relation, annuaires professionnels et réseaux sociaux thématiques pour connecter les talents et favoriser les opportunités.</p>
-        <img src="/assets/generated/social_networking_platform_interface_mockup.png" alt="Networking" className="rounded-xl w-full object-cover h-64" />
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Connecter les talents et opportunités.
+          </span>{" "}
+          Plateformes de mise en relation et réseaux sociaux thématiques pour favoriser les synergies professionnelles.
+        </p>
+        <Image
+          src="/assets/generated/social_networking_platform_interface_mockup.png"
+          alt="Networking mockup"
+          height="500"
+          width="500"
+          className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain mt-10"
+        />
       </div>
     ),
   },
@@ -131,7 +188,7 @@ export default function Home() {
   };
 
   const carouselItems = carouselData.map((card, index) => (
-    <Card key={card.src} card={card} index={index} />
+    <AppleCard key={card.src} card={card} index={index} layout={true} />
   ));
 
   return (
@@ -242,7 +299,7 @@ export default function Home() {
       >
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-12 uppercase">Les choses que je réalise</h2>
-          <Carousel items={carouselItems} />
+          <AppleCarousel items={carouselItems} />
         </div>
       </motion.section>
 
