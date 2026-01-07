@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, MessageSquare, ArrowUp, Github, Linkedin, ExternalLink, Menu, X, Quote, Copy, Check } from "lucide-react";
 import { FlipWords } from "./components/ui/flip-words";
 import { ExpandableCardDemo } from "./components/ExpandableCard";
-import { Globe } from "./components/ui/globe";
+import { Carousel, Card } from "./components/ui/apple-cards-carousel";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
@@ -55,6 +55,53 @@ const skills = [
 
 const titles = ["Développeur Full-Stack", "Ingénieur Logiciel", "Créateur Digital"];
 
+const carouselData = [
+  {
+    category: "Site E-commerce",
+    title: "Expérience shopping immersive",
+    src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767648255135.jpeg",
+    content: (
+      <div className="space-y-4">
+        <p>Une boutique en ligne moderne avec une interface utilisateur fluide, optimisée pour la conversion et la rapidité.</p>
+        <img src="/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767648255135.jpeg" alt="E-commerce" className="rounded-xl w-full object-cover h-64" />
+      </div>
+    ),
+  },
+  {
+    category: "Portfolio d'Architecte",
+    title: "Visualisation 3D futuriste",
+    src: "/images/ore_1767704999754.jpeg",
+    content: (
+      <div className="space-y-4">
+        <p>Un portfolio conçu avec Three.js pour une immersion totale dans les réalisations architecturales d'Ore Gauthier.</p>
+        <img src="/images/ore_1767704999754.jpeg" alt="Portfolio" className="rounded-xl w-full object-cover h-64" />
+      </div>
+    ),
+  },
+  {
+    category: "Gestion de Talents",
+    title: "Système Model Academy",
+    src: "/images/modelacademy_1767704999756.jpeg",
+    content: (
+      <div className="space-y-4">
+        <p>Une application de gestion robuste pour le suivi des mannequins et l'organisation d'événements de mode.</p>
+        <img src="/images/modelacademy_1767704999756.jpeg" alt="Model Academy" className="rounded-xl w-full object-cover h-64" />
+      </div>
+    ),
+  },
+  {
+    category: "Food Delivery",
+    title: "Application FOODMOOD",
+    src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647806079.jpeg",
+    content: (
+      <div className="space-y-4">
+        <p>Commandez vos plats préférés en toute simplicité avec une interface intuitive et rapide.</p>
+        <img src="/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647806079.jpeg" alt="FoodMood" className="rounded-xl w-full object-cover h-64" />
+      </div>
+    ),
+  },
+];
+
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -71,6 +118,10 @@ export default function Home() {
     setEmailCopied(true);
     setTimeout(() => setEmailCopied(false), 2000);
   };
+
+  const carouselItems = carouselData.map((card, index) => (
+    <Card key={card.src} card={card} index={index} />
+  ));
 
   return (
     <motion.main 
@@ -170,16 +221,17 @@ export default function Home() {
         </motion.div>
       </motion.section>
 
-      {/* Globe Section */}
+      {/* Realizations Carousel Section */}
       <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="relative py-12 flex flex-col items-center justify-center overflow-hidden z-10"
+        className="relative py-20 z-10"
       >
-        <div className="max-w-4xl mx-auto w-full text-center px-6">
-          <Globe className="opacity-50" />
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-12 uppercase">Les choses que je réalise</h2>
+          <Carousel items={carouselItems} />
         </div>
       </motion.section>
 
