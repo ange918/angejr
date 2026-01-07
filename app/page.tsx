@@ -179,7 +179,6 @@ export default function Home() {
         className="relative py-12 flex flex-col items-center justify-center overflow-hidden z-10"
       >
         <div className="max-w-4xl mx-auto w-full text-center px-6">
-          <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-4 uppercase">Présence Mondiale</h2>
           <Globe className="opacity-50" />
         </div>
       </motion.section>
