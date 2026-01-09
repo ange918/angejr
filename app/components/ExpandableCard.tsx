@@ -125,40 +125,55 @@ export function ExpandableCardDemo() {
       <div className="space-y-16">
         <div>
           <h3 className="text-sm font-bold tracking-[0.2em] text-white mb-8 uppercase border-l-2 border-cyan-500 pl-4">Projets Terminés</h3>
-          <BentoGrid className="max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4">
             {completedProjects.map((card, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: 0.8, 
-                  delay: i * 0.15,
-                  ease: [0.21, 0.47, 0.32, 0.98]
-                }}
-                viewport={{ once: true, margin: "-100px" }}
-                className={i === 0 || i === 3 ? "md:col-span-2" : "md:col-span-1"}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                onClick={() => setActive(card)}
+                className="group relative flex flex-col bg-navy border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:bg-white/[0.03] transition-colors h-full"
               >
-                <BentoGridItem
-                  title={card.title}
-                  description={card.description}
-                  header={
-                    <div className="absolute inset-0 w-full h-full">
-                      <Image
-                        src={card.src}
-                        alt={card.title}
-                        fill
-                        className="object-cover scale-105 group-hover/bento:scale-100 transition duration-700 ease-out"
-                      />
-                    </div>
-                  }
-                  icon={<CheckCircle2 className="h-8 w-8 text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]" />}
-                  onClick={() => setActive(card)}
-                  ctaLink={card.ctaLink}
-                />
+                <div className="aspect-video relative overflow-hidden">
+                  <Image
+                    src={card.src}
+                    alt={card.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <p className="text-white text-xs font-bold uppercase tracking-widest">Voir les détails</p>
+                  </div>
+                </div>
+                <div className="p-5 flex flex-col flex-grow justify-between gap-4">
+                  <div>
+                    <h3 className="font-bold text-white text-base mb-1">{card.title}</h3>
+                    <p className="text-gray-400 text-xs line-clamp-2">{card.description}</p>
+                  </div>
+                  <div className="flex gap-2 mt-auto">
+                    {card.ctaLink && card.ctaLink !== "#" && (
+                      <a 
+                        href={card.ctaLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="flex-1 text-center px-4 py-2.5 text-[10px] rounded-full font-bold bg-cyan-500 text-white hover:bg-cyan-400 transition duration-200 uppercase tracking-widest"
+                      >
+                        Visiter
+                      </a>
+                    )}
+                    <button
+                      className="flex-1 px-4 py-2.5 text-[10px] rounded-full font-bold bg-white/10 text-white hover:bg-white/20 transition duration-200 uppercase tracking-widest border border-white/5"
+                    >
+                      Détails
+                    </button>
+                  </div>
+                </div>
               </motion.div>
             ))}
-          </BentoGrid>
+          </div>
         </div>
 
                 <div>
