@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+* {
+  caret-color: transparent !important;
+}
+
+input, textarea {
+  caret-color: auto !important;
+}
+
 @font-face {
   font-family: 'Ciguatera';
   src: url('https://fonts.cdnfonts.com/s/14883/Ciguatera.woff') format('woff');
