@@ -313,7 +313,7 @@ export default function Home() {
         className="relative py-10 z-10"
       >
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-12 uppercase">Les choses que je réalise</h2>
+          <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 mb-12 uppercase">Les choses que je réalise</h2>
           <AppleCarousel items={carouselItems} />
         </div>
       </motion.section>
@@ -333,7 +333,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-10 uppercase">À Propos</h2>
+            <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 mb-10 uppercase">À Propos</h2>
             <div className="space-y-5 text-lg md:text-xl text-gray-200 leading-relaxed font-light">
               <p>
                 Je suis <span className="text-white font-medium">Ange AKONDE</span>, développeur FullStack passionné par les nouvelles technologies et l'innovation numérique. Après avoir suivi une formation intensive en développement web, je crée des applications modernes, performantes et élégantes.
@@ -359,7 +359,7 @@ export default function Home() {
         className="py-24 px-6 bg-white/[0.01] z-10 relative"
       >
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-16 uppercase text-center">Projets Sélectionnés</h2>
+          <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 mb-16 uppercase text-center">Projets Sélectionnés</h2>
           <ExpandableCardDemo />
         </div>
       </motion.section>
@@ -374,7 +374,7 @@ export default function Home() {
         className="py-24 px-6 z-10 relative"
       >
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-12 uppercase">Expertise</h2>
+          <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 mb-12 uppercase">Expertise</h2>
           
           <div className="mb-16">
             <h3 className="text-[8px] font-bold tracking-[0.2em] text-gray-500 mb-8 uppercase italic">Langages & Outils maîtrisés</h3>
@@ -398,7 +398,7 @@ export default function Home() {
                     transition={{ duration: 3, repeat: Infinity, delay: i * 0.2, ease: "easeInOut" }}
                     className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center p-1.5 rounded-lg bg-white/[0.02] border border-white/5 group-hover:border-cyan-500/30 group-hover:bg-cyan-500/5 transition-all shadow-lg shadow-transparent group-hover:shadow-cyan-500/10"
                   >
-                    <img src={skill.logo} alt={skill.name} className="w-full h-full object-contain transition-all duration-300" />
+                    <Image src={skill.logo} alt={skill.name} width={48} height={48} className="w-full h-full object-contain transition-all duration-300" />
                   </motion.div>
                   <span className="text-[8px] md:text-[9px] font-medium text-gray-500 uppercase tracking-widest group-hover:text-cyan-400 transition-colors">
                     {skill.name}
@@ -422,7 +422,7 @@ export default function Home() {
                   className="flex flex-col items-center gap-2 group cursor-pointer"
                 >
                   <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center p-1.5 rounded-lg bg-white/[0.01] border border-white/5 grayscale group-hover:grayscale-0 transition-all">
-                    <img src={skill.logo} alt={skill.name} className="w-full h-full object-contain" />
+                    <Image src={skill.logo} alt={skill.name} width={40} height={40} className="w-full h-full object-contain" />
                   </div>
                   <span className="text-[7px] md:text-[8px] font-medium text-gray-600 uppercase tracking-widest group-hover:text-white transition-colors">
                     {skill.name}
@@ -443,7 +443,7 @@ export default function Home() {
         className="py-24 bg-white/[0.01] overflow-hidden z-10 relative"
       >
         <div className="max-w-4xl mx-auto px-6 mb-12 text-center">
-          <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 uppercase">Témoignages</h2>
+          <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 uppercase">Témoignages</h2>
         </div>
         <Marquee gradient={false} speed={30} pauseOnHover={true}>
           {testimonials.map((t, i) => (
@@ -471,7 +471,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <div>
-              <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-10 uppercase">Contact</h2>
+              <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 mb-10 uppercase">Contact</h2>
               <p className="text-xl font-light text-gray-300 mb-10">Construisons quelque chose de remarquable ensemble.</p>
               <div className="space-y-5">
                 <p className="text-[10px] text-gray-500 tracking-widest uppercase font-bold">Email</p>

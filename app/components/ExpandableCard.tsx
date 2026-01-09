@@ -132,7 +132,7 @@ export function ExpandableCardDemo() {
       
       <div className="space-y-16">
         <div>
-          <h3 className="text-sm font-bold tracking-[0.2em] text-white mb-8 uppercase border-l-2 border-cyan-500 pl-4">Projets Terminés</h3>
+          <h3 className="text-[12px] md:text-[16px] font-bold tracking-[0.2em] text-white mb-8 uppercase border-l-2 border-cyan-500 pl-4">Projets Terminés</h3>
           <div className="relative group/carousel">
             <div 
               ref={carouselRef}
@@ -196,7 +196,7 @@ export function ExpandableCardDemo() {
         </div>
 
                 <div>
-                  <h3 className="text-sm font-bold tracking-[0.2em] text-cyan-500/60 mb-8 uppercase border-l-2 border-cyan-500/20 pl-4">Projets en Cours</h3>
+                  <h3 className="text-[12px] md:text-[16px] font-bold tracking-[0.2em] text-cyan-500/60 mb-8 uppercase border-l-2 border-cyan-500/20 pl-4">Projets en Cours</h3>
                   <ul className="max-w-4xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
                     {ongoingProjects.map((card, index) => (
                       <motion.div
