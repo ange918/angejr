@@ -11,7 +11,15 @@ export function ExpandableCardDemo() {
     null
   );
   const ref = useRef<HTMLDivElement>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
   const id = useId();
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (carouselRef.current) {
+      const scrollAmount = direction === 'left' ? -350 : 350;
+      carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -125,45 +133,63 @@ export function ExpandableCardDemo() {
       <div className="space-y-16">
         <div>
           <h3 className="text-sm font-bold tracking-[0.2em] text-white mb-8 uppercase border-l-2 border-cyan-500 pl-4">Projets Terminés</h3>
-          <div className="flex flex-nowrap overflow-x-auto gap-6 max-w-7xl mx-auto px-4 pb-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-            {completedProjects.map((card, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                viewport={{ once: true }}
-                onClick={() => setActive(card)}
-                className="group relative flex flex-col bg-navy border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:bg-white/[0.03] transition-colors h-[400px] w-[300px] flex-shrink-0"
-              >
-                <div className="absolute inset-0 w-full h-full">
-                  <Image
-                    src={card.src}
-                    alt={card.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/20 to-transparent opacity-80" />
-                </div>
-                
-                <div className="relative mt-auto p-6 flex flex-col gap-4">
-                  <h3 className="font-bold text-white text-lg">{card.title}</h3>
-                  <div className="flex gap-2">
-                    {card.ctaLink && card.ctaLink !== "#" && (
-                      <a 
-                        href={card.ctaLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="flex-1 text-center px-6 py-2.5 text-[10px] rounded-full font-bold bg-cyan-500 text-white hover:bg-cyan-400 transition duration-200 uppercase tracking-widest"
-                      >
-                        Visiter
-                      </a>
-                    )}
+          <div className="relative group/carousel">
+            <div 
+              ref={carouselRef}
+              className="flex flex-nowrap overflow-x-auto gap-6 max-w-7xl mx-auto px-4 pb-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden scroll-smooth"
+            >
+              {completedProjects.map((card, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  onClick={() => setActive(card)}
+                  className="group relative flex flex-col bg-navy border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:bg-white/[0.03] transition-colors h-[400px] w-[300px] flex-shrink-0"
+                >
+                  <div className="absolute inset-0 w-full h-full">
+                    <Image
+                      src={card.src}
+                      alt={card.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/20 to-transparent opacity-80" />
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                  
+                  <div className="relative mt-auto p-6 flex flex-col gap-4">
+                    <h3 className="font-bold text-white text-lg">{card.title}</h3>
+                    <div className="flex gap-2">
+                      {card.ctaLink && card.ctaLink !== "#" && (
+                        <a 
+                          href={card.ctaLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="flex-1 text-center px-6 py-2.5 text-[10px] rounded-full font-bold bg-cyan-500 text-white hover:bg-cyan-400 transition duration-200 uppercase tracking-widest"
+                        >
+                          Visiter
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            
+            <button 
+              onClick={() => scroll('left')}
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-navy/80 border border-white/10 text-white opacity-0 group-hover/carousel:opacity-100 transition-opacity hover:bg-cyan-500/20"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button 
+              onClick={() => scroll('right')}
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-navy/80 border border-white/10 text-white opacity-0 group-hover/carousel:opacity-100 transition-opacity hover:bg-cyan-500/20"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
           </div>
         </div>
 
