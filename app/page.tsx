@@ -58,6 +58,17 @@ const skills = [
   { name: "WordPress", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/wordpress/wordpress-plain.svg" },
 ];
 
+const learningSkills = [
+  { name: "Python", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" },
+  { name: "Java", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" },
+  { name: "C", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" },
+  { name: "C++", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" },
+  { name: "Go", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original-wordmark.svg" },
+  { name: "Rust", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/rust/rust-original.svg" },
+  { name: "Kotlin", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/kotlin/kotlin-original.svg" },
+  { name: "Swift", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/swift/swift-original.svg" },
+];
+
 const titles = ["Développeur Full-Stack", "Ingénieur Logiciel", "Créateur Digital"];
 
 
@@ -362,35 +373,63 @@ export default function Home() {
         viewport={{ once: true, margin: "-100px" }}
         className="py-24 px-6 z-10 relative"
       >
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-12 uppercase">Expertise</h2>
-          <div className="grid grid-cols-3 md:grid-cols-7 gap-6 items-center justify-items-center">
-            {skills.map((skill, i) => (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                viewport={{ once: true }}
-                whileHover={{ 
-                  scale: 1.1,
-                  rotate: 360,
-                  transition: { duration: 0.8, ease: "easeInOut" }
-                }}
-                className="flex flex-col items-center gap-2 group cursor-pointer"
-              >
-                <motion.div 
-                  animate={{ y: [0, -3, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, delay: i * 0.2, ease: "easeInOut" }}
-                  className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center p-1.5 rounded-lg bg-white/[0.02] border border-white/5 group-hover:border-cyan-500/30 group-hover:bg-cyan-500/5 transition-all shadow-lg shadow-transparent group-hover:shadow-cyan-500/10"
+          
+          <div className="mb-16">
+            <h3 className="text-[8px] font-bold tracking-[0.2em] text-gray-500 mb-8 uppercase italic">Langages & Outils maîtrisés</h3>
+            <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-11 gap-6 items-center justify-items-center">
+              {skills.map((skill, i) => (
+                <motion.div
+                  key={skill.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.05, duration: 0.5 }}
+                  viewport={{ once: true }}
+                  whileHover={{ 
+                    scale: 1.1,
+                    rotate: 360,
+                    transition: { duration: 0.8, ease: "easeInOut" }
+                  }}
+                  className="flex flex-col items-center gap-2 group cursor-pointer"
                 >
-                  <img src={skill.logo} alt={skill.name} className="w-full h-full object-contain transition-all duration-300" />
+                  <motion.div 
+                    animate={{ y: [0, -3, 0] }}
+                    transition={{ duration: 3, repeat: Infinity, delay: i * 0.2, ease: "easeInOut" }}
+                    className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center p-1.5 rounded-lg bg-white/[0.02] border border-white/5 group-hover:border-cyan-500/30 group-hover:bg-cyan-500/5 transition-all shadow-lg shadow-transparent group-hover:shadow-cyan-500/10"
+                  >
+                    <img src={skill.logo} alt={skill.name} className="w-full h-full object-contain transition-all duration-300" />
+                  </motion.div>
+                  <span className="text-[8px] md:text-[9px] font-medium text-gray-500 uppercase tracking-widest group-hover:text-cyan-400 transition-colors">
+                    {skill.name}
+                  </span>
                 </motion.div>
-                <span className="text-[8px] md:text-[9px] font-medium text-gray-500 uppercase tracking-widest group-hover:text-cyan-400 transition-colors">
-                  {skill.name}
-                </span>
-              </motion.div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-[8px] font-bold tracking-[0.2em] text-cyan-500/40 mb-8 uppercase italic">En cours d'apprentissage</h3>
+            <div className="grid grid-cols-4 md:grid-cols-8 gap-6 items-center justify-items-center opacity-70">
+              {learningSkills.map((skill, i) => (
+                <motion.div
+                  key={skill.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.05, duration: 0.5 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.1 }}
+                  className="flex flex-col items-center gap-2 group cursor-pointer"
+                >
+                  <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center p-1.5 rounded-lg bg-white/[0.01] border border-white/5 grayscale group-hover:grayscale-0 transition-all">
+                    <img src={skill.logo} alt={skill.name} className="w-full h-full object-contain" />
+                  </div>
+                  <span className="text-[7px] md:text-[8px] font-medium text-gray-600 uppercase tracking-widest group-hover:text-white transition-colors">
+                    {skill.name}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </motion.section>
