@@ -125,50 +125,41 @@ export function ExpandableCardDemo() {
       <div className="space-y-16">
         <div>
           <h3 className="text-sm font-bold tracking-[0.2em] text-white mb-8 uppercase border-l-2 border-cyan-500 pl-4">Projets Terminés</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4">
+          <div className="flex flex-nowrap overflow-x-auto gap-6 max-w-7xl mx-auto px-4 pb-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             {completedProjects.map((card, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 viewport={{ once: true }}
                 onClick={() => setActive(card)}
-                className="group relative flex flex-col bg-navy border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:bg-white/[0.03] transition-colors h-full"
+                className="group relative flex flex-col bg-navy border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:bg-white/[0.03] transition-colors h-[400px] w-[300px] flex-shrink-0"
               >
-                <div className="aspect-video relative overflow-hidden">
+                <div className="absolute inset-0 w-full h-full">
                   <Image
                     src={card.src}
                     alt={card.title}
                     fill
                     className="object-cover group-hover:scale-110 transition duration-500"
                   />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <p className="text-white text-xs font-bold uppercase tracking-widest">Voir les détails</p>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/20 to-transparent opacity-80" />
                 </div>
-                <div className="p-5 flex flex-col flex-grow justify-between gap-4">
-                  <div>
-                    <h3 className="font-bold text-white text-base mb-1">{card.title}</h3>
-                    <p className="text-gray-400 text-xs line-clamp-2">{card.description}</p>
-                  </div>
-                  <div className="flex gap-2 mt-auto">
+                
+                <div className="relative mt-auto p-6 flex flex-col gap-4">
+                  <h3 className="font-bold text-white text-lg">{card.title}</h3>
+                  <div className="flex gap-2">
                     {card.ctaLink && card.ctaLink !== "#" && (
                       <a 
                         href={card.ctaLink}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="flex-1 text-center px-4 py-2.5 text-[10px] rounded-full font-bold bg-cyan-500 text-white hover:bg-cyan-400 transition duration-200 uppercase tracking-widest"
+                        className="flex-1 text-center px-6 py-2.5 text-[10px] rounded-full font-bold bg-cyan-500 text-white hover:bg-cyan-400 transition duration-200 uppercase tracking-widest"
                       >
                         Visiter
                       </a>
                     )}
-                    <button
-                      className="flex-1 px-4 py-2.5 text-[10px] rounded-full font-bold bg-white/10 text-white hover:bg-white/20 transition duration-200 uppercase tracking-widest border border-white/5"
-                    >
-                      Détails
-                    </button>
                   </div>
                 </div>
               </motion.div>
