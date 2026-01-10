@@ -285,8 +285,8 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="max-w-2xl"
         >
-          <h2 className="text-[10px] font-bold tracking-[0.3em] uppercase text-cyan-500/60 mb-4">Ange Akonde</h2>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tighter leading-none">BigSixteen</h1>
+          <h2 className="text-[10px] font-bold tracking-[0.3em] uppercase text-cyan-500/60 mb-4 font-sans">Ange Akonde</h2>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tighter leading-none text-white">BigSixteen</h1>
           <div className="text-lg md:text-2xl text-gray-400 mb-8 h-10 flex items-center justify-center font-light">
             <FlipWords words={titles} className="text-white font-medium" />
           </div>
@@ -365,7 +365,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="border-l-2 border-cyan-500/30 pl-8"
           >
-            <h3 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-4 uppercase">Formation</h3>
+            <h3 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-4 uppercase font-sans">Formation</h3>
             <p className="text-xl md:text-2xl text-white font-light leading-relaxed">
               Actuellement en <span className="text-cyan-400 font-medium">deuxième année</span> de formation à <span className="text-white font-medium">Futurcraft Institut</span>, où je perfectionne mes compétences en ingénierie logicielle.
             </p>
@@ -378,7 +378,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="border-r-2 border-cyan-500/30 pr-8 text-right"
           >
-            <h3 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-4 uppercase">Freelance</h3>
+            <h3 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-4 uppercase font-sans">Freelance</h3>
             <p className="text-xl md:text-2xl text-white font-light leading-relaxed">
               Je suis <span className="text-cyan-400 font-medium">prêt à travailler en freelance</span> sur vos projets, apportant mon expertise partout à travers <span className="text-white font-medium">le monde</span>.
             </p>

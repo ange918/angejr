@@ -9,9 +9,9 @@ input, textarea {
 }
 
 @font-face {
-  font-family: 'Ciguatera';
-  src: url('https://fonts.cdnfonts.com/s/14883/Ciguatera.woff') format('woff');
-  font-weight: normal;
+  font-family: 'Integral CF';
+  src: url('https://fonts.cdnfonts.com/s/19445/IntegralCF-Bold.woff') format('woff');
+  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
@@ -19,7 +19,7 @@ input, textarea {
 @theme {
   --color-navy: #020617;
   --color-cyan-electric: #06b6d4;
-  --font-ciguatera: 'Ciguatera', system-ui;
+  --font-integral: 'Integral CF', sans-serif;
   --font-montserrat: 'Montserrat', sans-serif;
 }
 
@@ -35,8 +35,10 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Ciguatera', system-ui !important;
+  font-family: 'Integral CF', sans-serif !important;
   color: #06b6d4 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .glow-border {

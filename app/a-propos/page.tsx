@@ -34,8 +34,8 @@ export default function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-10 uppercase">À Propos</h2>
-          <h1 className="text-3xl md:text-5xl font-bold mb-12 tracking-tighter leading-tight">Je suis Ange AKONDE.</h1>
+          <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-10 uppercase font-sans">À Propos</h2>
+          <h1 className="text-3xl md:text-5xl font-bold mb-12 tracking-tighter leading-tight text-white">Je suis Ange AKONDE.</h1>
           
           <div className="space-y-8 text-base md:text-lg text-gray-400 leading-relaxed font-light">
             <p>
