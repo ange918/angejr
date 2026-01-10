@@ -294,7 +294,7 @@ const cards = [
   {
     description: "Développement Next.js & PostgreSQL",
     title: "Model Academy Management",
-    src: "/images/modelacademy_1767704999756.jpeg",
+    src: "/images/model_academy_logo.jpg",
     ctaText: "Visiter",
     ctaLink: "https://model-tau-one.vercel.app",
     status: "Terminé",
@@ -359,7 +359,7 @@ const cards = [
   {
     description: "Architecture Fintech Moderne",
     title: "Code Capital",
-    src: "/images/codecapital_1767704999750.jpeg",
+    src: "/images/code_capital_logo.jpg",
     ctaText: "Visiter",
     ctaLink: "https://code-capital-4sjr.vercel.app",
     status: "Terminé",

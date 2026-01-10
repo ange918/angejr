@@ -227,8 +227,17 @@ export default function Home() {
         }`}
       >
         <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <Link href="/" className="text-lg font-bold tracking-tighter text-white">
-            <span className="text-white">B</span>ig<span className="text-[#06b6d4]">Sixteen</span>
+          <Link href="/" className="flex items-center gap-2">
+            <Image 
+              src="/images/jrc_logo.jpg" 
+              alt="JRC Digit Logo" 
+              width={40} 
+              height={40} 
+              className="rounded-full"
+            />
+            <span className="text-lg font-bold tracking-tighter text-white">
+              <span className="text-white">B</span>ig<span className="text-[#06b6d4]">Sixteen</span>
+            </span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
