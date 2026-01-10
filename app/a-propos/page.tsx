@@ -29,9 +29,6 @@ export default function AboutPage() {
             height={40} 
             className="rounded-full"
           />
-          <span className="text-lg font-bold tracking-tighter text-white">
-            <span className="text-white">B</span>ig<span className="text-[#06b6d4]">Sixteen</span>
-          </span>
         </Link>
         <Link href="/" className="text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-colors">
           Retour

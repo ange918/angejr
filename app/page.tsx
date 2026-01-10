@@ -235,9 +235,6 @@ export default function Home() {
               height={40} 
               className="rounded-full"
             />
-            <span className="text-lg font-bold tracking-tighter text-white">
-              <span className="text-white">B</span>ig<span className="text-[#06b6d4]">Sixteen</span>
-            </span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">

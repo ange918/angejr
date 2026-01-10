@@ -298,7 +298,7 @@ const cards = [
     title: "Model Academy Management",
     src: "/images/model_academy_logo.jpg",
     ctaText: "Visiter",
-    ctaLink: "https://model-tau-one.vercel.app",
+    ctaLink: "https://modelacademy-management.com",
     status: "Terminé",
     content: () => {
       return (
