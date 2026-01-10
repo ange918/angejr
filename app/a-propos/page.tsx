@@ -54,6 +54,28 @@ export default function AboutPage() {
               Chaque projet est une opportunité de créer quelque chose d'exceptionnel, en plaçant l'expérience utilisateur et la qualité du code au cœur de mes priorités.
             </p>
           </div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="mt-16 space-y-12"
+          >
+            <div className="pt-12 border-t border-white/5">
+              <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-6 uppercase">Ma Formation</h2>
+              <p className="text-base md:text-lg text-gray-400 font-light leading-relaxed">
+                Je poursuis actuellement mon cursus académique à <span className="text-white font-medium">Futurcraft Institut</span>, où je suis en <span className="text-cyan-400 font-medium">deuxième année</span>. Cette formation me permet d'approfondir mes connaissances théoriques tout en les appliquant à des projets concrets et innovants.
+              </p>
+            </div>
+
+            <div className="pt-12 border-t border-white/5">
+              <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-6 uppercase">Collaboration Freelance</h2>
+              <p className="text-base md:text-lg text-gray-400 font-light leading-relaxed">
+                Au-delà de mon parcours académique, je suis activement ouvert aux opportunités en <span className="text-cyan-400 font-medium">freelance</span>. Ma vision est sans frontières : je suis prêt à collaborer avec des clients et des entreprises <span className="text-white font-medium">partout à travers le monde</span> pour transformer des idées ambitieuses en réalités numériques.
+              </p>
+            </div>
+          </motion.div>
         </motion.div>
       </section>
 

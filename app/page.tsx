@@ -349,6 +349,43 @@ export default function Home() {
         </div>
       </motion.section>
 
+      {/* Education & Freelance Section */}
+      <motion.section 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="py-12 px-6 z-10 relative bg-white/[0.01]"
+      >
+        <div className="max-w-3xl mx-auto space-y-16">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="border-l-2 border-cyan-500/30 pl-8"
+          >
+            <h3 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-4 uppercase">Formation</h3>
+            <p className="text-xl md:text-2xl text-white font-light leading-relaxed">
+              Actuellement en <span className="text-cyan-400 font-medium">deuxième année</span> de formation à <span className="text-white font-medium">Futurcraft Institut</span>, où je perfectionne mes compétences en ingénierie logicielle.
+            </p>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="border-r-2 border-cyan-500/30 pr-8 text-right"
+          >
+            <h3 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-4 uppercase">Freelance</h3>
+            <p className="text-xl md:text-2xl text-white font-light leading-relaxed">
+              Je suis <span className="text-cyan-400 font-medium">prêt à travailler en freelance</span> sur vos projets, apportant mon expertise partout à travers <span className="text-white font-medium">le monde</span>.
+            </p>
+          </motion.div>
+        </div>
+      </motion.section>
+
       {/* Projects Section */}
       <motion.section 
         id="projets" 
