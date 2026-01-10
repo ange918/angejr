@@ -228,7 +228,7 @@ export default function Home() {
       >
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <Link href="/" className="text-lg font-bold tracking-tighter text-white">
-            <span className="text-white">Big</span><span className="text-cyan-400">Sixteen</span>
+            <span className="text-white">B</span>ig<span className="text-cyan-400">S</span>ixteen
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -287,7 +287,7 @@ export default function Home() {
         >
           <h2 className="text-[10px] font-bold tracking-[0.3em] uppercase text-cyan-500/60 mb-4 font-sans">Ange Akonde</h2>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tighter leading-none">
-            <span className="text-white">Big</span><span className="text-cyan-400">Sixteen</span>
+            <span className="text-white">B</span><span className="text-white lowercase">ig</span><span className="text-cyan-400">S</span><span className="text-cyan-400 lowercase">ixteen</span>
           </h1>
           <div className="text-lg md:text-2xl text-gray-400 mb-8 h-10 flex items-center justify-center font-light">
             <FlipWords words={titles} className="text-white font-medium" />
@@ -383,6 +383,19 @@ export default function Home() {
             <h3 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-4 uppercase font-sans">Freelance</h3>
             <p className="text-xl md:text-2xl text-white font-light leading-relaxed">
               Je suis <span className="text-cyan-400 font-medium">prêt à travailler en freelance</span> sur vos projets, apportant mon expertise partout à travers <span className="text-white font-medium">le monde</span>.
+            </p>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="text-center pt-8 border-t border-white/5"
+          >
+            <h3 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-4 uppercase font-sans">Futur Proche</h3>
+            <p className="text-xl md:text-2xl text-white font-light leading-relaxed">
+              Je compte créer ma propre boîte, <span className="text-cyan-400 font-medium italic">JRC Digit</span> (en cours de création), dès la fin de ma formation pour donner vie à de nouveaux standards numériques.
             </p>
           </motion.div>
         </div>

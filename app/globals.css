@@ -37,7 +37,6 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Space Grotesk', sans-serif !important;
   color: #06b6d4 !important;
-  text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: 700;
 }

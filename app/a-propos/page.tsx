@@ -21,7 +21,7 @@ export default function AboutPage() {
 
       <nav className="fixed top-0 w-full z-50 px-6 md:px-12 py-4 flex justify-between items-center backdrop-blur-md bg-navy/50 border-b border-white/5">
         <Link href="/" className="text-lg font-bold tracking-tighter text-white">
-          <span className="text-white">Big</span><span className="text-cyan-400">Sixteen</span>
+          <span className="text-white">B</span>ig<span className="text-cyan-400">S</span>ixteen
         </Link>
         <Link href="/" className="text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-colors">
           Retour
@@ -73,6 +73,13 @@ export default function AboutPage() {
               <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-6 uppercase">Collaboration Freelance</h2>
               <p className="text-base md:text-lg text-gray-400 font-light leading-relaxed">
                 Au-delà de mon parcours académique, je suis activement ouvert aux opportunités en <span className="text-cyan-400 font-medium">freelance</span>. Ma vision est sans frontières : je suis prêt à collaborer avec des clients et des entreprises <span className="text-white font-medium">partout à travers le monde</span> pour transformer des idées ambitieuses en réalités numériques.
+              </p>
+            </div>
+
+            <div className="pt-12 border-t border-white/5">
+              <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-6 uppercase">Entrepreneuriat</h2>
+              <p className="text-base md:text-lg text-gray-400 font-light leading-relaxed">
+                Mon ambition ne s'arrête pas là. Je prépare activement le lancement de ma structure, <span className="text-cyan-400 font-medium italic">JRC Digit</span>. Ce projet, actuellement en cours de création, sera officiellement lancé juste après la fin de ma formation, avec pour mission d'accompagner la transformation digitale des entreprises.
               </p>
             </div>
           </motion.div>
