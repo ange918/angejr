@@ -311,9 +311,9 @@ const cards = [
   {
     description: "Design immersif avec Three.js",
     title: "Portfolio – Ore Gauthier",
-    src: "/images/ore_1767704999754.jpeg",
+    src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647806079.jpeg",
     ctaText: "Visiter",
-    ctaLink: "https://oregauthier-kuvg.vercel.app/",
+    ctaLink: "#",
     status: "En cours",
     content: () => {
       return (
@@ -327,9 +327,9 @@ const cards = [
   {
     description: "Modernité et animations GSAP",
     title: "Portfolio – Merveille Susuni",
-    src: "/images/merveille_1767704999752.jpeg",
+    src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647806079.jpeg",
     ctaText: "Visiter",
-    ctaLink: "https://merveilsusuni-1zqz.vercel.app/",
+    ctaLink: "#",
     status: "En cours",
     content: () => {
       return (
@@ -375,9 +375,9 @@ const cards = [
   {
     description: "Annuaire et réseau de talents",
     title: "FASHLINK",
-    src: "/images/faslink_1767704999743.jpeg",
+    src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647806079.jpeg",
     ctaText: "Visiter",
-    ctaLink: "https://flashlink-topaz.vercel.app",
+    ctaLink: "#",
     status: "En cours",
     content: () => {
       return (
@@ -391,7 +391,7 @@ const cards = [
   {
     description: "Expérience shopping fluide et moderne",
     title: "E-commerce – Président Djangoun",
-    src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767648255135.jpeg",
+    src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647806079.jpeg",
     ctaText: "Voir plus",
     ctaLink: "#",
     status: "En cours",
@@ -407,7 +407,7 @@ const cards = [
   {
     description: "L'innovation technologique au service de l'Afrique",
     title: "DAHOMEY TECH",
-    src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767649778080.jpeg",
+    src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647806079.jpeg",
     ctaText: "Voir plus",
     ctaLink: "#",
     status: "En cours",
