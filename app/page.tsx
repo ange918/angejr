@@ -228,7 +228,7 @@ export default function Home() {
       >
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <Link href="/" className="text-lg font-bold tracking-tighter text-white">
-            <span className="text-white">B</span>ig<span className="text-[#06b6d4]">S</span>ixteen
+            <span className="text-white">B</span>ig<span className="text-[#06b6d4]">Sixteen</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
