@@ -16,7 +16,7 @@ export function ExpandableCardDemo() {
 
   const scroll = (direction: 'left' | 'right') => {
     if (carouselRef.current) {
-      const scrollAmount = direction === 'left' ? -350 : 350;
+      const scrollAmount = direction === 'left' ? -carouselRef.current.offsetWidth : carouselRef.current.offsetWidth;
       carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
@@ -136,7 +136,7 @@ export function ExpandableCardDemo() {
           <div className="relative group/carousel">
             <div 
               ref={carouselRef}
-              className="flex flex-nowrap overflow-x-auto gap-6 max-w-7xl mx-auto px-4 pb-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden scroll-smooth"
+              className="flex flex-nowrap overflow-x-auto gap-6 max-w-7xl mx-auto px-4 pb-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden scroll-smooth snap-x snap-mandatory"
             >
               {completedProjects.map((card, i) => (
                 <motion.div
@@ -146,7 +146,7 @@ export function ExpandableCardDemo() {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   viewport={{ once: true }}
                   onClick={() => setActive(card)}
-                  className="group relative flex flex-col bg-navy border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:bg-white/[0.03] transition-colors h-[320px] w-[240px] md:h-[400px] md:w-[300px] flex-shrink-0"
+                  className="group relative flex flex-col bg-navy border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:bg-white/[0.03] transition-colors h-[400px] w-full md:w-[300px] flex-shrink-0 snap-center"
                 >
                   <div className="absolute inset-0 w-full h-full">
                     <Image
