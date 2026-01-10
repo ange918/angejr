@@ -9,17 +9,9 @@ input, textarea {
 }
 
 @font-face {
-  font-family: 'Integral CF';
-  src: url('https://fonts.cdnfonts.com/s/19445/IntegralCF-Bold.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Syne';
-  src: url('https://fonts.gstatic.com/s/syne/v22/8vIJ7wUr45W6G5V_fA.woff2') format('woff2');
-  font-weight: 400 800;
+  font-family: 'Space Grotesk';
+  src: url('https://fonts.gstatic.com/s/spacegrotesk/v15/V8mQoQDjQSkFtoAnU6AFPrEVG1g3DHks5nzS2FYR.woff2') format('woff2');
+  font-weight: 300 700;
   font-style: normal;
   font-display: swap;
 }
@@ -27,9 +19,8 @@ input, textarea {
 @theme {
   --color-navy: #020617;
   --color-cyan-electric: #06b6d4;
-  --font-integral: 'Integral CF', sans-serif;
+  --font-space: 'Space Grotesk', sans-serif;
   --font-syne: 'Syne', sans-serif;
-  --font-montserrat: 'Montserrat', sans-serif;
 }
 
 :root {
@@ -44,10 +35,11 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Integral CF', sans-serif !important;
+  font-family: 'Space Grotesk', sans-serif !important;
   color: #06b6d4 !important;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
+  font-weight: 700;
 }
 
 .glow-border {

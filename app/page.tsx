@@ -286,7 +286,9 @@ export default function Home() {
           className="max-w-2xl"
         >
           <h2 className="text-[10px] font-bold tracking-[0.3em] uppercase text-cyan-500/60 mb-4 font-sans">Ange Akonde</h2>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tighter leading-none text-white">BigSixteen</h1>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tighter leading-none">
+            <span className="text-white">Big</span><span className="text-cyan-400">Sixteen</span>
+          </h1>
           <div className="text-lg md:text-2xl text-gray-400 mb-8 h-10 flex items-center justify-center font-light">
             <FlipWords words={titles} className="text-white font-medium" />
           </div>
