@@ -155,7 +155,7 @@ export function ExpandableCardDemo() {
                         alt={card.title}
                         fill
                         sizes="(max-width: 768px) 300px, 300px"
-                        className={`${card.title === "Model Academy Management" ? "object-contain scale-75" : "object-cover"} group-hover:scale-110 transition duration-500`}
+                        className={`${(card.title === "Model Academy Management" || card.title === "Code Capital") ? "object-contain scale-75" : "object-cover"} group-hover:scale-110 transition duration-500`}
                       />
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent opacity-60" />
