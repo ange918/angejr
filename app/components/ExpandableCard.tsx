@@ -314,7 +314,7 @@ const cards = [
     src: "/images/ore_1767704999754.jpeg",
     ctaText: "Visiter",
     ctaLink: "https://oregauthier-kuvg.vercel.app/",
-    status: "Terminé",
+    status: "En cours",
     content: () => {
       return (
         <p>
@@ -330,7 +330,7 @@ const cards = [
     src: "/images/merveille_1767704999752.jpeg",
     ctaText: "Visiter",
     ctaLink: "https://merveilsusuni-1zqz.vercel.app/",
-    status: "Terminé",
+    status: "En cours",
     content: () => {
       return (
         <p>
