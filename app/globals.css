@@ -9,8 +9,8 @@ input, textarea {
 }
 
 @font-face {
-  font-family: 'Ubuntu';
-  src: url('https://fonts.gstatic.com/s/ubuntu/v20/4iCs6KVjbNBYlgoKcg72nU6AF7xm.woff2') format('woff2');
+  font-family: 'Montserrat';
+  src: url('https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm45367AyL40Pg.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -22,6 +22,7 @@ input, textarea {
   --font-space: 'Space Grotesk', sans-serif;
   --font-syne: 'Syne', sans-serif;
   --font-ubuntu: 'Ubuntu', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
 }
 
 :root {
@@ -36,9 +37,9 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Ubuntu', sans-serif !important;
+  font-family: 'Montserrat', sans-serif !important;
   color: #06b6d4 !important;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.02em;
   font-weight: 700;
 }
 
