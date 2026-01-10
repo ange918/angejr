@@ -16,10 +16,19 @@ input, textarea {
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Syne';
+  src: url('https://fonts.gstatic.com/s/syne/v22/8vIJ7wUr45W6G5V_fA.woff2') format('woff2');
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-navy: #020617;
   --color-cyan-electric: #06b6d4;
   --font-integral: 'Integral CF', sans-serif;
+  --font-syne: 'Syne', sans-serif;
   --font-montserrat: 'Montserrat', sans-serif;
 }
 
@@ -31,7 +40,7 @@ input, textarea {
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Syne', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
