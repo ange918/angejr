@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUp, Github, Linkedin } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function AboutPage() {
   return (

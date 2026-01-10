@@ -148,15 +148,17 @@ export function ExpandableCardDemo() {
                   onClick={() => setActive(card)}
                   className="group relative flex flex-col bg-navy border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:bg-white/[0.03] transition-colors h-[400px] w-full md:w-[300px] flex-shrink-0 snap-center"
                 >
-                  <div className="absolute inset-0 w-full h-full">
-                    <Image
-                      src={card.src}
-                      alt={card.title}
-                      fill
-                      sizes="(max-width: 768px) 300px, 300px"
-                      className="object-cover group-hover:scale-110 transition duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/20 to-transparent opacity-80" />
+                  <div className="absolute inset-0 w-full h-full flex items-center justify-center p-8">
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={card.src}
+                        alt={card.title}
+                        fill
+                        sizes="(max-width: 768px) 300px, 300px"
+                        className="object-contain group-hover:scale-110 transition duration-500"
+                      />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent opacity-60" />
                   </div>
                   
                   <div className="relative mt-auto p-6 flex flex-col gap-4">
