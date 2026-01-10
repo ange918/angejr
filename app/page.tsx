@@ -509,8 +509,10 @@ export default function Home() {
             <p className="text-[10px] text-gray-600 tracking-widest uppercase">© 2026</p>
           </div>
           <div className="flex gap-6 text-gray-500">
-             <a href="#" className="hover:text-white transition-colors"><Github size={18} /></a>
-             <a href="#" className="hover:text-white transition-colors"><Linkedin size={18} /></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Facebook size={18} /></a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram size={18} /></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Linkedin size={18} /></a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Github size={18} /></a>
           </div>
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
