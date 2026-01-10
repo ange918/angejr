@@ -9,10 +9,10 @@ input, textarea {
 }
 
 @font-face {
-  font-family: 'Space Grotesk';
-  src: url('https://fonts.gstatic.com/s/spacegrotesk/v15/V8mQoQDjQSkFtoAnU6AFPrEVG1g3DHks5nzS2FYR.woff2') format('woff2');
-  font-weight: 300 700;
-  font-style: normal;
+  font-family: 'Roboto';
+  src: url('https://fonts.gstatic.com/s/roboto/v30/KFOjCnqEu92Fr1Mu51TzBhc9.woff2') format('woff2');
+  font-weight: 900;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -21,6 +21,7 @@ input, textarea {
   --color-cyan-electric: #06b6d4;
   --font-space: 'Space Grotesk', sans-serif;
   --font-syne: 'Syne', sans-serif;
+  --font-roboto: 'Roboto', sans-serif;
 }
 
 :root {
@@ -35,10 +36,11 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Space Grotesk', sans-serif !important;
+  font-family: 'Roboto', sans-serif !important;
   color: #06b6d4 !important;
-  letter-spacing: 0.1em;
-  font-weight: 700;
+  letter-spacing: 0.05em;
+  font-weight: 900;
+  font-style: italic;
 }
 
 .glow-border {
