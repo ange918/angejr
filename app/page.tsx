@@ -228,7 +228,7 @@ export default function Home() {
       >
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <Link href="/" className="text-lg font-bold tracking-tighter text-white">
-            Big<span className="text-cyan-400">Sixteen</span>
+            <span className="text-white">Big</span><span className="text-cyan-400">Sixteen</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
