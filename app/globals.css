@@ -9,10 +9,10 @@ input, textarea {
 }
 
 @font-face {
-  font-family: 'Roboto';
-  src: url('https://fonts.gstatic.com/s/roboto/v30/KFOjCnqEu92Fr1Mu51TzBhc9.woff2') format('woff2');
-  font-weight: 900;
-  font-style: italic;
+  font-family: 'Ubuntu';
+  src: url('https://fonts.gstatic.com/s/ubuntu/v20/4iCs6KVjbNBYlgoKcg72nU6AF7xm.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
   font-display: swap;
 }
 
@@ -21,7 +21,7 @@ input, textarea {
   --color-cyan-electric: #06b6d4;
   --font-space: 'Space Grotesk', sans-serif;
   --font-syne: 'Syne', sans-serif;
-  --font-roboto: 'Roboto', sans-serif;
+  --font-ubuntu: 'Ubuntu', sans-serif;
 }
 
 :root {
@@ -36,11 +36,10 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto', sans-serif !important;
+  font-family: 'Ubuntu', sans-serif !important;
   color: #06b6d4 !important;
-  letter-spacing: 0.05em;
-  font-weight: 900;
-  font-style: italic;
+  letter-spacing: 0.02em;
+  font-weight: 700;
 }
 
 .glow-border {
