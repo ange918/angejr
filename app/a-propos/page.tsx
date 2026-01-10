@@ -21,7 +21,7 @@ export default function AboutPage() {
 
       <nav className="fixed top-0 w-full z-50 px-6 md:px-12 py-4 flex justify-between items-center backdrop-blur-md bg-navy/50 border-b border-white/5">
         <Link href="/" className="text-lg font-bold tracking-tighter text-white">
-          <span className="text-white">B</span>ig<span className="text-cyan-400">S</span>ixteen
+          <span className="text-white">B</span>ig<span className="text-[#06b6d4]">S</span>ixteen
         </Link>
         <Link href="/" className="text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-colors">
           Retour
