@@ -4,8 +4,15 @@ import { motion } from "framer-motion";
 import { ArrowUp, Github, Linkedin } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { DraggableCard } from "../components/ui/draggable-card";
 
 export default function AboutPage() {
+  const personalPhotos = [
+    "/images/WhatsApp_Image_2026-01-05_at_22.04.42_1767647805935.jpeg",
+    "/images/jrc_logo.jpg",
+    "/images/WhatsApp_Image_2026-01-05_at_22.04.42_1767647805935.jpeg",
+  ];
+
   return (
     <motion.main 
       initial={{ opacity: 0 }}
@@ -54,12 +61,32 @@ export default function AboutPage() {
             </p>
 
             <p>
-              Grâce à ma formation approfondie, j'ai acquis une expertise solide qui me permet de partager mes connaissances et d'accompagner d'autres développeurs dans leur apprentissage. Mon objectif : contribuer au développement technologique en transmettant mon savoir-faire.
+              Grâce à ma formation approfondie, j'ai acquis une expertise solide qui me permet de partager mes connaissances et d'accompagner d'autres développeurs dans leur apprentissage. Mon objectif : contribuer au développement technologique en transmettamnt mon savoir-faire.
             </p>
 
             <p>
               Chaque projet est une opportunité de créer quelque chose d'exceptionnel, en plaçant l'expérience utilisateur et la qualité du code au cœur de mes priorités.
             </p>
+          </div>
+
+          <div className="mt-20 mb-10">
+            <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-10 uppercase font-sans">Galerie Personnelle</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 h-[400px] items-center">
+              {personalPhotos.map((photo, index) => (
+                <DraggableCard 
+                  key={index} 
+                  containerClassName="h-full"
+                  className="w-full aspect-[3/4] rounded-2xl overflow-hidden border border-white/10"
+                >
+                  <Image 
+                    src={photo} 
+                    alt={`Photo ${index + 1}`} 
+                    fill 
+                    className="object-cover pointer-events-none"
+                  />
+                </DraggableCard>
+              ))}
+            </div>
           </div>
 
           <motion.div 
