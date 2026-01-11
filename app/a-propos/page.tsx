@@ -11,6 +11,11 @@ export default function AboutPage() {
     "/images/WhatsApp_Image_2026-01-05_at_22.04.42_1767647805935.jpeg",
     "/images/jrc_logo.jpg",
     "/images/WhatsApp_Image_2026-01-05_at_22.04.42_1767647805935.jpeg",
+    "/images/jrc_logo.jpg",
+    "/images/WhatsApp_Image_2026-01-05_at_22.04.42_1767647805935.jpeg",
+    "/images/jrc_logo.jpg",
+    "/images/WhatsApp_Image_2026-01-05_at_22.04.42_1767647805935.jpeg",
+    "/images/jrc_logo.jpg",
   ];
 
   return (
@@ -73,7 +78,7 @@ export default function AboutPage() {
             <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-10 uppercase font-sans">Galerie Personnelle</h2>
             
             {/* Desktop: Draggable Cards */}
-            <div className="hidden md:grid grid-cols-3 gap-8 h-[400px] items-center">
+            <div className="hidden md:grid grid-cols-4 gap-6 h-[700px] items-center">
               {personalPhotos.map((photo, index) => (
                 <DraggableCard 
                   key={index} 
