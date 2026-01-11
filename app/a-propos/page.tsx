@@ -71,7 +71,9 @@ export default function AboutPage() {
 
           <div className="mt-20 mb-10">
             <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-10 uppercase font-sans">Galerie Personnelle</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 h-[400px] items-center">
+            
+            {/* Desktop: Draggable Cards */}
+            <div className="hidden md:grid grid-cols-3 gap-8 h-[400px] items-center">
               {personalPhotos.map((photo, index) => (
                 <DraggableCard 
                   key={index} 
@@ -86,6 +88,26 @@ export default function AboutPage() {
                   />
                 </DraggableCard>
               ))}
+            </div>
+
+            {/* Mobile: Simple Carousel */}
+            <div className="md:hidden">
+              <div className="flex overflow-x-auto gap-4 pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory">
+                {personalPhotos.map((photo, index) => (
+                  <div 
+                    key={index} 
+                    className="flex-shrink-0 w-[280px] aspect-[3/4] relative rounded-2xl overflow-hidden border border-white/10 snap-center"
+                  >
+                    <Image 
+                      src={photo} 
+                      alt={`Photo ${index + 1}`} 
+                      fill 
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+              <p className="text-[10px] text-gray-500 text-center mt-2 italic">Faites défiler pour voir plus</p>
             </div>
           </div>
 
