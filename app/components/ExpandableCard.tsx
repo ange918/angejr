@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
-import { Carousel, Card as AppleCardComponent } from "./ui/apple-cards-carousel";
+import { BentoGrid, BentoGridItem } from "./ui/bento-grid";
 import { ExternalLink, CheckCircle2, X } from "lucide-react";
 
 export function ExpandableCardDemo() {
@@ -130,9 +130,72 @@ export function ExpandableCardDemo() {
         ) : null}
       </AnimatePresence>
       
-      <Carousel items={completedProjects.map((card, i) => (
-        <AppleCardComponent key={card.src} card={card} index={i} layout={true} />
-      ))} />
+      <div>
+        <h3 className="text-[12px] md:text-[16px] font-bold tracking-[0.2em] text-white mb-8 uppercase border-l-2 border-cyan-500 pl-4">Projets Terminés</h3>
+        <div className="relative group/carousel">
+          <div 
+            ref={carouselRef}
+            className="flex flex-nowrap overflow-x-auto gap-6 max-w-7xl mx-auto px-4 pb-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden scroll-smooth snap-x snap-mandatory"
+          >
+            {completedProjects.map((card, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                onClick={() => setActive(card)}
+                className="group relative flex flex-col bg-navy border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:bg-white/[0.03] transition-colors h-[400px] w-full md:w-[300px] flex-shrink-0 snap-center"
+              >
+                <div className="absolute inset-0 w-full h-full flex items-center justify-center p-8">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={card.src}
+                      alt={card.title}
+                      fill
+                      sizes="(max-width: 768px) 300px, 300px"
+                      className={`${(card.title === "Model Academy Management" || card.title === "Code Capital") ? "object-contain scale-75" : "object-cover"} group-hover:scale-110 transition duration-500`}
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent opacity-60" />
+                </div>
+                
+                <div className="relative mt-auto p-6 flex flex-col gap-4">
+                  <h3 className="font-bold text-white text-lg">{card.title}</h3>
+                  <div className="flex gap-2">
+                    {card.ctaLink && card.ctaLink !== "#" && (
+                      <a 
+                        href={card.ctaLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="flex-1 text-center px-6 py-2.5 text-[10px] rounded-full font-bold bg-cyan-500 text-white hover:bg-cyan-400 transition duration-200 uppercase tracking-widest"
+                      >
+                        Visiter
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          
+          <div className="flex justify-center gap-4 mt-4">
+            <button 
+              onClick={() => scroll('left')}
+              className="p-2 rounded-full bg-navy/80 border border-white/10 text-white transition-all hover:bg-cyan-500/20 active:scale-95"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button 
+              onClick={() => scroll('right')}
+              className="p-2 rounded-full bg-navy/80 border border-white/10 text-white transition-all hover:bg-cyan-500/20 active:scale-95"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
       
       <div>
         <h3 className="text-[12px] md:text-[16px] font-bold tracking-[0.2em] text-cyan-500/60 mb-8 uppercase border-l-2 border-cyan-500/20 pl-4">Projets en Cours</h3>
@@ -220,137 +283,146 @@ const cards = [
   {
     description: "Développement Next.js & PostgreSQL",
     title: "Model Academy Management",
-    category: "Management",
     src: "/images/model_academy_logo.jpg",
     ctaText: "Visiter",
     ctaLink: "https://modelacademy-management.com",
     status: "Terminé",
-    content: (
-      <p>
-        Plateforme complète de gestion pour agence de mannequinat, incluant la gestion des profils, 
-        le suivi des formations et l'administration des événements. Développé avec Next.js pour 
-        la performance et PostgreSQL pour une gestion de données robuste.
-      </p>
-    ),
+    content: () => {
+      return (
+        <p>
+          Plateforme complète de gestion pour agence de mannequinat, incluant la gestion des profils, 
+          le suivi des formations et l'administration des événements. Développé avec Next.js pour 
+          la performance et PostgreSQL pour une gestion de données robuste.
+        </p>
+      );
+    },
   },
   {
     description: "Design immersif avec Three.js",
     title: "Portfolio – Ore Gauthier",
-    category: "Portfolio",
     src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647806079.jpeg",
     ctaText: "Visiter",
     ctaLink: "#",
     status: "En cours",
-    content: (
-      <p>
-        Un portfolio futuriste conçu pour un architecte, mettant en avant ses réalisations via 
-        des animations 3D complexes et une expérience utilisateur fluide.
-      </p>
-    ),
+    content: () => {
+      return (
+        <p>
+          Un portfolio futuriste conçu pour un architecte, mettant en avant ses réalisations via 
+          des animations 3D complexes and une expérience utilisateur fluide.
+        </p>
+      );
+    },
   },
   {
     description: "Modernité et animations GSAP",
     title: "Portfolio – Merveille Susuni",
-    category: "Portfolio",
     src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647806079.jpeg",
     ctaText: "Visiter",
     ctaLink: "#",
     status: "En cours",
-    content: (
-      <p>
-        Site personnel pour une entrepreneure, axé sur le storytelling visuel et 
-        l'élégance graphique, utilisant GSAP pour des transitions sur mesure.
-      </p>
-    ),
+    content: () => {
+      return (
+        <p>
+          Site personnel pour une entrepreneure, axé sur le storytelling visuel et 
+          l'élégance graphique, utilisant GSAP pour des transitions sur mesure.
+        </p>
+      );
+    },
   },
   {
     description: "Écosystème Laravel puissant",
     title: "Site officiel – Axel Merryl",
-    category: "Artist Website",
     src: "/images/axel_1767704999746.jpeg",
     ctaText: "Visiter",
     ctaLink: "https://axelmerryl-jwy6.vercel.app",
     status: "Terminé",
-    content: (
-      <p>
-        Le portail officiel d'un artiste international, regroupant actualités, 
-        discographie et contact, optimisé pour un fort trafic.
-      </p>
-    ),
+    content: () => {
+      return (
+        <p>
+          Le portail officiel d'un artiste international, regroupant actualités, 
+          discographie et contact, optimisé pour un fort trafic.
+        </p>
+      );
+    },
   },
   {
     description: "Architecture Fintech Moderne",
     title: "Code Capital",
-    category: "Fintech",
     src: "/images/code_capital_logo.jpg",
     ctaText: "Visiter",
     ctaLink: "https://code-capital-4sjr.vercel.app",
     status: "Terminé",
-    content: (
-      <p>
-        Interface de trading algorithmique et tableau de bord de performance financière, 
-        développé avec une stack React/Node.js pour la réactivité en temps réel.
-      </p>
-    ),
+    content: () => {
+      return (
+        <p>
+          Interface de trading algorithmique et tableau de bord de performance financière, 
+          développé avec une stack React/Node.js pour la réactivité en temps réel.
+        </p>
+      );
+    },
   },
   {
     description: "Annuaire et réseau de talents",
     title: "FASHLINK",
-    category: "Social Network",
     src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647806079.jpeg",
     ctaText: "Visiter",
     ctaLink: "#",
     status: "En cours",
-    content: (
-      <p>
-        Réseau social professionnel dédié à l'industrie de la mode en Afrique, 
-        permettant la mise en relation entre talents et recruteurs.
-      </p>
-    ),
+    content: () => {
+      return (
+        <p>
+          Réseau social professionnel dédié à l'industrie de la mode en Afrique, 
+          permettant la mise en relation entre talents et recruteurs.
+        </p>
+      );
+    },
   },
   {
     description: "Expérience shopping fluide et moderne",
     title: "E-commerce – Président Djangoun",
-    category: "E-commerce",
     src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647806079.jpeg",
     ctaText: "Voir plus",
     ctaLink: "#",
     status: "En cours",
-    content: (
-      <p>
-        Une boutique en ligne haut de gamme conçue pour une expérience client optimale, 
-        avec une gestion simplifiée du catalogue et un processus de paiement sécurisé.
-      </p>
-    ),
+    content: () => {
+      return (
+        <p>
+          Une boutique en ligne haut de gamme conçue pour une expérience client optimale, 
+          avec une gestion simplifiée du catalogue et un processus de paiement sécurisé.
+        </p>
+      );
+    },
   },
   {
     description: "L'innovation technologique au service de l'Afrique",
     title: "DAHOMEY TECH",
-    category: "Technology",
     src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647806079.jpeg",
     ctaText: "Voir plus",
     ctaLink: "#",
     status: "En cours",
-    content: (
-      <p>
-        Une plateforme dédiée à la promotion des startups et des innovations technologiques, 
-        mettant en lumière les talents et les solutions numériques locales.
-      </p>
-    ),
+    content: () => {
+      return (
+        <p>
+          Une plateforme dédiée à la promotion des startups et des innovations technologiques, 
+          mettant en lumière les talents et les solutions numériques locales.
+        </p>
+      );
+    },
   },
   {
     description: "La gastronomie à portée de clic",
     title: "FOODMOOD",
-    category: "Food Tech",
-    src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647806079.jpeg",
+    src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647805935.jpeg",
     ctaText: "Voir plus",
     ctaLink: "#",
     status: "En cours",
-    content: (
-      <p>
-        Une application moderne de commande et de livraison de repas, 
-        offrant une sélection variée de restaurants pour satisfaire toutes les envies.
-      </p>
-    ),
+    content: () => {
+      return (
+        <p>
+          Une application moderne de commande et de livraison de repas, 
+          offrant une sélection variée de restaurants pour satisfaire toutes les envies.
+        </p>
+      );
+    },
   },
 ];

@@ -7,7 +7,6 @@ import { ExpandableCardDemo } from "./components/ExpandableCard";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
-import { Carousel, Card as AppleCardComponent } from "./components/ui/apple-cards-carousel";
 import Image from "next/image";
 
 const projects = [
@@ -202,10 +201,6 @@ export default function Home() {
     setTimeout(() => setEmailCopied(false), 2000);
   };
 
-  const carouselItems = carouselData.map((card, index) => (
-    <AppleCardComponent key={card.src} card={card} index={index} layout={true} />
-  ));
-
   return (
     <motion.main 
       initial={{ opacity: 0 }}
@@ -310,19 +305,6 @@ export default function Home() {
             </a>
           </div>
         </motion.div>
-      </motion.section>
-
-      <motion.section
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="relative py-10 z-10"
-      >
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 mb-12 uppercase">Les choses que je réalise</h2>
-          <Carousel items={carouselItems} />
-        </div>
       </motion.section>
 
       {/* About Section */}
