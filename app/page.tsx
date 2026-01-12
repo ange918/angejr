@@ -467,7 +467,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div>
+          <div className="mb-24">
             <h3 className="text-[8px] font-bold tracking-[0.2em] text-cyan-500/40 mb-8 uppercase italic">En cours d'apprentissage</h3>
             <div className="grid grid-cols-4 md:grid-cols-8 gap-6 items-center justify-items-center">
               {learningSkills.map((skill, i) => (
@@ -488,6 +488,38 @@ export default function Home() {
                   </span>
                 </motion.div>
               ))}
+            </div>
+          </div>
+
+          {/* Section: Les choses que je réalise */}
+          <div className="pt-24 border-t border-white/5">
+            <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 mb-16 uppercase">Les choses que je réalise</h2>
+            <div className="relative w-full">
+              <div className="flex gap-4 overflow-x-auto pb-8 no-scrollbar -mx-6 px-6">
+                {carouselData.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex-shrink-0 w-[280px] md:w-[400px] group cursor-pointer"
+                  >
+                    <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-4">
+                      <Image
+                        src={item.src}
+                        alt={item.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-end">
+                        <p className="text-cyan-400 text-xs font-bold tracking-widest uppercase mb-2">{item.category}</p>
+                        <h3 className="text-white text-xl md:text-2xl font-bold">{item.title}</h3>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
