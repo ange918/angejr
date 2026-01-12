@@ -348,16 +348,56 @@ export default function Home() {
       >
         <div className="max-w-3xl mx-auto">
           <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 mb-12 uppercase">Mon Parcours</h2>
-          <div className="space-y-8">
-            <div className="relative pl-8 border-l border-white/10">
-              <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
-              <p className="text-cyan-400 font-bold text-sm mb-1 tracking-widest">2011</p>
-              <p className="text-white text-lg font-light">CEP (Certificat d'Études Primaires)</p>
+          <div className="relative">
+            {/* Animated Line with Scroll Progress */}
+            <div className="absolute left-0 top-2 bottom-2 w-[1px] bg-white/10">
+              <motion.div 
+                className="absolute top-0 left-0 w-full bg-cyan-500 origin-top shadow-[0_0_15px_rgba(6,182,212,0.8)]"
+                initial={{ scaleY: 0 }}
+                whileInView={{ scaleY: 1 }}
+                viewport={{ once: false, margin: "-100px" }}
+                transition={{ type: "spring", stiffness: 50, damping: 20 }}
+                style={{ height: "100%" }}
+              />
             </div>
-            <div className="relative pl-8 border-l border-white/10">
-              <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
-              <p className="text-cyan-400 font-bold text-sm mb-1 tracking-widest">2017</p>
-              <p className="text-white text-lg font-light">BEPC (Brevet d'Études du Premier Cycle)</p>
+            
+            <div className="space-y-12">
+              {[
+                { year: "2011", title: "CEP (Certificat d'Études Primaires)" },
+                { year: "2017", title: "BEPC (Brevet d'Études du Premier Cycle)" },
+                { year: "2021", title: "Baccalauréat" },
+                { year: "2021 - 2024", title: "Période de réflexion", desc: "Un peu dans le doute, un peu de pression, j'ai appris à me connaître." },
+                { year: "Janvier 2025", title: "Futurcraft Institut", desc: "Début de ma formation intensive." },
+                { year: "Juillet 2025", title: "Premier STAGE", desc: "Stage sur le Programme FUTUR." }
+              ].map((item, index) => (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="relative pl-8"
+                >
+                  <motion.div 
+                    className="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-cyan-500 z-10"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: false, margin: "-100px" }}
+                    transition={{ 
+                      type: "spring", 
+                      stiffness: 300, 
+                      damping: 20,
+                      delay: index * 0.05 
+                    }}
+                    style={{
+                      boxShadow: "0 0 15px rgba(6,182,212,0.6)"
+                    }}
+                  />
+                  <p className="text-cyan-400 font-bold text-sm mb-1 tracking-widest">{item.year}</p>
+                  <p className="text-white text-lg font-medium">{item.title}</p>
+                  {item.desc && <p className="text-gray-400 text-sm font-light mt-1 max-w-md">{item.desc}</p>}
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
