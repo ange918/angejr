@@ -307,6 +307,46 @@ export default function Home() {
         </motion.div>
       </motion.section>
 
+      {/* Realizations Section (Carousel) - Moved here */}
+      <motion.section 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="py-12 px-6 z-10 relative"
+      >
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 mb-16 uppercase">Les choses que je réalise</h2>
+          <div className="relative w-full">
+            <div className="flex gap-4 overflow-x-auto pb-8 no-scrollbar -mx-6 px-6">
+              {carouselData.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex-shrink-0 w-[280px] md:w-[400px] group cursor-pointer"
+                >
+                  <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-4">
+                    <Image
+                      src={item.src}
+                      alt={item.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-end">
+                      <p className="text-cyan-400 text-xs font-bold tracking-widest uppercase mb-2">{item.category}</p>
+                      <h3 className="text-white text-xl md:text-2xl font-bold">{item.title}</h3>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
       {/* About Section */}
       <motion.section 
         id="propos" 
@@ -490,38 +530,6 @@ export default function Home() {
               ))}
             </div>
           </div>
-
-          {/* Section: Les choses que je réalise */}
-          <div className="pt-24 border-t border-white/5">
-            <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 mb-16 uppercase">Les choses que je réalise</h2>
-            <div className="relative w-full">
-              <div className="flex gap-4 overflow-x-auto pb-8 no-scrollbar -mx-6 px-6">
-                {carouselData.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex-shrink-0 w-[280px] md:w-[400px] group cursor-pointer"
-                  >
-                    <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-4">
-                      <Image
-                        src={item.src}
-                        alt={item.title}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-end">
-                        <p className="text-cyan-400 text-xs font-bold tracking-widest uppercase mb-2">{item.category}</p>
-                        <h3 className="text-white text-xl md:text-2xl font-bold">{item.title}</h3>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
       </motion.section>
 
@@ -548,6 +556,42 @@ export default function Home() {
             </div>
           ))}
         </Marquee>
+      </motion.section>
+
+      {/* FAQ Section */}
+      <motion.section 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="py-24 px-6 z-10 relative"
+      >
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 mb-16 uppercase text-center">Foire Aux Questions</h2>
+          <div className="space-y-6">
+            {[
+              { q: "Quels types de projets réalisez-vous ?", a: "Je réalise principalement des applications web complexes (SaaS, dashboards), des sites e-commerce performants et des portfolios haut de gamme avec des animations fluides." },
+              { q: "Quelles technologies utilisez-vous ?", a: "Ma stack principale inclut Next.js, React, Node.js, PHP/Laravel et des bases de données comme PostgreSQL ou MongoDB." },
+              { q: "Êtes-vous disponible pour du freelance ?", a: "Oui, je suis actuellement ouvert aux opportunités en freelance pour des projets partout dans le monde." },
+              { q: "Comment se déroule une collaboration ?", a: "Nous commençons par une phase d'échange pour comprendre vos besoins, suivie d'une proposition technique, du design, du développement et enfin de la mise en ligne." }
+            ].map((faq, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-cyan-500/20 transition-all group"
+              >
+                <h3 className="text-white font-medium mb-3 flex items-center gap-3">
+                  <span className="text-cyan-500 font-bold">0{i+1}.</span> {faq.q}
+                </h3>
+                <p className="text-gray-400 text-sm font-light leading-relaxed pl-8">
+                  {faq.a}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </motion.section>
 
       {/* Contact Section */}
@@ -593,21 +637,64 @@ export default function Home() {
       </motion.section>
 
       {/* Footer */}
-      <footer className="py-16 px-6 border-t border-white/5 z-10 relative">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-center md:text-left">
-            <p className="text-xs font-bold mb-0.5">Ange Akonde</p>
-            <p className="text-[10px] text-gray-600 tracking-widest uppercase">© 2026</p>
+      <footer className="py-24 px-6 border-t border-white/5 z-10 relative bg-navy/50 backdrop-blur-xl">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div className="col-span-1 md:col-span-2">
+            <Link href="/" className="flex items-center gap-2 mb-6">
+              <Image src="/images/jrc_logo.jpg" alt="JRC Digit Logo" width={50} height={50} className="rounded-full" />
+              <span className="text-xl font-bold tracking-tighter">BigSixteen</span>
+            </Link>
+            <p className="text-gray-400 font-light leading-relaxed max-w-sm">
+              Développeur FullStack passionné par la création d'expériences numériques d'exception. Transformons vos idées en réalité.
+            </p>
           </div>
+          
+          <div>
+            <h4 className="text-white font-bold text-sm uppercase tracking-[0.2em] mb-6">Liens Rapides</h4>
+            <ul className="space-y-4">
+              {["À Propos", "Projets", "Compétences", "Contact"].map((item) => (
+                <li key={item}>
+                  <a 
+                    href={`#${item.toLowerCase().replace("à ", "").replace("é", "e")}`}
+                    className="text-gray-500 hover:text-cyan-400 transition-colors text-sm font-light"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white font-bold text-sm uppercase tracking-[0.2em] mb-6">Contact</h4>
+            <ul className="space-y-4">
+              <li>
+                <a href="mailto:akondejunior18@gmail.com" className="text-gray-500 hover:text-cyan-400 transition-colors text-sm font-light">
+                  akondejunior18@gmail.com
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/2290165291352" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-cyan-400 transition-colors text-sm font-light flex items-center gap-2">
+                  WhatsApp: +229 01 65 29 13 52
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="max-w-6xl mx-auto mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-[10px] text-gray-600 tracking-widest uppercase italic">
+            © 2026 JRC Digit. Tous droits réservés.
+          </p>
           <div className="flex gap-6 text-gray-500">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Facebook size={18} /></a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram size={18} /></a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Linkedin size={18} /></a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Github size={18} /></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors"><Facebook size={18} /></a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors"><Instagram size={18} /></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors"><Linkedin size={18} /></a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors"><Github size={18} /></a>
           </div>
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
-            className="text-gray-500 hover:text-white transition-colors"
+            className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-500 hover:text-cyan-400 hover:border-cyan-400/50 transition-all"
           >
             <ArrowUp size={18} />
           </button>
