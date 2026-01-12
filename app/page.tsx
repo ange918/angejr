@@ -350,7 +350,7 @@ export default function Home() {
           <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 mb-12 uppercase">Mon Parcours</h2>
           <div className="relative">
             {/* Animated Line with Scroll Progress */}
-            <div className="absolute left-0 top-2 bottom-2 w-[1px] bg-white/10">
+            <div className="absolute left-0 md:left-1/2 top-2 bottom-2 w-[1px] bg-white/10 md:-translate-x-1/2">
               <motion.div 
                 className="absolute top-0 left-0 w-full bg-cyan-500 origin-top shadow-[0_0_15px_rgba(6,182,212,0.8)]"
                 initial={{ scaleY: 0 }}
@@ -372,7 +372,7 @@ export default function Home() {
               ].map((item, index) => (
                 <motion.div 
                   key={index}
-                  initial={{ opacity: 0, x: -100 }}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: false, margin: "-100px" }}
                   transition={{ 
@@ -380,10 +380,10 @@ export default function Home() {
                     delay: index * 0.1,
                     ease: [0.22, 1, 0.36, 1]
                   }}
-                  className="relative pl-8"
+                  className={`relative pl-8 md:pl-0 flex flex-col ${index % 2 === 0 ? 'md:items-start md:text-left md:pr-[50%] md:mr-auto' : 'md:items-end md:text-right md:pl-[50%] md:ml-auto'}`}
                 >
                   <motion.div 
-                    className="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-cyan-500 z-10"
+                    className={`absolute top-2 w-2.5 h-2.5 rounded-full bg-cyan-500 z-10 ${index % 2 === 0 ? 'left-[-5px] md:left-auto md:right-[-5px]' : 'left-[-5px]'}`}
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: false, margin: "-100px" }}
@@ -397,9 +397,11 @@ export default function Home() {
                       boxShadow: "0 0 15px rgba(6,182,212,0.6)"
                     }}
                   />
-                  <p className="text-cyan-400 font-bold text-sm mb-1 tracking-widest">{item.year}</p>
-                  <p className="text-white text-lg font-medium">{item.title}</p>
-                  {item.desc && <p className="text-gray-400 text-sm font-light mt-1 max-w-md">{item.desc}</p>}
+                  <div className={`w-full ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
+                    <p className="text-cyan-400 font-bold text-sm mb-1 tracking-widest">{item.year}</p>
+                    <p className="text-white text-lg font-medium">{item.title}</p>
+                    {item.desc && <p className="text-gray-400 text-sm font-light mt-1 max-w-md">{item.desc}</p>}
+                  </div>
                 </motion.div>
               ))}
             </div>
