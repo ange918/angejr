@@ -316,25 +316,45 @@ export default function Home() {
         viewport={{ once: true, margin: "-100px" }}
         className="py-24 px-6 z-10 relative"
       >
-        <div className="max-w-3xl mx-auto">
-          <motion.div 
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 20 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 mb-10 uppercase">À Propos</h2>
-            <div className="space-y-5 text-lg md:text-xl text-gray-200 leading-relaxed font-light">
-              <p>
-                Je suis <span className="text-white font-medium">Ange AKONDE</span>, développeur FullStack passionné par les nouvelles technologies et l'innovation numérique. Après avoir suivi une formation intensive en développement web, je crée des applications modernes, performantes et élégantes.
-              </p>
-              <p>
-                Ma spécialité couvre l'ensemble de la stack technique : de l'interface utilisateur intuitive au backend robuste. Je maîtrise JavaScript, React, Node.js, et les architectures modernes pour délivrer des solutions complètes et durables.
-              </p>
-            </div>
-            <Link href="/a-propos" className="inline-block mt-8 text-[10px] font-bold text-cyan-400 hover:text-white transition-colors border-b border-cyan-500/20 pb-1 uppercase tracking-widest">
-              Lire la suite
-            </Link>
-          </motion.div>
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <motion.div 
+              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              viewport={{ once: true }}
+              className="order-2 md:order-1"
+            >
+              <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 mb-10 uppercase">À Propos</h2>
+              <div className="space-y-5 text-lg md:text-xl text-gray-200 leading-relaxed font-light">
+                <p>
+                  Je suis <span className="text-white font-medium">Ange AKONDE</span>, développeur FullStack passionné par les nouvelles technologies et l'innovation numérique. Après avoir suivi une formation intensive en développement web, je crée des applications modernes, performantes et élégantes.
+                </p>
+                <p>
+                  Ma spécialité couvre l'ensemble de la stack technique : de l'interface utilisateur intuitive au backend robuste. Je maîtrise JavaScript, React, Node.js, et les architectures modernes pour délivrer des solutions complètes et durables.
+                </p>
+              </div>
+              <Link href="/a-propos" className="inline-block mt-8 text-[10px] font-bold text-cyan-400 hover:text-white transition-colors border-b border-cyan-500/20 pb-1 uppercase tracking-widest">
+                Lire la suite
+              </Link>
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="order-1 md:order-2 relative aspect-square max-w-sm mx-auto md:max-w-none w-full"
+            >
+              <div className="absolute inset-0 bg-cyan-500/20 blur-3xl rounded-full" />
+              <div className="relative h-full w-full rounded-2xl overflow-hidden border border-white/10 group">
+                <Image 
+                  src="/images/WhatsApp_Image_2026-01-05_at_22.04.42_1767647805935.jpeg" 
+                  alt="Ange Akonde" 
+                  fill 
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </motion.section>
 
