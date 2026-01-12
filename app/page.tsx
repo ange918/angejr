@@ -338,6 +338,31 @@ export default function Home() {
         </div>
       </motion.section>
 
+      {/* Timeline Section */}
+      <motion.section 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="py-12 px-6 z-10 relative"
+      >
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 mb-12 uppercase">Mon Parcours</h2>
+          <div className="space-y-8">
+            <div className="relative pl-8 border-l border-white/10">
+              <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
+              <p className="text-cyan-400 font-bold text-sm mb-1 tracking-widest">2011</p>
+              <p className="text-white text-lg font-light">CEP (Certificat d'Études Primaires)</p>
+            </div>
+            <div className="relative pl-8 border-l border-white/10">
+              <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
+              <p className="text-cyan-400 font-bold text-sm mb-1 tracking-widest">2017</p>
+              <p className="text-white text-lg font-light">BEPC (Brevet d'Études du Premier Cycle)</p>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
       {/* Education & Freelance Section */}
       <motion.section 
         initial={{ opacity: 0, y: 50 }}
