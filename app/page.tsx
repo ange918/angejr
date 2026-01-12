@@ -449,7 +449,7 @@ export default function Home() {
 
           <div>
             <h3 className="text-[8px] font-bold tracking-[0.2em] text-cyan-500/40 mb-8 uppercase italic">En cours d'apprentissage</h3>
-            <div className="grid grid-cols-4 md:grid-cols-8 gap-6 items-center justify-items-center opacity-70">
+            <div className="grid grid-cols-4 md:grid-cols-8 gap-6 items-center justify-items-center">
               {learningSkills.map((skill, i) => (
                 <motion.div
                   key={skill.name}
@@ -460,7 +460,7 @@ export default function Home() {
                   whileHover={{ scale: 1.1 }}
                   className="flex flex-col items-center gap-2 group cursor-pointer"
                 >
-                  <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center p-1.5 rounded-lg bg-white/[0.01] border border-white/5 grayscale group-hover:grayscale-0 transition-all">
+                  <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center p-1.5 rounded-lg bg-white/[0.01] border border-white/5 transition-all">
                     <Image src={skill.logo} alt={skill.name} width={40} height={40} className="w-full h-full object-contain" />
                   </div>
                   <span className="text-[7px] md:text-[8px] font-medium text-gray-600 uppercase tracking-widest group-hover:text-white transition-colors">

@@ -41,7 +41,7 @@ export function ExpandableCardDemo() {
   useOutsideClick(ref as React.RefObject<HTMLDivElement>, () => setActive(null));
 
   const completedProjects = cards.filter(card => card.status === "Terminé");
-  const ongoingProjects = cards.filter(card => card.status === "En cours");
+  const ongoingProjects = [];
 
   return (
     <div className="space-y-16">
@@ -196,52 +196,6 @@ export function ExpandableCardDemo() {
           </div>
         </div>
       </div>
-      
-      <div>
-        <h3 className="text-[12px] md:text-[16px] font-bold tracking-[0.2em] text-cyan-500/60 mb-8 uppercase border-l-2 border-cyan-500/20 pl-4">Projets en Cours</h3>
-        <ul className="max-w-4xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
-          {ongoingProjects.map((card, index) => (
-            <motion.div
-              layoutId={`card-${card.title}-${id}`}
-              key={`card-${card.title}-${id}`}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              onClick={() => setActive(card)}
-              className="group flex flex-col bg-navy border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:bg-white/[0.03] transition-colors"
-            >
-              <div className="aspect-video relative overflow-hidden">
-                <Image
-                  src={card.src}
-                  alt={card.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover group-hover:scale-110 transition duration-500"
-                />
-              </div>
-              <div className="p-4 flex justify-between items-center">
-                <div className="flex items-center gap-3">
-                  <motion.h3
-                    layoutId={`title-${card.title}-${id}`}
-                    className="font-bold text-white text-sm"
-                  >
-                    {card.title}
-                  </motion.h3>
-                </div>
-                <div className="flex gap-2">
-                  <motion.button
-                    layoutId={`button-${card.title}-${id}`}
-                    className="px-4 py-2 text-[10px] rounded-full font-bold bg-white/10 text-white opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition duration-200 uppercase tracking-widest"
-                  >
-                    Détails
-                  </motion.button>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </ul>
-      </div>
     </div>
   );
 }
@@ -300,10 +254,10 @@ const cards = [
   {
     description: "Design immersif avec Three.js",
     title: "Portfolio – Ore Gauthier",
-    src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647806079.jpeg",
+    src: "/images/ore_1767704999754.jpeg",
     ctaText: "Visiter",
     ctaLink: "#",
-    status: "En cours",
+    status: "Terminé",
     content: () => {
       return (
         <p>
@@ -316,10 +270,10 @@ const cards = [
   {
     description: "Modernité et animations GSAP",
     title: "Portfolio – Merveille Susuni",
-    src: "/images/WhatsApp_Image_2026-01-05_at_22.04.43_1767647806079.jpeg",
+    src: "/images/merveille_1767704999752.jpeg",
     ctaText: "Visiter",
     ctaLink: "#",
-    status: "En cours",
+    status: "Terminé",
     content: () => {
       return (
         <p>
