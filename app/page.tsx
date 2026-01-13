@@ -475,15 +475,11 @@ export default function Home() {
       >
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-            <div className="text-left">
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white uppercase opacity-10 leading-none mb-2">Portfolio</h2>
-              <div className="flex items-center gap-4">
-                <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Mes Projets</span>
-                <h3 className="text-xl md:text-2xl font-bold text-white uppercase">Portfolio</h3>
-              </div>
+            <div className="text-left w-full">
+              <h2 className="text-6xl md:text-9xl font-bold tracking-tighter text-white uppercase opacity-20 leading-none">Portfolio</h2>
             </div>
             
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 shrink-0">
             {["Tous", "Mobile", "Progiciel", "Web"].map((cat) => (
               <button
                 key={cat}
