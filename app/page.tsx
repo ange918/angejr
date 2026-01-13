@@ -313,38 +313,53 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true, margin: "-100px" }}
-        className="py-12 px-6 z-10 relative"
+        className="py-12 px-6 z-10 relative overflow-hidden"
       >
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 mb-16 uppercase">Les choses que je réalise</h2>
-          <div className="relative w-full">
-            <div className="flex gap-4 overflow-x-auto pb-8 no-scrollbar -mx-6 px-6">
-              {carouselData.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex-shrink-0 w-[280px] md:w-[400px] group cursor-pointer"
-                >
-                  <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-4">
-                    <Image
-                      src={item.src}
-                      alt={item.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-end">
-                      <p className="text-cyan-400 text-xs font-bold tracking-widest uppercase mb-2">{item.category}</p>
-                      <h3 className="text-white text-xl md:text-2xl font-bold">{item.title}</h3>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+        <div className="max-w-6xl mx-auto text-center mb-16">
+          <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 uppercase">Les choses que je réalise</h2>
         </div>
+        
+        <Marquee gradient={false} speed={50} pauseOnHover={true}>
+          {carouselData.map((item, index) => (
+            <motion.div
+              key={index}
+              className="mx-4 w-[280px] md:w-[400px] group cursor-pointer"
+            >
+              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-4">
+                <Image
+                  src={item.src}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-end">
+                  <p className="text-cyan-400 text-xs font-bold tracking-widest uppercase mb-2">{item.category}</p>
+                  <h3 className="text-white text-xl md:text-2xl font-bold">{item.title}</h3>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+          {/* Duplicate to ensure continuous loop if items are few */}
+          {carouselData.map((item, index) => (
+            <motion.div
+              key={`dup-${index}`}
+              className="mx-4 w-[280px] md:w-[400px] group cursor-pointer"
+            >
+              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-4">
+                <Image
+                  src={item.src}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-end">
+                  <p className="text-cyan-400 text-xs font-bold tracking-widest uppercase mb-2">{item.category}</p>
+                  <h3 className="text-white text-xl md:text-2xl font-bold">{item.title}</h3>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </Marquee>
       </motion.section>
 
       {/* About Section */}
@@ -568,28 +583,49 @@ export default function Home() {
       >
         <div className="max-w-3xl mx-auto">
           <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 mb-16 uppercase text-center">Foire Aux Questions</h2>
-          <div className="space-y-6">
+          <div className="space-y-4">
             {[
               { q: "Quels types de projets réalisez-vous ?", a: "Je réalise principalement des applications web complexes (SaaS, dashboards), des sites e-commerce performants et des portfolios haut de gamme avec des animations fluides." },
               { q: "Quelles technologies utilisez-vous ?", a: "Ma stack principale inclut Next.js, React, Node.js, PHP/Laravel et des bases de données comme PostgreSQL ou MongoDB." },
               { q: "Êtes-vous disponible pour du freelance ?", a: "Oui, je suis actuellement ouvert aux opportunités en freelance pour des projets partout dans le monde." },
               { q: "Comment se déroule une collaboration ?", a: "Nous commençons par une phase d'échange pour comprendre vos besoins, suivie d'une proposition technique, du design, du développement et enfin de la mise en ligne." }
-            ].map((faq, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-cyan-500/20 transition-all group"
-              >
-                <h3 className="text-white font-medium mb-3 flex items-center gap-3">
-                  <span className="text-cyan-500 font-bold">0{i+1}.</span> {faq.q}
-                </h3>
-                <p className="text-gray-400 text-sm font-light leading-relaxed pl-8">
-                  {faq.a}
-                </p>
-              </motion.div>
-            ))}
+            ].map((faq, i) => {
+              const [isOpen, setIsOpen] = useState(false);
+              return (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  className="rounded-2xl bg-white/[0.02] border border-white/5 overflow-hidden hover:border-cyan-500/20 transition-all"
+                >
+                  <button 
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="w-full p-6 text-left flex justify-between items-center group"
+                  >
+                    <h3 className="text-white font-medium flex items-center gap-3">
+                      <span className="text-cyan-500 font-bold">0{i+1}.</span> {faq.q}
+                    </h3>
+                    <motion.div
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      className="text-cyan-500/60 group-hover:text-cyan-500"
+                    >
+                      <ArrowUp className="rotate-180" size={18} />
+                    </motion.div>
+                  </button>
+                  <motion.div
+                    initial={false}
+                    animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="p-6 pt-0 text-gray-400 text-sm font-light leading-relaxed pl-14">
+                      {faq.a}
+                    </div>
+                  </motion.div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </motion.section>
