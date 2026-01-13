@@ -474,27 +474,27 @@ export default function Home() {
         className="py-24 px-6 bg-white/[0.01] z-10 relative"
       >
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+          <div className="flex flex-col mb-16 gap-8">
             <div className="text-left w-full">
               <h2 className="text-6xl md:text-9xl font-bold tracking-tighter text-white uppercase opacity-20 leading-none">Portfolio</h2>
             </div>
             
-          <div className="flex flex-wrap gap-4 shrink-0">
-            {["Tous", "Mobile", "Progiciel", "Web"].map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all border ${
-                  activeCategory === cat 
-                    ? "bg-cyan-500 border-cyan-500 text-white shadow-[0_0_15px_rgba(6,182,212,0.4)]" 
-                    : "bg-white/5 border-white/10 text-gray-400 hover:border-cyan-500/50 hover:text-cyan-400"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+            <div className="flex flex-wrap gap-4">
+              {["Tous", "Mobile", "Progiciel", "Web"].map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all border ${
+                    activeCategory === cat 
+                      ? "bg-cyan-500 border-cyan-500 text-white shadow-[0_0_15px_rgba(6,182,212,0.4)]" 
+                      : "bg-white/5 border-white/10 text-gray-400 hover:border-cyan-500/50 hover:text-cyan-400"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
 
           <AnimatePresence mode="popLayout">
             <motion.div 
