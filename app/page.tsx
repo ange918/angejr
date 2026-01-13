@@ -10,14 +10,76 @@ import Marquee from "react-fast-marquee";
 import Image from "next/image";
 
 const projects = [
-  { name: "Model Academy Management", category: "Web", status: "Terminé", stack: ["Next.js", "PostgreSQL", "Tailwind"], image: "/images/modelacademy_1767704999756.jpeg" },
-  { name: "Portfolio – Ore Gauthier", category: "Web", status: "Terminé", stack: ["React", "Framer Motion", "Three.js"], image: "/images/ore_1767704999754.jpeg" },
-  { name: "Portfolio – Merveille Susuni", category: "Web", status: "Terminé", stack: ["Web", "GSAP", "Tailwind"], image: "/images/merveille_1767704999752.jpeg" },
-  { name: "Site officiel – Axel Merryl", category: "Web", status: "Terminé", stack: ["PHP", "Laravel", "MySQL"], image: "/images/axel_1767704999746.jpeg" },
-  { name: "Code Capital", category: "Progiciel", status: "Terminé", stack: ["React", "Node.js", "MongoDB"], image: "/images/codecapital_1767704999750.jpeg" },
-  { name: "FASHLINK", category: "Web", status: "En cours", stack: ["Next.js", "Prisma", "Tailwind"], image: "/images/faslink_1767704999743.jpeg" },
-  { name: "DAHOMEY TECH", category: "Mobile", status: "En cours", stack: ["React", "Firebase", "Styled Components"] },
-  { name: "FOODMOOD", category: "Mobile", status: "En cours", stack: ["Next.js", "Supabase", "Tailwind"] },
+  { 
+    name: "Model Academy Management", 
+    category: "Web", 
+    status: "Terminé", 
+    stack: ["Next.js", "PostgreSQL", "Tailwind"], 
+    image: "/images/modelacademy_1767704999756.jpeg",
+    description: "Une plateforme complète de gestion pour les académies de mannequins, incluant le suivi des inscriptions, la gestion des plannings et les profils des talents.",
+    link: "https://model-academy.example.com"
+  },
+  { 
+    name: "Portfolio – Ore Gauthier", 
+    category: "Web", 
+    status: "Terminé", 
+    stack: ["React", "Framer Motion", "Three.js"], 
+    image: "/images/ore_1767704999754.jpeg",
+    description: "Un portfolio immersif pour un architecte, utilisant des éléments 3D et des animations fluides pour mettre en valeur ses réalisations.",
+    link: "https://oregauthier.com"
+  },
+  { 
+    name: "Portfolio – Merveille Susuni", 
+    category: "Web", 
+    status: "Terminé", 
+    stack: ["Web", "GSAP", "Tailwind"], 
+    image: "/images/merveille_1767704999752.jpeg",
+    description: "Design minimaliste et animations sophistiquées pour cette vitrine personnelle d'entrepreneure.",
+    link: "https://merveillesusuni.com"
+  },
+  { 
+    name: "Site officiel – Axel Merryl", 
+    category: "Web", 
+    status: "Terminé", 
+    stack: ["PHP", "Laravel", "MySQL"], 
+    image: "/images/axel_1767704999746.jpeg",
+    description: "Plateforme officielle de l'artiste Axel Merryl, centralisant ses actualités, ses clips et ses dates de tournée.",
+    link: "https://axelmerryl.com"
+  },
+  { 
+    name: "Code Capital", 
+    category: "Progiciel", 
+    status: "Terminé", 
+    stack: ["React", "Node.js", "MongoDB"], 
+    image: "/images/codecapital_1767704999750.jpeg",
+    description: "Solution SaaS de gestion financière et d'investissement pour les startups.",
+    link: "https://codecapital.net"
+  },
+  { 
+    name: "FASHLINK", 
+    category: "Web", 
+    status: "En cours", 
+    stack: ["Next.js", "Prisma", "Tailwind"], 
+    image: "/images/faslink_1767704999743.jpeg",
+    description: "Réseau social dédié à l'industrie de la mode connectant créateurs et acheteurs.",
+    link: "#"
+  },
+  { 
+    name: "DAHOMEY TECH", 
+    category: "Mobile", 
+    status: "En cours", 
+    stack: ["React", "Firebase", "Styled Components"],
+    description: "Application mobile de veille technologique et d'actualités tech au Bénin.",
+    link: "#"
+  },
+  { 
+    name: "FOODMOOD", 
+    category: "Mobile", 
+    status: "En cours", 
+    stack: ["Next.js", "Supabase", "Tailwind"],
+    description: "Application de recommandation de restaurants basée sur votre humeur du moment.",
+    link: "#"
+  },
 ];
 
 const testimonials = [
@@ -189,6 +251,7 @@ export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
   const [activeCategory, setActiveCategory] = useState("Tous");
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -476,7 +539,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col mb-16 gap-8">
             <div className="text-left w-full">
-              <h2 className="text-6xl md:text-9xl font-bold tracking-tighter text-white uppercase opacity-20 leading-none">Portfolio</h2>
+              <h2 className="text-6xl md:text-9xl font-bold tracking-tighter text-cyan-500 uppercase opacity-20 leading-none">Portfolio</h2>
             </div>
             
             <div className="flex flex-wrap gap-4">
@@ -512,7 +575,8 @@ export default function Home() {
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.4 }}
                     viewport={{ once: true }}
-                    className={`relative rounded-3xl overflow-hidden group border border-white/5 ${
+                    onClick={() => setSelectedProject(project)}
+                    className={`relative rounded-3xl overflow-hidden group border border-white/5 cursor-pointer ${
                       i % 6 === 0 ? "md:col-span-1 md:row-span-2" : 
                       i % 6 === 1 ? "md:col-span-1 md:row-span-1" :
                       i % 6 === 2 ? "md:col-span-1 md:row-span-1" :
@@ -542,6 +606,76 @@ export default function Home() {
           </AnimatePresence>
         </div>
       </motion.section>
+
+      {/* Project Detail Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 bg-navy/90 backdrop-blur-xl"
+            onClick={() => setSelectedProject(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="bg-navy border border-white/10 rounded-[2.5rem] overflow-hidden max-w-4xl w-full max-h-[90vh] flex flex-col md:flex-row relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-6 right-6 z-10 p-2 bg-black/20 hover:bg-black/40 rounded-full text-white/70 hover:text-white transition-all backdrop-blur-md border border-white/5"
+              >
+                <X size={20} />
+              </button>
+
+              <div className="w-full md:w-1/2 relative aspect-square md:aspect-auto">
+                <Image 
+                  src={selectedProject.image!} 
+                  alt={selectedProject.name} 
+                  fill 
+                  className="object-cover"
+                />
+              </div>
+
+              <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center overflow-y-auto">
+                <p className="text-cyan-500 text-xs font-bold tracking-[0.3em] uppercase mb-4">{selectedProject.category}</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">{selectedProject.name}</h2>
+                <p className="text-gray-400 text-base md:text-lg font-light leading-relaxed mb-8">
+                  {selectedProject.description}
+                </p>
+                
+                <div className="flex flex-wrap gap-2 mb-10">
+                  {selectedProject.stack.map(s => (
+                    <span key={s} className="text-[10px] px-3 py-1.5 bg-white/5 rounded-full text-gray-400 border border-white/5 uppercase tracking-widest font-medium">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a 
+                    href={selectedProject.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-white rounded-2xl font-bold uppercase tracking-widest text-[10px] text-center transition-all flex items-center justify-center gap-2 group shadow-lg shadow-cyan-500/20"
+                  >
+                    Visiter le projet <ExternalLink size={14} className="group-hover:translate-x-1 transition-transform" />
+                  </a>
+                  <button 
+                    onClick={() => setSelectedProject(null)}
+                    className="flex-1 px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-2xl font-bold uppercase tracking-widest text-[10px] text-center transition-all"
+                  >
+                    Retour
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Expertise Section */}
       <motion.section 
