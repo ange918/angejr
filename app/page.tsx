@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Mail, MapPin, MessageSquare, ArrowUp, Github, Linkedin, ExternalLink, Menu, X, Quote, Copy, Check, Facebook, Instagram } from "lucide-react";
 import { FlipWords } from "./components/ui/flip-words";
 import { ExpandableCardDemo } from "./components/ExpandableCard";
@@ -10,14 +10,14 @@ import Marquee from "react-fast-marquee";
 import Image from "next/image";
 
 const projects = [
-  { name: "Model Academy Management", status: "Terminé", stack: ["Next.js", "PostgreSQL", "Tailwind"], image: "/images/modelacademy_1767704999756.jpeg" },
-  { name: "Portfolio – Ore Gauthier", status: "Terminé", stack: ["React", "Framer Motion", "Three.js"], image: "/images/ore_1767704999754.jpeg" },
-  { name: "Portfolio – Merveille Susuni", status: "Terminé", stack: ["Next.js", "GSAP", "Tailwind"], image: "/images/merveille_1767704999752.jpeg" },
-  { name: "Site officiel – Axel Merryl", status: "Terminé", stack: ["PHP", "Laravel", "MySQL"], image: "/images/axel_1767704999746.jpeg" },
-  { name: "Code Capital", status: "Terminé", stack: ["React", "Node.js", "MongoDB"], image: "/images/codecapital_1767704999750.jpeg" },
-  { name: "FASHLINK", status: "En cours", stack: ["Next.js", "Prisma", "Tailwind"], image: "/images/faslink_1767704999743.jpeg" },
-  { name: "DAHOMEY TECH", status: "En cours", stack: ["React", "Firebase", "Styled Components"] },
-  { name: "FOODMOOD", status: "En cours", stack: ["Next.js", "Supabase", "Tailwind"] },
+  { name: "Model Academy Management", category: "Web", status: "Terminé", stack: ["Next.js", "PostgreSQL", "Tailwind"], image: "/images/modelacademy_1767704999756.jpeg" },
+  { name: "Portfolio – Ore Gauthier", category: "Web", status: "Terminé", stack: ["React", "Framer Motion", "Three.js"], image: "/images/ore_1767704999754.jpeg" },
+  { name: "Portfolio – Merveille Susuni", category: "Web", status: "Terminé", stack: ["Web", "GSAP", "Tailwind"], image: "/images/merveille_1767704999752.jpeg" },
+  { name: "Site officiel – Axel Merryl", category: "Web", status: "Terminé", stack: ["PHP", "Laravel", "MySQL"], image: "/images/axel_1767704999746.jpeg" },
+  { name: "Code Capital", category: "Progiciel", status: "Terminé", stack: ["React", "Node.js", "MongoDB"], image: "/images/codecapital_1767704999750.jpeg" },
+  { name: "FASHLINK", category: "Web", status: "En cours", stack: ["Next.js", "Prisma", "Tailwind"], image: "/images/faslink_1767704999743.jpeg" },
+  { name: "DAHOMEY TECH", category: "Mobile", status: "En cours", stack: ["React", "Firebase", "Styled Components"] },
+  { name: "FOODMOOD", category: "Mobile", status: "En cours", stack: ["Next.js", "Supabase", "Tailwind"] },
 ];
 
 const testimonials = [
@@ -188,6 +188,7 @@ export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
+  const [activeCategory, setActiveCategory] = useState("Tous");
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -472,9 +473,77 @@ export default function Home() {
         viewport={{ once: true, margin: "-100px" }}
         className="py-24 px-6 bg-white/[0.01] z-10 relative"
       >
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 mb-16 uppercase text-center">Projets Sélectionnés</h2>
-          <ExpandableCardDemo />
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+            <div className="text-left">
+              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white uppercase opacity-10 leading-none mb-2">Portfolio</h2>
+              <div className="flex items-center gap-4">
+                <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Mes Projets</span>
+                <h3 className="text-xl md:text-2xl font-bold text-white uppercase">Portfolio</h3>
+              </div>
+            </div>
+            
+          <div className="flex flex-wrap gap-4">
+            {["Tous", "Mobile", "Progiciel", "Web"].map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all border ${
+                  activeCategory === cat 
+                    ? "bg-cyan-500 border-cyan-500 text-white shadow-[0_0_15px_rgba(6,182,212,0.4)]" 
+                    : "bg-white/5 border-white/10 text-gray-400 hover:border-cyan-500/50 hover:text-cyan-400"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+
+          <AnimatePresence mode="popLayout">
+            <motion.div 
+              layout
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]"
+            >
+              {projects
+                .filter(p => p.image && (activeCategory === "Tous" || p.category === activeCategory))
+                .map((project, i) => (
+                  <motion.div
+                    key={project.name}
+                    layout
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.4 }}
+                    viewport={{ once: true }}
+                    className={`relative rounded-3xl overflow-hidden group border border-white/5 ${
+                      i % 6 === 0 ? "md:col-span-1 md:row-span-2" : 
+                      i % 6 === 1 ? "md:col-span-1 md:row-span-1" :
+                      i % 6 === 2 ? "md:col-span-1 md:row-span-1" :
+                      i % 6 === 3 ? "md:col-span-1 md:row-span-2" :
+                      i % 6 === 4 ? "md:col-span-1 md:row-span-1" :
+                      "md:col-span-1 md:row-span-1"
+                    }`}
+                  >
+                    <Image 
+                      src={project.image!} 
+                      alt={project.name} 
+                      fill 
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-8 flex flex-col justify-end">
+                      <p className="text-cyan-400 text-[10px] font-bold tracking-widest uppercase mb-2">{project.category}</p>
+                      <h4 className="text-white text-xl font-bold mb-2">{project.name}</h4>
+                      <div className="flex gap-2 flex-wrap">
+                        {project.stack.map(s => (
+                          <span key={s} className="text-[8px] px-2 py-1 bg-white/10 rounded-md text-gray-300 uppercase tracking-widest">{s}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </motion.section>
 
