@@ -993,8 +993,8 @@ export default function Home() {
             © 2026 JRC Digit. Tous droits réservés.
           </p>
           <div className="flex gap-6 text-gray-500">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors"><Facebook size={18} /></a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors"><Instagram size={18} /></a>
+            <a href="https://www.facebook.com/share/1AQKFkhUTj/" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors"><Facebook size={18} /></a>
+            <a href="https://www.instagram.com/ange_akonde?igsh=dWVhazhveHljeDM0" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors"><Instagram size={18} /></a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors"><Linkedin size={18} /></a>
             <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors"><Github size={18} /></a>
           </div>
