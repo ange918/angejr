@@ -593,10 +593,10 @@ export default function Home() {
                       fill 
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-8 flex flex-col justify-end">
-                      <p className="text-cyan-400 text-[10px] font-bold tracking-widest uppercase mb-2">{project.category}</p>
-                      <h4 className="text-white text-xl font-bold mb-2">{project.name}</h4>
-                      <div className="flex gap-2 flex-wrap">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 p-2 md:p-8 flex flex-col justify-end">
+                      <p className="text-cyan-400 text-[8px] md:text-[10px] font-bold tracking-widest uppercase mb-1 md:mb-2">{project.category}</p>
+                      <h4 className="text-white text-[10px] md:text-xl font-bold mb-1 md:mb-2 line-clamp-1 md:line-clamp-none">{project.name}</h4>
+                      <div className="hidden md:flex gap-2 flex-wrap">
                         {project.stack.map(s => (
                           <span key={s} className="text-[8px] px-2 py-1 bg-white/10 rounded-md text-gray-300 uppercase tracking-widest">{s}</span>
                         ))}
