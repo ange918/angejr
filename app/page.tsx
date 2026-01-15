@@ -848,41 +848,41 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl p-8 md:p-12 max-w-xl w-full text-center shadow-2xl relative overflow-hidden"
+            className="bg-navy/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 max-w-xl w-full text-center shadow-2xl relative overflow-hidden"
           >
             {/* Decorative background element like in screenshot */}
-            <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-gray-50 to-transparent -z-10" />
+            <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white/5 to-transparent -z-10" />
             
-            <p className="text-red-500 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase mb-4">Où suis-je ?</p>
-            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-8">Mon adresse</h2>
+            <p className="text-cyan-500 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase mb-4">Où suis-je ?</p>
+            <h2 className="text-2xl md:text-4xl font-bold text-white mb-8">Mon adresse</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 text-left">
               <div className="flex items-start gap-3">
-                <MapPin className="text-red-500 shrink-0 mt-1" size={18} />
+                <MapPin className="text-cyan-500 shrink-0 mt-1" size={18} />
                 <div>
-                  <p className="text-gray-900 font-bold text-sm">Bénin</p>
-                  <p className="text-gray-500 text-xs">Abomey-Calavi, Bidosessi</p>
+                  <p className="text-white font-bold text-sm">Bénin</p>
+                  <p className="text-gray-400 text-xs">Abomey-Calavi, Bidosessi</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Smartphone className="text-red-500 shrink-0 mt-1" size={18} />
+                <Smartphone className="text-cyan-500 shrink-0 mt-1" size={18} />
                 <div>
-                  <p className="text-gray-900 font-bold text-sm">Téléphone</p>
-                  <p className="text-gray-500 text-xs">+229 XX XX XX XX</p>
+                  <p className="text-white font-bold text-sm">Téléphone</p>
+                  <p className="text-gray-400 text-xs">41483715</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Mail className="text-red-500 shrink-0 mt-1" size={18} />
+                <Mail className="text-cyan-500 shrink-0 mt-1" size={18} />
                 <div>
-                  <p className="text-gray-900 font-bold text-sm">E-mail</p>
-                  <p className="text-gray-500 text-xs">contact@angeakonde.com</p>
+                  <p className="text-white font-bold text-sm">E-mail</p>
+                  <p className="text-gray-400 text-xs">akondejunior18@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Check className="text-red-500 shrink-0 mt-1" size={18} />
+                <Check className="text-cyan-500 shrink-0 mt-1" size={18} />
                 <div>
-                  <p className="text-gray-900 font-bold text-sm">Disponibilité</p>
-                  <p className="text-gray-500 text-xs">Temps plein / Freelance</p>
+                  <p className="text-white font-bold text-sm">Disponibilité</p>
+                  <p className="text-gray-400 text-xs">Temps plein / Freelance</p>
                 </div>
               </div>
             </div>
@@ -891,7 +891,7 @@ export default function Home() {
               href="https://maps.google.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-[#1a1a1a] hover:bg-black text-white rounded-xl font-bold uppercase tracking-widest text-[10px] transition-all group"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-white rounded-xl font-bold uppercase tracking-widest text-[10px] transition-all group shadow-lg shadow-cyan-500/20"
             >
               <MapPin size={14} className="group-hover:scale-110 transition-transform" />
               VOIR LOCALISATION
