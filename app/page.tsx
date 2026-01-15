@@ -579,12 +579,12 @@ export default function Home() {
                     viewport={{ once: true }}
                     onClick={() => setSelectedProject(project)}
                     className={`relative rounded-3xl overflow-hidden group border border-white/5 cursor-pointer ${
-                      i % 6 === 0 ? "md:col-span-1 md:row-span-2" : 
-                      i % 6 === 1 ? "md:col-span-1 md:row-span-1" :
-                      i % 6 === 2 ? "md:col-span-1 md:row-span-1" :
-                      i % 6 === 3 ? "md:col-span-1 md:row-span-2" :
-                      i % 6 === 4 ? "md:col-span-1 md:row-span-1" :
-                      "md:col-span-1 md:row-span-1"
+                      i % 6 === 0 ? "col-span-1 row-span-2" : 
+                      i % 6 === 1 ? "col-span-1 row-span-1" :
+                      i % 6 === 2 ? "col-span-1 row-span-1" :
+                      i % 6 === 3 ? "col-span-1 row-span-2" :
+                      i % 6 === 4 ? "col-span-1 row-span-1" :
+                      "col-span-1 row-span-1"
                     }`}
                   >
                     <Image 
