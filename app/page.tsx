@@ -606,9 +606,18 @@ export default function Home() {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="py-24 px-6 z-10 relative bg-white"
+        className="py-24 px-6 z-10 relative overflow-hidden"
       >
-        <div className="max-w-4xl mx-auto">
+        <div className="absolute inset-0 z-0">
+          <Image 
+            src="/attached_assets/IMG-20260113-WA0244_1768475608253.jpg"
+            alt="Background"
+            fill
+            className="object-cover blur-[4px] opacity-40"
+          />
+          <div className="absolute inset-0 bg-white/60" />
+        </div>
+        <div className="max-w-4xl mx-auto relative z-10">
           <div className="flex flex-col items-center mb-16">
             <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-6">
               <Users className="text-red-500" size={32} />
