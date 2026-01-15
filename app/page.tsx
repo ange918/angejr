@@ -274,7 +274,7 @@ export default function Home() {
     >
       {/* Background Image fixed for all sections */}
       <div 
-        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-10 grayscale pointer-events-none"
+        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-20 grayscale-0 pointer-events-none"
         style={{ backgroundImage: "url('/images/WhatsApp_Image_2026-01-05_at_22.04.42_1767647805935.jpeg')" }}
       />
       <div className="fixed inset-0 z-0 bg-gradient-to-b from-navy via-transparent to-navy pointer-events-none" />
