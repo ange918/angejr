@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Mail, MapPin, MessageSquare, ArrowUp, Github, Linkedin, ExternalLink, Menu, X, Quote, Copy, Check, Facebook, Instagram, Users, Book, FlaskConical, Calendar, Code2, CheckCircle2, PenTool, GraduationCap } from "lucide-react";
+import { Phone, Mail, MapPin, MessageSquare, ArrowUp, Github, Linkedin, ExternalLink, Menu, X, Quote, Copy, Check, Facebook, Instagram, Users, Book, FlaskConical, Calendar, Code2, CheckCircle2, PenTool, GraduationCap, Smartphone } from "lucide-react";
 import { FlipWords } from "@/components/ui/flip-words";
 import { ExpandableCardDemo } from "./components/ExpandableCard";
 import Link from "next/link";
@@ -825,6 +825,80 @@ export default function Home() {
           </div>
         </div>
       </motion.section>
+
+      {/* Map Section */}
+      <section className="relative h-[600px] w-full overflow-hidden bg-navy">
+        {/* Background Map Placeholder/Image */}
+        <div className="absolute inset-0 z-0">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.7175294025114!2d2.345639!3d6.425333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1023559385555555%3A0x5555555555555555!2sAbomey-Calavi%2C%20Benin!5e0!3m2!1sen!2sbj!4v1700000000000!5m2!1sen!2sbj" 
+            width="100%" 
+            height="100%" 
+            style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%)' }} 
+            allowFullScreen 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+            className="grayscale opacity-50"
+          ></iframe>
+        </div>
+
+        {/* Info Card Overlay */}
+        <div className="absolute inset-0 z-10 flex items-center justify-center p-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-3xl p-8 md:p-12 max-w-xl w-full text-center shadow-2xl relative overflow-hidden"
+          >
+            {/* Decorative background element like in screenshot */}
+            <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-gray-50 to-transparent -z-10" />
+            
+            <p className="text-red-500 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase mb-4">Où suis-je ?</p>
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-8">Mon adresse</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 text-left">
+              <div className="flex items-start gap-3">
+                <MapPin className="text-red-500 shrink-0 mt-1" size={18} />
+                <div>
+                  <p className="text-gray-900 font-bold text-sm">Bénin</p>
+                  <p className="text-gray-500 text-xs">Abomey-Calavi, Bidosessi</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Smartphone className="text-red-500 shrink-0 mt-1" size={18} />
+                <div>
+                  <p className="text-gray-900 font-bold text-sm">Téléphone</p>
+                  <p className="text-gray-500 text-xs">+229 XX XX XX XX</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Mail className="text-red-500 shrink-0 mt-1" size={18} />
+                <div>
+                  <p className="text-gray-900 font-bold text-sm">E-mail</p>
+                  <p className="text-gray-500 text-xs">contact@angeakonde.com</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="text-red-500 shrink-0 mt-1" size={18} />
+                <div>
+                  <p className="text-gray-900 font-bold text-sm">Disponibilité</p>
+                  <p className="text-gray-500 text-xs">Temps plein / Freelance</p>
+                </div>
+              </div>
+            </div>
+
+            <a 
+              href="https://maps.google.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-[#1a1a1a] hover:bg-black text-white rounded-xl font-bold uppercase tracking-widest text-[10px] transition-all group"
+            >
+              <MapPin size={14} className="group-hover:scale-110 transition-transform" />
+              VOIR LOCALISATION
+            </a>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Contact Section */}
       <motion.section 
