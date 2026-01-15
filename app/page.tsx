@@ -641,7 +641,7 @@ export default function Home() {
                     
                     <div className="relative flex flex-col items-center group">
                       <motion.div 
-                        whileHover={{ scale: 1.2, rotate: 10 }}
+                        whileHover={{ scale: 1.2 }}
                         animate={{ 
                           y: [0, -4, 0],
                           boxShadow: ["0 0 10px rgba(6,182,212,0.2)", "0 0 20px rgba(6,182,212,0.5)", "0 0 10px rgba(6,182,212,0.2)"]
@@ -649,8 +649,7 @@ export default function Home() {
                         transition={{ 
                           y: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 },
                           boxShadow: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 },
-                          scale: { type: "spring", stiffness: 300, damping: 10 },
-                          rotate: { type: "spring", stiffness: 300, damping: 10 }
+                          scale: { type: "spring", stiffness: 300, damping: 10 }
                         }}
                         className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-cyan-500/50 bg-navy flex items-center justify-center text-cyan-400 z-10 cursor-pointer"
                       >
