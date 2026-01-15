@@ -564,7 +564,7 @@ export default function Home() {
           <AnimatePresence mode="popLayout">
             <motion.div 
               layout
-              className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]"
+              className="grid grid-cols-3 gap-1 md:gap-6 auto-rows-[120px] md:auto-rows-[300px]"
             >
               {projects
                 .filter(p => p.image && (activeCategory === "Tous" || p.category === activeCategory))
@@ -578,9 +578,9 @@ export default function Home() {
                     transition={{ duration: 0.4 }}
                     viewport={{ once: true }}
                     onClick={() => setSelectedProject(project)}
-                    className={`relative rounded-3xl overflow-hidden group border border-white/5 cursor-pointer ${
+                    className={`relative rounded-lg md:rounded-3xl overflow-hidden group border border-white/5 cursor-pointer ${
                       i % 6 === 0 ? "col-span-1 row-span-2" : 
-                      i % 6 === 1 ? "col-span-1 row-span-1" :
+                      i % 6 === 1 ? "col-span-2 row-span-1" :
                       i % 6 === 2 ? "col-span-1 row-span-1" :
                       i % 6 === 3 ? "col-span-1 row-span-2" :
                       i % 6 === 4 ? "col-span-1 row-span-1" :
