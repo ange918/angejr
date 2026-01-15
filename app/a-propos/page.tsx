@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowUp, Github, Linkedin } from "lucide-react";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import Link from "next/link";
 import Image from "next/image";
 import { DraggableCard } from "../components/ui/draggable-card";
@@ -57,21 +58,10 @@ export default function AboutPage() {
           <h1 className="text-3xl md:text-5xl font-bold mb-12 tracking-tighter leading-tight text-white">Je suis Ange AKONDE.</h1>
           
           <div className="space-y-8 text-base md:text-lg text-gray-400 leading-relaxed font-light">
-            <p>
-              Je suis Ange AKONDE, développeur FullStack passionné par les nouvelles technologies et l'innovation numérique. Après avoir suivi une formation intensive en développement web, je crée des applications modernes, performantes et élégantes.
-            </p>
-
-            <p>
-              Ma spécialité couvre l'ensemble de la stack technique : de l'interface utilisateur intuitive au backend robuste. Je maîtrise JavaScript, React, Node.js, et les architectures modernes pour délivrer des solutions complètes et durables.
-            </p>
-
-            <p>
-              Grâce à ma formation approfondie, j'ai acquis une expertise solide qui me permet de partager mes connaissances et d'accompagner d'autres développeurs dans leur apprentissage. Mon objectif : contribuer au développement technologique en transmettamnt mon savoir-faire.
-            </p>
-
-            <p>
-              Chaque projet est une opportunité de créer quelque chose d'exceptionnel, en plaçant l'expérience utilisateur et la qualité du code au cœur de mes priorités.
-            </p>
+            <TextGenerateEffect words="Je suis Ange AKONDE, développeur FullStack passionné par les nouvelles technologies et l'innovation numérique. Après avoir suivi une formation intensive en développement web, je crée des applications modernes, performantes et élégantes." />
+            <TextGenerateEffect words="Ma spécialité couvre l'ensemble de la stack technique : de l'interface utilisateur intuitive au backend robuste. Je maîtrise JavaScript, React, Node.js, et les architectures modernes pour délivrer des solutions complètes et durables." />
+            <TextGenerateEffect words="Grâce à ma formation approfondie, j'ai acquis une expertise solide qui me permet de partager mes connaissances et d'accompagner d'autres développeurs dans leur apprentissage. Mon objectif : contribuer au développement technologique en transmettamnt mon savoir-faire." />
+            <TextGenerateEffect words="Chaque projet est une opportunité de créer quelque chose d'exceptionnel, en plaçant l'expérience utilisateur et la qualité du code au cœur de mes priorités." />
           </div>
 
           <div className="mt-20 mb-10">
@@ -125,23 +115,17 @@ export default function AboutPage() {
           >
             <div className="pt-12 border-t border-white/5">
               <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-6 uppercase">Ma Formation</h2>
-              <p className="text-base md:text-lg text-gray-400 font-light leading-relaxed">
-                Je poursuis actuellement mon cursus académique à <span className="text-white font-medium">Futurcraft Institut</span>, où je suis en <span className="text-cyan-400 font-medium">deuxième année</span>. Cette formation me permet d'approfondir mes connaissances théoriques tout en les appliquant à des projets concrets et innovants.
-              </p>
+              <TextGenerateEffect words="Je poursuis actuellement mon cursus académique à Futurcraft Institut, où je suis en deuxième année. Cette formation me permet d'approfondir mes connaissances théoriques tout en les appliquant à des projets concrets et innovants." />
             </div>
 
             <div className="pt-12 border-t border-white/5">
               <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-6 uppercase">Collaboration Freelance</h2>
-              <p className="text-base md:text-lg text-gray-400 font-light leading-relaxed">
-                Au-delà de mon parcours académique, je suis activement ouvert aux opportunités en <span className="text-cyan-400 font-medium">freelance</span>. Ma vision est sans frontières : je suis prêt à collaborer avec des clients et des entreprises <span className="text-white font-medium">partout à travers le monde</span> pour transformer des idées ambitieuses en réalités numériques.
-              </p>
+              <TextGenerateEffect words="Au-delà de mon parcours académique, je suis activement ouvert aux opportunités en freelance. Ma vision est sans frontières : je suis prêt à collaborer avec des clients et des entreprises partout à travers le monde pour transformer des idées ambitieuses en réalités numériques." />
             </div>
 
             <div className="pt-12 border-t border-white/5">
               <h2 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-6 uppercase">Entrepreneuriat</h2>
-              <p className="text-base md:text-lg text-gray-400 font-light leading-relaxed">
-                Mon ambition ne s'arrête pas là. Je prépare activement le lancement de ma structure, <span className="text-cyan-400 font-medium italic">JRC Digit</span>. Ce projet, actuellement en cours de création, sera officiellement lancé juste après la fin de ma formation, avec pour mission d'accompagner la transformation digitale des entreprises.
-              </p>
+              <TextGenerateEffect words="Mon ambition ne s'arrête pas là. Je prépare activement le lancement de ma structure, JRC Digit. Ce projet, actuellement en cours de création, sera officiellement lancé juste après la fin de ma formation, avec pour mission d'accompagner la transformation digitale des entreprises." />
             </div>
           </motion.div>
         </motion.div>

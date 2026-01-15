@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Mail, MapPin, MessageSquare, ArrowUp, Github, Linkedin, ExternalLink, Menu, X, Quote, Copy, Check, Facebook, Instagram } from "lucide-react";
 import { FlipWords } from "./components/ui/flip-words";
 import { ExpandableCardDemo } from "./components/ExpandableCard";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
@@ -380,7 +381,7 @@ export default function Home() {
         className="py-12 px-6 z-10 relative overflow-hidden"
       >
         <div className="max-w-6xl mx-auto text-center mb-16">
-          <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 uppercase">Les choses que je réalise</h2>
+          <TextGenerateEffect words="Les choses que je réalise" className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 uppercase" />
         </div>
         
         <Marquee gradient={false} speed={50} pauseOnHover={true}>
@@ -445,12 +446,8 @@ export default function Home() {
             >
               <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 mb-10 uppercase">À Propos</h2>
               <div className="space-y-5 text-lg md:text-xl text-gray-200 leading-relaxed font-light">
-                <p>
-                  Je suis <span className="text-white font-medium">Ange AKONDE</span>, développeur FullStack passionné par les nouvelles technologies et l'innovation numérique. Après avoir suivi une formation intensive en développement web, je crée des applications modernes, performantes et élégantes.
-                </p>
-                <p>
-                  Ma spécialité couvre l'ensemble de la stack technique : de l'interface utilisateur intuitive au backend robuste. Je maîtrise JavaScript, React, Node.js, et les architectures modernes pour délivrer des solutions complètes et durables.
-                </p>
+                <TextGenerateEffect words="Je suis Ange AKONDE, développeur FullStack passionné par les nouvelles technologies et l'innovation numérique. Après avoir suivi une formation intensive en développement web, je crée des applications modernes, performantes et élégantes." />
+                <TextGenerateEffect words="Ma spécialité couvre l'ensemble de la stack technique : de l'interface utilisateur intuitive au backend robuste. Je maîtrise JavaScript, React, Node.js, et les architectures modernes pour délivrer des solutions complètes et durables." />
               </div>
               <Link href="/a-propos" className="inline-block mt-8 text-[10px] font-bold text-cyan-400 hover:text-white transition-colors border-b border-cyan-500/20 pb-1 uppercase tracking-widest">
                 Lire la suite
@@ -494,9 +491,10 @@ export default function Home() {
             className="border-l-2 border-cyan-500/30 pl-8"
           >
             <h3 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-4 uppercase font-sans">Formation</h3>
-            <p className="text-xl md:text-2xl text-white font-light leading-relaxed">
-              Actuellement en <span className="text-cyan-400 font-medium">deuxième année</span> de formation à <span className="text-white font-medium">Futurcraft Institut</span>, où je perfectionne mes compétences en ingénierie logicielle.
-            </p>
+            <TextGenerateEffect 
+              words="Actuellement en deuxième année de formation à Futurcraft Institut, où je perfectionne mes compétences en ingénierie logicielle."
+              className="text-xl md:text-2xl text-white font-light leading-relaxed" 
+            />
           </motion.div>
 
           <motion.div 
@@ -507,9 +505,10 @@ export default function Home() {
             className="border-r-2 border-cyan-500/30 pr-8 text-right"
           >
             <h3 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-4 uppercase font-sans">Freelance</h3>
-            <p className="text-xl md:text-2xl text-white font-light leading-relaxed">
-              Je suis <span className="text-cyan-400 font-medium">prêt à travailler en freelance</span> sur vos projets, apportant mon expertise partout à travers <span className="text-white font-medium">le monde</span>.
-            </p>
+            <TextGenerateEffect 
+              words="Je suis prêt à travailler en freelance sur vos projets, apportant mon expertise partout à travers le monde."
+              className="text-xl md:text-2xl text-white font-light leading-relaxed"
+            />
           </motion.div>
 
           <motion.div 
@@ -520,9 +519,10 @@ export default function Home() {
             className="text-center pt-8 border-t border-white/5"
           >
             <h3 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-4 uppercase font-sans">Futur Proche</h3>
-            <p className="text-xl md:text-2xl text-white font-light leading-relaxed">
-              Je compte créer ma propre boîte, <span className="text-cyan-400 font-medium italic">JRC Digit</span> (en cours de création), dès la fin de ma formation pour donner vie à de nouveaux standards numériques.
-            </p>
+            <TextGenerateEffect 
+              words="Je compte créer ma propre boîte, JRC Digit (en cours de création), dès la fin de ma formation pour donner vie à de nouveaux standards numériques."
+              className="text-xl md:text-2xl text-white font-light leading-relaxed"
+            />
           </motion.div>
         </div>
       </motion.section>
