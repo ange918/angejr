@@ -373,9 +373,9 @@ export default function Home() {
 
       {/* Realizations Section (Carousel) - Moved here */}
       <motion.section 
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true, margin: "-100px" }}
         className="py-12 px-6 z-10 relative overflow-hidden"
       >
@@ -429,9 +429,9 @@ export default function Home() {
       {/* About Section */}
       <motion.section 
         id="propos" 
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true, margin: "-100px" }}
         className="py-24 px-6 z-10 relative"
       >
@@ -479,9 +479,9 @@ export default function Home() {
 
       {/* Education & Freelance Section */}
       <motion.section 
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true, margin: "-100px" }}
         className="py-12 px-6 z-10 relative bg-white/[0.01]"
       >
@@ -527,12 +527,12 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Projects Section */}
+      {/* Projets Section */}
       <motion.section 
         id="projets" 
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true, margin: "-100px" }}
         className="py-24 px-6 bg-white/[0.01] z-10 relative"
       >
@@ -602,10 +602,10 @@ export default function Home() {
 
       {/* Expertise Section */}
       <motion.section 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: true, margin: "-100px" }}
         className="py-24 px-6 z-10 relative overflow-hidden bg-navy"
       >
         <div className="max-w-4xl mx-auto relative z-10">
@@ -677,9 +677,9 @@ export default function Home() {
       {/* Expertise Section */}
       <motion.section 
         id="competences" 
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true, margin: "-100px" }}
         className="py-24 px-6 z-10 relative"
       >
@@ -903,9 +903,9 @@ export default function Home() {
       {/* Contact Section */}
       <motion.section 
         id="contact" 
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true, margin: "-100px" }}
         className="py-24 px-6 z-10 relative"
       >
