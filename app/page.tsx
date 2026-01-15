@@ -606,26 +606,17 @@ export default function Home() {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="py-24 px-6 z-10 relative overflow-hidden"
+        className="py-24 px-6 z-10 relative overflow-hidden bg-navy"
       >
-        <div className="absolute inset-0 z-0">
-          <Image 
-            src="/attached_assets/IMG-20260113-WA0244_1768475608253.jpg"
-            alt="Background"
-            fill
-            className="object-cover blur-[4px] opacity-40"
-          />
-          <div className="absolute inset-0 bg-white/60" />
-        </div>
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="flex flex-col items-center mb-16">
-            <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-6">
-              <Users className="text-red-500" size={32} />
+            <div className="w-16 h-16 bg-white/5 rounded-full border border-white/10 flex items-center justify-center mb-6">
+              <Users className="text-cyan-500" size={32} />
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Progiciel</h2>
-            <p className="text-gray-500 text-sm">Web Application</p>
-            <p className="text-gray-500 text-sm">Standalone PC/Mac</p>
-            <p className="text-gray-500 text-sm">DVD-Rom</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Progiciel</h2>
+            <p className="text-gray-400 text-sm">Web Application</p>
+            <p className="text-gray-400 text-sm">Standalone PC/Mac</p>
+            <p className="text-gray-400 text-sm">DVD-Rom</p>
           </div>
 
           <div className="relative mt-20">
@@ -644,17 +635,17 @@ export default function Home() {
                 <div key={i} className="flex flex-col items-center">
                   <div className={`w-full flex items-center justify-center ${step.side === "left" ? "flex-row-reverse" : "flex-row"}`}>
                     <div className={`flex-1 flex flex-col ${step.side === "left" ? "items-end text-right pr-4" : "items-start text-left pl-4"}`}>
-                      <h4 className="text-gray-900 font-bold text-[10px] md:text-sm tracking-widest">{step.title}</h4>
+                      <h4 className="text-white font-bold text-[10px] md:text-sm tracking-widest">{step.title}</h4>
                       <p className="text-gray-400 text-[8px] md:text-[10px] font-medium tracking-wider leading-none">{step.sub}</p>
                     </div>
                     
                     <div className="relative flex flex-col items-center group">
-                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-gray-900 bg-white flex items-center justify-center text-gray-900 z-10">
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-cyan-500/50 bg-navy flex items-center justify-center text-cyan-400 z-10 shadow-[0_0_15px_rgba(6,182,212,0.3)]">
                         {step.icon}
                       </div>
                       {/* Horizontal T-lines */}
-                      <div className="absolute top-1/2 -translate-y-1/2 w-8 h-[2px] bg-gray-900 -z-0 left-1/2" />
-                      <div className="absolute top-1/2 -translate-y-1/2 w-8 h-[2px] bg-gray-900 -z-0 right-1/2" />
+                      <div className="absolute top-1/2 -translate-y-1/2 w-8 h-[1px] bg-cyan-500/30 -z-0 left-1/2" />
+                      <div className="absolute top-1/2 -translate-y-1/2 w-8 h-[1px] bg-cyan-500/30 -z-0 right-1/2" />
                     </div>
 
                     <div className="flex-1" />
@@ -662,7 +653,7 @@ export default function Home() {
                   
                   {/* Vertical connector line */}
                   {i < 7 && (
-                    <div className="w-[1px] h-8 bg-gray-200 my-1" />
+                    <div className="w-[1px] h-8 bg-white/10 my-1" />
                   )}
                 </div>
               ))}
