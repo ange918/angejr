@@ -561,123 +561,44 @@ export default function Home() {
             </div>
           </div>
 
-          <AnimatePresence mode="popLayout">
-            <motion.div 
-              layout
-              className="grid grid-cols-3 gap-1 md:gap-6 auto-rows-[120px] md:auto-rows-[300px]"
-            >
-              {projects
-                .filter(p => p.image && (activeCategory === "Tous" || p.category === activeCategory))
-                .map((project, i) => (
-                  <motion.div
-                    key={project.name}
-                    layout
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.4 }}
-                    viewport={{ once: true }}
-                    onClick={() => setSelectedProject(project)}
-                    className={`relative rounded-lg md:rounded-3xl overflow-hidden group border border-white/5 cursor-pointer ${
-                      i % 6 === 0 ? "col-span-1 row-span-2" : 
-                      i % 6 === 1 ? "col-span-2 row-span-1" :
-                      i % 6 === 2 ? "col-span-1 row-span-1" :
-                      i % 6 === 3 ? "col-span-1 row-span-2" :
-                      i % 6 === 4 ? "col-span-1 row-span-1" :
-                      "col-span-1 row-span-1"
-                    }`}
-                  >
-                    <Image 
-                      src={project.image!} 
-                      alt={project.name} 
-                      fill 
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 p-2 md:p-8 flex flex-col justify-end">
-                      <p className="text-cyan-400 text-[8px] md:text-[10px] font-bold tracking-widest uppercase mb-1 md:mb-2">{project.category}</p>
-                      <h4 className="text-white text-[10px] md:text-xl font-bold mb-1 md:mb-2 line-clamp-1 md:line-clamp-none">{project.name}</h4>
-                      <div className="hidden md:flex gap-2 flex-wrap">
-                        {project.stack.map(s => (
-                          <span key={s} className="text-[8px] px-2 py-1 bg-white/10 rounded-md text-gray-300 uppercase tracking-widest">{s}</span>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-            </motion.div>
-          </AnimatePresence>
+          <div className="grid grid-cols-3 gap-1 md:gap-6 auto-rows-[120px] md:auto-rows-[300px]">
+            {projects
+              .filter(p => p.image && (activeCategory === "Tous" || p.category === activeCategory))
+              .map((project, i) => (
+                <div
+                  key={project.name}
+                  className={`relative rounded-lg md:rounded-3xl overflow-hidden group border border-white/5 ${
+                    i % 6 === 0 ? "col-span-1 row-span-2" : 
+                    i % 6 === 1 ? "col-span-2 row-span-1" :
+                    i % 6 === 2 ? "col-span-1 row-span-1" :
+                    i % 6 === 3 ? "col-span-1 row-span-2" :
+                    i % 6 === 4 ? "col-span-1 row-span-1" :
+                    "col-span-1 row-span-1"
+                  }`}
+                >
+                  <Image 
+                    src={project.image!} 
+                    alt={project.name} 
+                    fill 
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 p-2 md:p-8 flex flex-col justify-end">
+                    <p className="text-cyan-400 text-[8px] md:text-[10px] font-bold tracking-widest uppercase mb-1 md:mb-2">{project.category}</p>
+                    <h4 className="text-white text-[10px] md:text-xl font-bold mb-2 md:mb-4 line-clamp-1 md:line-clamp-none">{project.name}</h4>
+                    <a 
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 md:gap-2 px-2 py-1 md:px-4 md:py-2 bg-cyan-500 hover:bg-cyan-400 text-white rounded-lg text-[7px] md:text-xs font-bold uppercase tracking-wider transition-all w-fit"
+                    >
+                      Visiter <ExternalLink size={8} className="md:w-3 md:h-3" />
+                    </a>
+                  </div>
+                </div>
+              ))}
+          </div>
         </div>
       </motion.section>
-
-      {/* Project Detail Modal */}
-      <AnimatePresence>
-        {selectedProject && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 bg-navy/90 backdrop-blur-xl"
-            onClick={() => setSelectedProject(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              className="bg-navy border border-white/10 rounded-[2.5rem] overflow-hidden max-w-4xl w-full max-h-[90vh] flex flex-col md:flex-row relative"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button 
-                onClick={() => setSelectedProject(null)}
-                className="absolute top-6 right-6 z-10 p-2 bg-black/20 hover:bg-black/40 rounded-full text-white/70 hover:text-white transition-all backdrop-blur-md border border-white/5"
-              >
-                <X size={20} />
-              </button>
-
-              <div className="w-full md:w-1/2 relative aspect-square md:aspect-auto">
-                <Image 
-                  src={selectedProject.image!} 
-                  alt={selectedProject.name} 
-                  fill 
-                  className="object-cover"
-                />
-              </div>
-
-              <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center overflow-y-auto">
-                <p className="text-cyan-500 text-xs font-bold tracking-[0.3em] uppercase mb-4">{selectedProject.category}</p>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">{selectedProject.name}</h2>
-                <p className="text-gray-400 text-base md:text-lg font-light leading-relaxed mb-8">
-                  {selectedProject.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2 mb-10">
-                  {selectedProject.stack.map(s => (
-                    <span key={s} className="text-[10px] px-3 py-1.5 bg-white/5 rounded-full text-gray-400 border border-white/5 uppercase tracking-widest font-medium">
-                      {s}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a 
-                    href={selectedProject.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex-1 px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-white rounded-2xl font-bold uppercase tracking-widest text-[10px] text-center transition-all flex items-center justify-center gap-2 group shadow-lg shadow-cyan-500/20"
-                  >
-                    Visiter le projet <ExternalLink size={14} className="group-hover:translate-x-1 transition-transform" />
-                  </a>
-                  <button 
-                    onClick={() => setSelectedProject(null)}
-                    className="flex-1 px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-2xl font-bold uppercase tracking-widest text-[10px] text-center transition-all"
-                  >
-                    Retour
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* Expertise Section */}
       <motion.section 
