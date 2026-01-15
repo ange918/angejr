@@ -619,40 +619,45 @@ export default function Home() {
             <p className="text-gray-500 text-sm">DVD-Rom</p>
           </div>
 
-          <div className="relative">
-            {/* Center Line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 -translate-x-1/2" />
-
+          <div className="relative mt-20">
             {/* Steps */}
-            {[
-              { title: "ANALYSE", sub: "CAHIER DES CHARGES", icon: <Book size={24} />, side: "right" },
-              { title: "ETUDE", sub: "CHOIX DES TECHNOLOGIES", icon: <FlaskConical size={24} />, side: "left" },
-              { title: "PLANNING", sub: "DEADLINE", icon: <Calendar size={24} />, side: "right" },
-              { title: "PILOTAGE", sub: "SUPERVISION DES EQUIPES", icon: <Users size={24} />, side: "left" },
-              { title: "DEVELOPPEMENT", sub: "CODE, TEST & DEBUG", icon: <Code2 size={24} />, side: "right" },
-              { title: "RECETTAGE", sub: "MISE EN PRODUCTION", icon: <CheckCircle2 size={24} />, side: "left" },
-              { title: "DOCUMENTATION", sub: "PRISE EN MAIN", icon: <PenTool size={24} />, side: "right" },
-              { title: "FORMATION", sub: "ACCOMPAGNEMENT CLIENTS", icon: <GraduationCap size={24} />, side: "left" },
-            ].map((step, i) => (
-              <div key={i} className={`relative flex items-center mb-12 ${step.side === "left" ? "flex-row-reverse" : ""}`}>
-                {/* Content */}
-                <div className={`w-1/2 ${step.side === "right" ? "pl-12 text-left" : "pr-12 text-right"}`}>
-                  <h4 className="text-gray-900 font-bold text-sm md:text-base tracking-widest">{step.title}</h4>
-                  <p className="text-gray-400 text-[10px] md:text-xs font-medium tracking-wider">{step.sub}</p>
-                </div>
+            <div className="flex flex-col gap-0">
+              {[
+                { title: "ANALYSE", sub: "CAHIER DES CHARGES", icon: <Book size={20} />, side: "right" },
+                { title: "ETUDE", sub: "CHOIX DES TECHNOLOGIES", icon: <FlaskConical size={20} />, side: "left" },
+                { title: "PLANNING", sub: "DEADLINE", icon: <Calendar size={20} />, side: "right" },
+                { title: "PILOTAGE", sub: "SUPERVISION DES EQUIPES", icon: <Users size={20} />, side: "left" },
+                { title: "DEVELOPPEMENT", sub: "CODE, TEST & DEBUG", icon: <Code2 size={20} />, side: "right" },
+                { title: "RECETTAGE", sub: "MISE EN PRODUCTION", icon: <CheckCircle2 size={20} />, side: "left" },
+                { title: "DOCUMENTATION", sub: "PRISE EN MAIN", icon: <PenTool size={20} />, side: "right" },
+                { title: "FORMATION", sub: "ACCOMPAGNEMENT CLIENTS", icon: <GraduationCap size={20} />, side: "left" },
+              ].map((step, i) => (
+                <div key={i} className="flex flex-col items-center">
+                  <div className={`w-full flex items-center justify-center ${step.side === "left" ? "flex-row-reverse" : "flex-row"}`}>
+                    <div className={`flex-1 flex flex-col ${step.side === "left" ? "items-end text-right pr-4" : "items-start text-left pl-4"}`}>
+                      <h4 className="text-gray-900 font-bold text-[10px] md:text-sm tracking-widest">{step.title}</h4>
+                      <p className="text-gray-400 text-[8px] md:text-[10px] font-medium tracking-wider leading-none">{step.sub}</p>
+                    </div>
+                    
+                    <div className="relative flex flex-col items-center group">
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-gray-900 bg-white flex items-center justify-center text-gray-900 z-10">
+                        {step.icon}
+                      </div>
+                      {/* Horizontal T-lines */}
+                      <div className="absolute top-1/2 -translate-y-1/2 w-8 h-[2px] bg-gray-900 -z-0 left-1/2" />
+                      <div className="absolute top-1/2 -translate-y-1/2 w-8 h-[2px] bg-gray-900 -z-0 right-1/2" />
+                    </div>
 
-                {/* Icon Circle */}
-                <div className="absolute left-1/2 -translate-x-1/2 z-10">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-gray-900 bg-white flex items-center justify-center text-gray-900 shadow-sm">
-                    {step.icon}
+                    <div className="flex-1" />
                   </div>
-                  {/* Horizontal small line connector */}
-                  <div className={`absolute top-1/2 -translate-y-1/2 h-0.5 w-6 bg-gray-900 ${step.side === "right" ? "left-full" : "right-full"}`} />
+                  
+                  {/* Vertical connector line */}
+                  {i < 7 && (
+                    <div className="w-[1px] h-8 bg-gray-200 my-1" />
+                  )}
                 </div>
-
-                <div className="w-1/2" />
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </motion.section>
