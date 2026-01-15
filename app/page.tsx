@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Mail, MapPin, MessageSquare, ArrowUp, Github, Linkedin, ExternalLink, Menu, X, Quote, Copy, Check, Facebook, Instagram } from "lucide-react";
-import { FlipWords } from "./components/ui/flip-words";
+import { FlipWords } from "@/components/ui/flip-words";
 import { ExpandableCardDemo } from "./components/ExpandableCard";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -539,7 +539,9 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col mb-16 gap-8">
             <div className="text-left w-full">
-              <h2 className="text-6xl md:text-9xl font-bold tracking-tighter text-cyan-500 uppercase opacity-20 leading-none">Portfolio</h2>
+              <h2 className="text-6xl md:text-9xl font-bold tracking-tighter text-cyan-500 uppercase opacity-20 leading-none">
+                <FlipWords words={["Portfolio", "Réalisations", "Projets"]} className="text-cyan-500" />
+              </h2>
             </div>
             
             <div className="flex flex-wrap gap-4">
