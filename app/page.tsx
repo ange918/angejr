@@ -538,8 +538,8 @@ export default function Home() {
       >
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col mb-16 gap-8">
-            <div className="text-left w-full">
-              <h2 className="text-6xl md:text-9xl font-bold tracking-tighter text-cyan-500 uppercase opacity-20 leading-none">
+            <div className="text-left w-full overflow-hidden">
+              <h2 className="text-4xl md:text-9xl font-bold tracking-tighter text-cyan-500 uppercase opacity-20 leading-none min-h-[1.2em] flex items-center">
                 <FlipWords words={["Portfolio", "Réalisations", "Projets"]} className="text-cyan-500" />
               </h2>
             </div>
