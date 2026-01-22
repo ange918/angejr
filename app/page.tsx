@@ -7,6 +7,7 @@ import { ExpandableCardDemo } from "./components/ExpandableCard";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
+import { TiltedPhotoCarousel } from "@/components/TiltedPhotoCarousel";
 import Image from "next/image";
 
 const projects = [
@@ -456,23 +457,9 @@ export default function Home() {
                 Lire la suite
               </Link>
             </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="order-1 md:order-2 relative aspect-square max-w-sm mx-auto md:max-w-none w-full"
-            >
-              <div className="absolute inset-0 bg-cyan-500/20 blur-3xl rounded-full" />
-              <div className="relative h-full w-full rounded-2xl overflow-hidden border border-white/10 group">
-                <Image 
-                  src="/images/WhatsApp_Image_2026-01-05_at_22.04.42_1767647805935.jpeg" 
-                  alt="Ange Akonde" 
-                  fill 
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-            </motion.div>
+            <div className="order-1 md:order-2 w-full">
+              <TiltedPhotoCarousel />
+            </div>
           </div>
         </div>
       </motion.section>
