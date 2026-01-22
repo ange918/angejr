@@ -4,11 +4,13 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const images = [
-  "/images/axel_1767704999746.jpeg",
-  "/images/merveille_1767704999752.jpeg",
-  "/images/ore_1767704999754.jpeg",
-  "/images/codecapital_1767704999750.jpeg",
-  "/images/faslink_1767704999743.jpeg",
+  "/images/album_1.jpg",
+  "/images/album_2.jpg",
+  "/images/album_3.jpg",
+  "/images/album_4.jpg",
+  "/images/album_5.jpg",
+  "/images/album_6.jpg",
+  "/images/album_7.jpg",
 ];
 
 export function TiltedPhotoCarousel() {
@@ -16,10 +18,10 @@ export function TiltedPhotoCarousel() {
     <div className="relative w-full overflow-hidden py-10">
       <motion.div
         animate={{
-          x: [0, -1000],
+          x: [0, -1400],
         }}
         transition={{
-          duration: 30,
+          duration: 35,
           repeat: Infinity,
           ease: "linear",
         }}
@@ -37,6 +39,7 @@ export function TiltedPhotoCarousel() {
               alt={`Photo ${index}`}
               fill
               className="object-cover"
+              sizes="(max-width: 768px) 192px, 256px"
             />
           </motion.div>
         ))}
