@@ -775,11 +775,8 @@ export default function Home() {
             ].map((faq, i) => {
               const [isOpen, setIsOpen] = useState(false);
               return (
-                <motion.div 
+                <div 
                   key={i}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
                   className="rounded-2xl bg-white/[0.02] border border-white/5 overflow-hidden hover:border-cyan-500/20 transition-all"
                 >
                   <button 
@@ -796,17 +793,23 @@ export default function Home() {
                       <ArrowUp className="rotate-180" size={18} />
                     </motion.div>
                   </button>
-                  <motion.div
-                    initial={false}
-                    animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="overflow-hidden"
-                  >
-                    <div className="p-6 pt-0 text-gray-400 text-sm font-light leading-relaxed pl-14">
-                      {faq.a}
-                    </div>
-                  </motion.div>
-                </motion.div>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        key="content"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <div className="p-6 pt-0 text-gray-400 text-sm font-light leading-relaxed pl-14">
+                          {faq.a}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               );
             })}
           </div>
