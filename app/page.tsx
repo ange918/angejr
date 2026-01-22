@@ -777,11 +777,14 @@ export default function Home() {
               return (
                 <div 
                   key={i}
-                  className="rounded-2xl bg-white/[0.02] border border-white/5 overflow-hidden hover:border-cyan-500/20 transition-all"
+                  className="rounded-2xl bg-white/[0.02] border border-white/5 overflow-hidden hover:border-cyan-500/20 transition-all relative group/accordion"
                 >
+                  {/* Glow effect on hover */}
+                  <div className="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover/accordion:opacity-100 transition-opacity pointer-events-none" />
+                  
                   <button 
                     onClick={() => setIsOpen(!isOpen)}
-                    className="w-full p-6 text-left flex justify-between items-center group"
+                    className="w-full p-6 text-left flex justify-between items-center group relative z-10"
                   >
                     <h3 className="text-white font-medium flex items-center gap-3">
                       <span className="text-cyan-500 font-bold">0{i+1}.</span> {faq.q}
@@ -801,7 +804,7 @@ export default function Home() {
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="overflow-hidden"
+                        className="overflow-hidden relative z-10"
                       >
                         <div className="p-6 pt-0 text-gray-400 text-sm font-light leading-relaxed pl-14">
                           {faq.a}
