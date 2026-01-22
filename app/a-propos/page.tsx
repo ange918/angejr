@@ -8,14 +8,13 @@ import { DraggableCard } from "../components/ui/draggable-card";
 
 export default function AboutPage() {
   const personalPhotos = [
-    "/images/WhatsApp_Image_2026-01-05_at_22.04.42_1767647805935.jpeg",
-    "/images/jrc_logo.jpg",
-    "/images/WhatsApp_Image_2026-01-05_at_22.04.42_1767647805935.jpeg",
-    "/images/jrc_logo.jpg",
-    "/images/WhatsApp_Image_2026-01-05_at_22.04.42_1767647805935.jpeg",
-    "/images/jrc_logo.jpg",
-    "/images/WhatsApp_Image_2026-01-05_at_22.04.42_1767647805935.jpeg",
-    "/images/jrc_logo.jpg",
+    "/images/album_1.jpg",
+    "/images/album_2.jpg",
+    "/images/album_3.jpg",
+    "/images/album_4.jpg",
+    "/images/album_5.jpg",
+    "/images/album_6.jpg",
+    "/images/album_7.jpg",
   ];
 
   return (
