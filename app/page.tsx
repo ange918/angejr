@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
 import { TiltedPhotoCarousel } from "@/components/TiltedPhotoCarousel";
 import Image from "next/image";
+import { WordFadeIn } from "@/components/ui/word-fade-in";
 
 const projects = [
   { 
@@ -388,6 +389,10 @@ export default function Home() {
           {carouselData.map((item, index) => (
             <motion.div
               key={index}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
               className="mx-4 w-[280px] md:w-[400px] group cursor-pointer"
             >
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-4">
@@ -396,6 +401,7 @@ export default function Home() {
                   alt={item.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 768px) 280px, 400px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-end">
                   <p className="text-cyan-400 text-xs font-bold tracking-widest uppercase mb-2">{item.category}</p>
@@ -408,6 +414,10 @@ export default function Home() {
           {carouselData.map((item, index) => (
             <motion.div
               key={`dup-${index}`}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
               className="mx-4 w-[280px] md:w-[400px] group cursor-pointer"
             >
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-4">
@@ -416,6 +426,7 @@ export default function Home() {
                   alt={item.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 768px) 280px, 400px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-end">
                   <p className="text-cyan-400 text-xs font-bold tracking-widest uppercase mb-2">{item.category}</p>
@@ -446,12 +457,12 @@ export default function Home() {
             >
               <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 mb-10 uppercase">À Propos</h2>
               <div className="space-y-5 text-lg md:text-xl text-gray-200 leading-relaxed font-light">
-                <p>
-                  Je suis <span className="text-white font-medium">Ange AKONDE</span>, développeur FullStack passionné par les nouvelles technologies et l'innovation numérique. Après avoir suivi une formation intensive en développement web, je crée des applications modernes, performantes et élégantes.
-                </p>
-                <p>
-                  Ma spécialité couvre l'ensemble de la stack technique : de l'interface utilisateur intuitive au backend robuste. Je maîtrise JavaScript, React, Node.js, et les architectures modernes pour délivrer des solutions complètes et durables.
-                </p>
+                <WordFadeIn 
+                  text="Je suis Ange AKONDE, développeur FullStack passionné par les nouvelles technologies et l'innovation numérique. Après avoir suivi une formation intensive en développement web, je crée des applications modernes, performantes et élégantes." 
+                />
+                <WordFadeIn 
+                  text="Ma spécialité couvre l'ensemble de la stack technique : de l'interface utilisateur intuitive au backend robuste. Je maîtrise JavaScript, React, Node.js, et les architectures modernes pour délivrer des solutions complètes et durables."
+                />
               </div>
               <Link href="/a-propos" className="inline-block mt-8 text-[10px] font-bold text-cyan-400 hover:text-white transition-colors border-b border-cyan-500/20 pb-1 uppercase tracking-widest">
                 Lire la suite
@@ -481,9 +492,11 @@ export default function Home() {
             className="border-l-2 border-cyan-500/30 pl-8"
           >
             <h3 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-4 uppercase font-sans">Formation</h3>
-            <p className="text-xl md:text-2xl text-white font-light leading-relaxed">
-              Actuellement en <span className="text-cyan-400 font-medium">deuxième année</span> de formation à <span className="text-white font-medium">Futurcraft Institut</span>, où je perfectionne mes compétences en ingénierie logicielle.
-            </p>
+            <div className="text-xl md:text-2xl text-white font-light leading-relaxed">
+              <WordFadeIn 
+                text="Actuellement en deuxième année de formation à Futurcraft Institut, où je perfectionne mes compétences en ingénierie logicielle."
+              />
+            </div>
           </motion.div>
 
           <motion.div 
@@ -494,9 +507,11 @@ export default function Home() {
             className="border-r-2 border-cyan-500/30 pr-8 text-right"
           >
             <h3 className="text-[10px] font-bold tracking-[0.3em] text-cyan-500/60 mb-4 uppercase font-sans">Freelance</h3>
-            <p className="text-xl md:text-2xl text-white font-light leading-relaxed">
-              Je suis <span className="text-cyan-400 font-medium">prêt à travailler en freelance</span> sur vos projets, apportant mon expertise partout à travers <span className="text-white font-medium">le monde</span>.
-            </p>
+            <div className="text-xl md:text-2xl text-white font-light leading-relaxed">
+              <WordFadeIn 
+                text="Je suis prêt à travailler en freelance sur vos projets, apportant mon expertise partout à travers le monde."
+              />
+            </div>
           </motion.div>
 
           <motion.div 

@@ -5,6 +5,7 @@ import { ArrowUp, Github, Linkedin } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { DraggableCard } from "../components/ui/draggable-card";
+import { WordFadeIn } from "@/components/ui/word-fade-in";
 
 export default function AboutPage() {
   const personalPhotos = [
@@ -56,21 +57,10 @@ export default function AboutPage() {
           <h1 className="text-3xl md:text-5xl font-bold mb-12 tracking-tighter leading-tight text-white">Je suis Ange AKONDE.</h1>
           
           <div className="space-y-8 text-base md:text-lg text-gray-400 leading-relaxed font-light">
-            <p>
-              Je suis Ange AKONDE, développeur FullStack passionné par les nouvelles technologies et l'innovation numérique. Après avoir suivi une formation intensive en développement web, je crée des applications modernes, performantes et élégantes.
-            </p>
-
-            <p>
-              Ma spécialité couvre l'ensemble de la stack technique : de l'interface utilisateur intuitive au backend robuste. Je maîtrise JavaScript, React, Node.js, et les architectures modernes pour délivrer des solutions complètes et durables.
-            </p>
-
-            <p>
-              Grâce à ma formation approfondie, j'ai acquis une expertise solide qui me permet de partager mes connaissances et d'accompagner d'autres développeurs dans leur apprentissage. Mon objectif : contribuer au développement technologique en transmettamnt mon savoir-faire.
-            </p>
-
-            <p>
-              Chaque projet est une opportunité de créer quelque chose d'exceptionnel, en plaçant l'expérience utilisateur et la qualité du code au cœur de mes priorités.
-            </p>
+            <WordFadeIn text="Je suis Ange AKONDE, développeur FullStack passionné par les nouvelles technologies et l'innovation numérique. Après avoir suivi une formation intensive en développement web, je crée des applications modernes, performantes et élégantes." />
+            <WordFadeIn text="Ma spécialité couvre l'ensemble de la stack technique : de l'interface utilisateur intuitive au backend robuste. Je maîtrise JavaScript, React, Node.js, et les architectures modernes pour délivrer des solutions complètes et durables." />
+            <WordFadeIn text="Grâce à ma formation approfondie, j'ai acquis une expertise solide qui me permet de partager mes connaissances et d'accompagner d'autres développeurs dans leur apprentissage. Mon objectif : contribuer au développement technologique en transmettamnt mon savoir-faire." />
+            <WordFadeIn text="Chaque projet est une opportunité de créer quelque chose d'exceptionnel, en plaçant l'expérience utilisateur et la qualité du code au cœur de mes priorités." />
           </div>
 
           <div className="mt-20 mb-10">
