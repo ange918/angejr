@@ -1,0 +1,53 @@
+17:11:39.806 Running build in Washington, D.C., USA (East) – iad1
+17:11:39.806 Build machine configuration: 2 cores, 8 GB
+17:11:40.159 Cloning github.com/ange918/angejr (Branch: main, Commit: 62e502b)
+17:11:40.168 Previous build caches not available.
+17:11:41.523 Cloning completed: 1.364s
+17:11:42.045 Running "vercel build"
+17:11:43.064 Vercel CLI 50.4.10
+17:11:43.365 Installing dependencies...
+17:12:03.123 
+17:12:03.124 added 431 packages in 20s
+17:12:03.124 
+17:12:03.124 151 packages are looking for funding
+17:12:03.124   run `npm fund` for details
+17:12:03.241 Detected Next.js version: 16.1.1
+17:12:03.256 Running "npm run build"
+17:12:04.244 
+17:12:04.244 > angejr@0.1.0 build
+17:12:04.245 > next build
+17:12:04.245 
+17:12:05.070 Attention: Next.js now collects completely anonymous telemetry regarding usage.
+17:12:05.070 This information is used to shape Next.js' roadmap and prioritize features.
+17:12:05.071 You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+17:12:05.071 https://nextjs.org/telemetry
+17:12:05.071 
+17:12:05.083 ▲ Next.js 16.1.1 (Turbopack)
+17:12:05.084 
+17:12:05.119   Creating an optimized production build ...
+17:12:12.969 ✓ Compiled successfully in 7.4s
+17:12:12.971   Running TypeScript ...
+17:12:18.563 Failed to compile.
+17:12:18.563 
+17:12:18.563 ./components/ui/word-fade-in.tsx:47:11
+17:12:18.563 Type error: Type '{ visible: { opacity: number; y: number; transition: { type: string; damping: number; stiffness: number; }; }; hidden: { opacity: number; y: number; transition: { type: string; damping: number; stiffness: number; }; }; }' is not assignable to type 'Variants'.
+17:12:18.564   Property 'visible' is incompatible with index signature.
+17:12:18.564     Type '{ opacity: number; y: number; transition: { type: string; damping: number; stiffness: number; }; }' is not assignable to type 'Variant'.
+17:12:18.564       Type '{ opacity: number; y: number; transition: { type: string; damping: number; stiffness: number; }; }' is not assignable to type 'TargetAndTransition'.
+17:12:18.564         Type '{ opacity: number; y: number; transition: { type: string; damping: number; stiffness: number; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+17:12:18.564           Types of property 'transition' are incompatible.
+17:12:18.564             Type '{ type: string; damping: number; stiffness: number; }' is not assignable to type 'Transition<any> | undefined'.
+17:12:18.565               Type '{ type: string; damping: number; stiffness: number; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+17:12:18.565                 Type '{ type: string; damping: number; stiffness: number; }' is not assignable to type 'ValueAnimationTransition<any>'.
+17:12:18.565                   Types of property 'type' are incompatible.
+17:12:18.565                     Type 'string' is not assignable to type 'AnimationGeneratorType | undefined'.
+17:12:18.565 
+17:12:18.565 [0m [90m 45 |[39m       {words[33m.[39mmap((word[33m,[39m index) [33m=>[39m (
+17:12:18.565  [90m 46 |[39m         [33m<[39m[33mmotion[39m[33m.[39mspan
+17:12:18.565 [31m[1m>[22m[39m[90m 47 |[39m           variants[33m=[39m{child}
+17:12:18.565  [90m    |[39m           [31m[1m^[22m[39m
+17:12:18.565  [90m 48 |[39m           key[33m=[39m{index}
+17:12:18.565  [90m 49 |[39m           className[33m=[39m[32m"inline-block"[39m
+17:12:18.565  [90m 50 |[39m         [33m>[39m[0m
+17:12:18.598 Next.js build worker exited with code: 1 and signal: null
+17:12:18.632 Error: Command "npm run build" exited with 1
