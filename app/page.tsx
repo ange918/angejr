@@ -13,6 +13,42 @@ import { WordFadeIn } from "@/components/ui/word-fade-in";
 
 const projects = [
   { 
+    name: "God's Plan", 
+    category: "Centre de formation", 
+    status: "Terminé", 
+    stack: ["Web", "Design"], 
+    image: "/images/projects/god-plan.jpg",
+    description: "Centre de formation professionnelle.",
+    link: "https://god-plan.vercel.app/"
+  },
+  { 
+    name: "Futur Certy", 
+    category: "Sécurité", 
+    status: "Terminé", 
+    stack: ["Next.js", "Auth"], 
+    image: "/images/projects/futur-certy.jpg",
+    description: "Plateforme d'authentification des certificats de programme FUTUR.",
+    link: "https://futur-certy-nine.vercel.app/"
+  },
+  { 
+    name: "Susuni Lab", 
+    category: "Laboratoire", 
+    status: "Terminé", 
+    stack: ["Innovation", "Web"], 
+    image: "/images/projects/susuni-lab.jpg",
+    description: "Laboratoire d'idées.",
+    link: "https://susunilab-wf91.vercel.app/"
+  },
+  { 
+    name: "Malt Scotch", 
+    category: "Template", 
+    status: "Terminé", 
+    stack: ["UI/UX", "Design"], 
+    image: "/images/projects/malt-scotch.webp",
+    description: "Template moderne.",
+    link: "https://scotch-malt.vercel.app/"
+  },
+  { 
     name: "Model Academy Management", 
     category: "Web", 
     status: "Terminé", 
@@ -22,33 +58,6 @@ const projects = [
     link: "https://model-academy.example.com"
   },
   { 
-    name: "Portfolio – Ore Gauthier", 
-    category: "Web", 
-    status: "Terminé", 
-    stack: ["React", "Framer Motion", "Three.js"], 
-    image: "/images/ore_1767704999754.jpeg",
-    description: "Un portfolio immersif pour un architecte, utilisant des éléments 3D et des animations fluides pour mettre en valeur ses réalisations.",
-    link: "https://oregauthier.com"
-  },
-  { 
-    name: "Portfolio – Merveille Susuni", 
-    category: "Web", 
-    status: "Terminé", 
-    stack: ["Web", "GSAP", "Tailwind"], 
-    image: "/images/merveille_1767704999752.jpeg",
-    description: "Design minimaliste et animations sophistiquées pour cette vitrine personnelle d'entrepreneure.",
-    link: "https://merveillesusuni.com"
-  },
-  { 
-    name: "Site officiel – Axel Merryl", 
-    category: "Web", 
-    status: "Terminé", 
-    stack: ["PHP", "Laravel", "MySQL"], 
-    image: "/images/axel_1767704999746.jpeg",
-    description: "Plateforme officielle de l'artiste Axel Merryl, centralisant ses actualités, ses clips et ses dates de tournée.",
-    link: "https://axelmerryl.com"
-  },
-  { 
     name: "Code Capital", 
     category: "Progiciel", 
     status: "Terminé", 
@@ -56,15 +65,6 @@ const projects = [
     image: "/images/codecapital_1767704999750.jpeg",
     description: "Solution SaaS de gestion financière et d'investissement pour les startups.",
     link: "https://codecapital.net"
-  },
-  { 
-    name: "FASHLINK", 
-    category: "Web", 
-    status: "En cours", 
-    stack: ["Next.js", "Prisma", "Tailwind"], 
-    image: "/images/faslink_1767704999743.jpeg",
-    description: "Réseau social dédié à l'industrie de la mode connectant créateurs et acheteurs.",
-    link: "#"
   },
   { 
     name: "DAHOMEY TECH", 
@@ -137,20 +137,19 @@ const titles = ["Développeur Full-Stack", "Ingénieur Logiciel", "Créateur Dig
 
 const carouselData = [
   {
-    category: "Solutions Web",
-    title: "Sites E-commerce",
-    src: "/assets/generated/modern_e-commerce_website_interface_mockup.png",
+    category: "Centre de formation",
+    title: "God's Plan",
+    src: "/images/projects/god-plan.jpg",
     content: (
       <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
-            Boutiques en ligne modernes et performantes.
-          </span>{" "}
-          Optimisées pour la vente et l'expérience client. Intégration de paiements sécurisés et gestion simplifiée des stocks.
+            God's Plan : centre de formation professionnelle.
+          </span>
         </p>
         <Image
-          src="/assets/generated/modern_e-commerce_website_interface_mockup.png"
-          alt="E-commerce mockup"
+          src="/images/projects/god-plan.jpg"
+          alt="God Plan"
           height="500"
           width="500"
           className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain mt-10"
@@ -159,20 +158,19 @@ const carouselData = [
     ),
   },
   {
-    category: "Présence Digitale",
-    title: "Portfolios & Vitrines",
-    src: "/assets/generated/minimalist_portfolio_website_design_mockup.png",
+    category: "Sécurité",
+    title: "Futur Certy",
+    src: "/images/projects/futur-certy.jpg",
     content: (
       <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
-            Capturer l'identité de votre marque.
-          </span>{" "}
-          Sites vitrines élégants pour professionnels et entreprises. Des designs uniques qui mettent en valeur votre savoir-faire.
+            Futur certy : plateforme d'authentification des certificats de programme FUTUR.
+          </span>
         </p>
         <Image
-          src="/assets/generated/minimalist_portfolio_website_design_mockup.png"
-          alt="Portfolio mockup"
+          src="/images/projects/futur-certy.jpg"
+          alt="Futur Certy"
           height="500"
           width="500"
           className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain mt-10"
@@ -181,20 +179,19 @@ const carouselData = [
     ),
   },
   {
-    category: "Outils Métiers",
-    title: "SaaS & Dashboards",
-    src: "/assets/generated/modern_saas_dashboard_interface_mockup.png",
+    category: "Laboratoire",
+    title: "Susuni Lab",
+    src: "/images/projects/susuni-lab.jpg",
     content: (
       <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
-            Automatisation et gestion de données.
-          </span>{" "}
-          Logiciels en tant que service (SaaS) et tableaux de bord complexes pour le suivi d'activité et l'optimisation de vos processus.
+            Susuni lab : laboratoire d'idées.
+          </span>
         </p>
         <Image
-          src="/assets/generated/modern_saas_dashboard_interface_mockup.png"
-          alt="SaaS mockup"
+          src="/images/projects/susuni-lab.jpg"
+          alt="Susuni Lab"
           height="500"
           width="500"
           className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain mt-10"
@@ -203,42 +200,19 @@ const carouselData = [
     ),
   },
   {
-    category: "Services Mobiles",
-    title: "Applications Mobiles",
-    src: "/assets/generated/sleek_mobile_app_interface_mockup.png",
+    category: "Template",
+    title: "Malt Scotch",
+    src: "/images/projects/malt-scotch.webp",
     content: (
       <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
-            Expérience fluide sur iOS et Android.
-          </span>{" "}
-          Applications natives et hybrides offrant des fonctionnalités avancées et une interface utilisateur soignée.
+            Malt Scotch : template.
+          </span>
         </p>
         <Image
-          src="/assets/generated/sleek_mobile_app_interface_mockup.png"
-          alt="Mobile app mockup"
-          height="500"
-          width="500"
-          className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain mt-10"
-        />
-      </div>
-    ),
-  },
-  {
-    category: "Networking",
-    title: "Réseaux Sociaux & Annuaires",
-    src: "/assets/generated/social_networking_platform_interface_mockup.png",
-    content: (
-      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
-        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-          <span className="font-bold text-neutral-700 dark:text-neutral-200">
-            Connecter les talents et opportunités.
-          </span>{" "}
-          Plateformes de mise en relation et réseaux sociaux thématiques pour favoriser les synergies professionnelles.
-        </p>
-        <Image
-          src="/assets/generated/social_networking_platform_interface_mockup.png"
-          alt="Networking mockup"
+          src="/images/projects/malt-scotch.webp"
+          alt="Malt Scotch"
           height="500"
           width="500"
           className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain mt-10"
