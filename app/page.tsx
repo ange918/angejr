@@ -5,11 +5,12 @@ import { Phone, Mail, MapPin, MessageSquare, ArrowUp, Github, Linkedin, External
 import { FlipWords } from "@/components/ui/flip-words";
 import { ExpandableCardDemo } from "./components/ExpandableCard";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Marquee from "react-fast-marquee";
 import { TiltedPhotoCarousel } from "@/components/TiltedPhotoCarousel";
 import Image from "next/image";
 import { WordFadeIn } from "@/components/ui/word-fade-in";
+import { cn } from "@/lib/utils";
 
 const projects = [
   { 
@@ -359,57 +360,90 @@ export default function Home() {
           <h2 className="text-[14px] md:text-[18px] font-bold tracking-[0.3em] text-cyan-500/60 uppercase">Les choses que je réalise</h2>
         </div>
         
-        <Marquee gradient={false} speed={50} pauseOnHover={true}>
-          {carouselData.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="mx-4 w-[280px] md:w-[400px] group cursor-pointer"
-            >
-              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-4">
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  sizes="(max-width: 768px) 280px, 400px"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-end">
-                  <p className="text-cyan-400 text-xs font-bold tracking-widest uppercase mb-2">{item.category}</p>
-                  <h3 className="text-white text-xl md:text-2xl font-bold">{item.title}</h3>
+        {/* Mobile Slider / Desktop Marquee */}
+        <div className="block md:hidden">
+          <div className="flex overflow-x-auto snap-x snap-mandatory no-scrollbar gap-4 pb-4">
+            {carouselData.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="min-w-[85vw] snap-center group cursor-pointer"
+              >
+                <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-4">
+                  <Image
+                    src={item.src}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    sizes="85vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-end">
+                    <p className="text-cyan-400 text-xs font-bold tracking-widest uppercase mb-2">{item.category}</p>
+                    <h3 className="text-white text-xl font-bold">{item.title}</h3>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-          {/* Duplicate to ensure continuous loop if items are few */}
-          {carouselData.map((item, index) => (
-            <motion.div
-              key={`dup-${index}`}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="mx-4 w-[280px] md:w-[400px] group cursor-pointer"
-            >
-              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-4">
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  sizes="(max-width: 768px) 280px, 400px"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-end">
-                  <p className="text-cyan-400 text-xs font-bold tracking-widest uppercase mb-2">{item.category}</p>
-                  <h3 className="text-white text-xl md:text-2xl font-bold">{item.title}</h3>
+              </motion.div>
+            ))}
+          </div>
+          <div className="flex justify-center gap-2 mt-4">
+            {carouselData.map((_, i) => (
+              <div key={i} className="w-1.5 h-1.5 rounded-full bg-cyan-500/30" />
+            ))}
+          </div>
+        </div>
+
+        <div className="hidden md:block">
+          <Marquee gradient={false} speed={50} pauseOnHover={true}>
+            {carouselData.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="mx-4 w-[400px] group cursor-pointer"
+              >
+                <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-4">
+                  <Image
+                    src={item.src}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    sizes="400px"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-end">
+                    <p className="text-cyan-400 text-xs font-bold tracking-widest uppercase mb-2">{item.category}</p>
+                    <h3 className="text-white text-2xl font-bold">{item.title}</h3>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </Marquee>
+              </motion.div>
+            ))}
+            {/* Duplicate for Marquee */}
+            {carouselData.map((item, index) => (
+              <motion.div
+                key={`dup-${index}`}
+                className="mx-4 w-[400px] group cursor-pointer"
+              >
+                <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-4">
+                  <Image
+                    src={item.src}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    sizes="400px"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-end">
+                    <p className="text-cyan-400 text-xs font-bold tracking-widest uppercase mb-2">{item.category}</p>
+                    <h3 className="text-white text-2xl font-bold">{item.title}</h3>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </Marquee>
+        </div>
       </motion.section>
 
       {/* About Section */}
